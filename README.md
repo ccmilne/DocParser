@@ -78,7 +78,6 @@ DocParser/
 ├── 🚀 run_processing.py            # Main pipeline orchestrator
 ├── 📥 download_pdfs.py             # PDF download utility
 ├── 🤖 run_agent.py                 # OpenAI agent interface
-├── 🔧 clients.py                   # Client utilities
 ├── 📋 requirements.txt             # Python dependencies
 ├── 📖 README.md                    # Project documentation
 ```
@@ -95,7 +94,7 @@ DocParser/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ccmilne/DocParser.git
    cd DocParser
    ```
 
