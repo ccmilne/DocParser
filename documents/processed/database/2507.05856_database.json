@@ -1,0 +1,3851 @@
+[
+  {
+    "id": 1,
+    "content": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 11,
+      "tag_name": "h1",
+      "position": 1,
+      "level": 1
+    }
+  },
+  {
+    "id": 2,
+    "content": "Boris Podobnika , Dorian Wild , Dejan Kovac",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 6,
+      "tag_name": "p",
+      "position": 2
+    }
+  },
+  {
+    "id": 3,
+    "content": "a,b,c",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 3,
+      "tag_name": "sup",
+      "position": 3
+    }
+  },
+  {
+    "id": 4,
+    "content": "d",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 4
+    }
+  },
+  {
+    "id": 5,
+    "content": "d",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 5
+    }
+  },
+  {
+    "id": 6,
+    "content": "May 2025",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "p",
+      "position": 6
+    }
+  },
+  {
+    "id": 7,
+    "content": "Abstract",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "h2",
+      "position": 7,
+      "level": 2
+    }
+  },
+  {
+    "id": 8,
+    "content": "We show that the amount of foreign exchange reserves (FER) in the world in a given currency is highly correlated with the GDP and military spending of that country for a set of western economies during the last 20 years. Taking into account multicollinearity, Ridge and Lasso regressions reveal that the Foreign Exchange Reserve is better explained by military spending than GDP for seven western currencies. For each year shown, military spending is statistically significant more than the monetary instrument M2. Comparing the currency of the second world economy, the Chinese renminbi, is well beyond the western FER equilibrium, but yearly analysis shows that there is a steady trend towards a new FER balance. Next, we define a complex geopolitical network model in which the probability of switching to an alternative FER currency depends both on economic and political factors. Military spending is introduced into the model as an average share of GDP observed within the data. As the GDP of a particular country grows, so does the military power of a country. The nature of the creation of new currency networks initially depends only on geopolitical allegiance. As the volume of trade with a particular country changes over a designated threshold, a country switches to the currency of that country due to increased trade. If the current steady trend continues within the same geopolitical setting as in the past twenty years, we extrapolate that the RMB and Western currencies could reach a new FER balance within 15 to 40 years, depending on the model setup.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 256,
+      "tag_name": "p",
+      "position": 8
+    }
+  },
+  {
+    "id": 9,
+    "content": "foreign exchange reserves, military spending, geopolitics, US, China",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 8,
+      "tag_name": "p",
+      "position": 9
+    }
+  },
+  {
+    "id": 10,
+    "content": "Keywords:",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "strong",
+      "position": 10
+    }
+  },
+  {
+    "id": 11,
+    "content": "Faculty of Civil Engineering, University of Rijeka, 51000 Rijeka, Croatia, EU Zagreb School of Economics and Management, 10000 Zagreb, Croatia, EU Faculty of Informatics, 8000 Novo Mesto, Slovenia, EU Center for International Development, Harvard Kennedy School, Harvard University The authors thank Rosario N. Mantegna for useful discussions. B.P. received support from the Slovenian Research Agency (ARRS) through Projects J7-3156B.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 61,
+      "tag_name": "p",
+      "position": 11
+    }
+  },
+  {
+    "id": 12,
+    "content": "a",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 12
+    }
+  },
+  {
+    "id": 13,
+    "content": "b",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 14
+    }
+  },
+  {
+    "id": 14,
+    "content": "c",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 16
+    }
+  },
+  {
+    "id": 15,
+    "content": "d",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 18
+    }
+  },
+  {
+    "id": 16,
+    "content": "*",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 0,
+      "tag_name": "sup",
+      "position": 20
+    }
+  },
+  {
+    "id": 17,
+    "content": "1 Introduction",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "h1",
+      "position": 21,
+      "level": 1
+    }
+  },
+  {
+    "id": 18,
+    "content": "How do countries decide what basket of currencies to use within their foreign exchange reserves has been a research question that has puzzled scientists in both political science and economics for several decades. However, after decades of research we do not have a definite answer on what the driving factors are of such peripheral choices, but rather mixed evidence based on different economic and political factors. The seminal analysis of Eichengreen, Mehl, and Chiţu (2019), conducted in a set of countries before World War I, has provided a dual theoretical framework of economic and security/geopolitical factors that are having an effect on the currency composition of foreign exchange reserves. In this study, scholars employ two main approaches to analyze which currencies should be used in international transactions and as savings in deposits Eichengreen et al. (2019). In the so-called Mercury hypothesis, scholars focus on economic costs and benefits, safety, liquidity, inflation forecasts, as in Romer and Romer (2000), when explaining why some currencies are used more than others in cross-border transactions, e.g. Eichengreen and Flandreau (2008). On the other side of the argument, scholars also hypothesize the so-called Mars hypothesis, which is focused on geopolitical elements such as the role of strategic and military-power have on others when governments choose reserve currencies. Their estimates are based on the hypothesis that military power provides a stabile economic environment and less exchange rate volatility of that particular economy, so there is a great deal of interconnectedness of political and economic factors. In addition, the leading countries can exert successful political and military hegemony based on which they encourage other countries to use their currencies Eichengreen and Sachs (1985). The literature has existent evidence on the economic factors affecting the decision to hold foreign reserves in a particular currency, but it is scarce on evidence of geopolitical factors, such as political influence and military strength, shaping decisions on foreign exchange reserves. The main reason is the lack of causal identification and the complexity of defining geopolitical factors such as political or military power through a single variable or within a model. In this study, we provide a network theory model to show under different parameter values how different political factors, such as the same geo-political allegiance may have even stronger effect on choosing the dominant foreign exchange currency than the economic factors. As Eichengreen et al. (2019) stated, the Mars hypothesis may vividly explain why Japan, Germany, the Netherlands, Belgium have a higher percentage of their foreign reserves in dollars in contrast to France, for instance, a country with nuclear weapons. It seems that a stronger military power can diversify its portfolio in its foreign reserves much more than just a common non-nuclear US ally dependent on the United States for security. With the turbulent geopolitical tensions between the US and the EU around NATO involvement, this topic has become more important than ever. Not only for NATO members, but also for the entire world. The Mars hypothesis of geopolitical factors being more important than economic may be further supported by the fact that during the last few years China has been rapidly disposing of the dollars in its foreign reserves, as shown in Figure 1. Similarly, Russia has been reducing the amount of holdings in dollars since starting their initial invasion in Ukraine in 2014. As shown in Figure 2 it has been steadily dropping from year to year. In contrast, even though India created BRICS together with Russia and China, its attitude towards holdings of US Treasury's is completely different, it has been increasing over the past decade (see Figure 3). Looking at only these three geopolitical superpowers in relations to the US we cannot disentangle whether economic factors were the main reason of the change in holdings of US Treasuries or geopolitical factors, such as invasion of Ukraine, change in the US rhetoric towards China, or something else. When politicians in country A start openly saying that country B is a threat and even an enemy, savings and trading are no longer just an economic issue, but rather a broader political issue. In that case a larger weight is put on the long run geopolitical goals, than on short term economic goals. US treasuries may be a much safer investment, but countries will not support strengthening of economic power of their foes, on the contrary, they will do everything in their power to weaken them economically.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 745,
+      "tag_name": "p",
+      "position": 22
+    }
+  },
+  {
+    "id": 19,
+    "content": "There is no place on Earth where tigers and lions live together because they are predators of the same level. If by chance they met as random walkers, one would tear the other apart, even though they had never met before. Indeed, until a couple of years ago even the largest US opponents, Russia and China, when they trade through the West-controlled SWIFT payment system Eichengreen (2024), the payments were realized mainly in dollars, ultimately helping the U.S. economy and particularly making its currency stronger. In a homogeneous world where there is only a single dominant power, even the largest competitors partially pay the bill. Generally, the more countries save and trade in a country's currency, the stronger the currency, but also weaken the inflation shocks once the country prints new money during recessions, lockdowns, and wars. Therefore, the dominance of the world leader is maintained not only through the country's military power but also through controlled financial and banking systems.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 165,
+      "tag_name": "p",
+      "position": 23
+    }
+  },
+  {
+    "id": 20,
+    "content": "In this study, we investigate a complex interaction between country's military spending, GDP, geopo-",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 15,
+      "tag_name": "p",
+      "position": 24
+    }
+  },
+  {
+    "id": 21,
+    "content": "[Image: China's holdings of U.S. Treasuries] (path/to/figure1.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 12,
+      "tag_name": "img",
+      "position": 26
+    }
+  },
+  {
+    "id": 22,
+    "content": "Figure 1: China's holdings of U.S. Treasuries",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 9,
+      "tag_name": "figcaption",
+      "position": 27
+    }
+  },
+  {
+    "id": 23,
+    "content": "[Image: Abrupt decline in Russia's holdings of U.S. Treasuries] (path/to/figure2.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 15,
+      "tag_name": "img",
+      "position": 29
+    }
+  },
+  {
+    "id": 24,
+    "content": "Figure 2: Abrupt decline in Russia's holdings of U.S. Treasuries",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 12,
+      "tag_name": "figcaption",
+      "position": 30
+    }
+  },
+  {
+    "id": 25,
+    "content": "litical allegiance and consequently share of foreign exchange reserves kept in their allies currency. Similarly as in the rest of the literature, we acknowledge that the direction of causality is hard to disentangle without a proper identification strategy. For that reason, the first part of our empirical analysis is used to show the general direction and correlations between the main variables. The novel value-added part is in the second part of our analysis, within our network theory model. We introduce a novel geopolitical shock into a model which is not economically driven but purely political, like the change of a geopolitical block and how it affects long-run network dynamics.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 111,
+      "tag_name": "p",
+      "position": 31
+    }
+  },
+  {
+    "id": 26,
+    "content": "In the first part, we analyze the linear relationship between the currency composition of Official Foreign Exchange Reserves (COFER) collected by the International Monetary Fund (IMF) and GDP and MS of some western-most countries, China, and a group of other aggregated countries for a time period ranging from 2003 to 2023. We observe a rather stable regression relationship between (the logarithm of) Foreign Exchange Reserve Composition and both (the logarithm of) GDP and (the logarithm of) MS of western countries. Data on the Chinese renminbi (RMB) and on aggregated other currencies with the corresponding GDP or military spending are outliers with respect to the linear relationship between FER versus GDP and FER versus MS. The yearly analysis performed during the period from 2016 to 2023 (that is, since when the IMF report data for Chinese RMB) shows that the role of Chinese RMB in (a) FER and GDP and (b) FER and MS of China progressively converges to the level of linear relationship typically observed for western countries. To investigate the role of multicollinearity in regression analysis, we apply methods such as Ridge and Lasso as in James, Witten, Hastie, Tibshirani, and Taylor (2013) and verify that MS is more explicative than the GDP level for the seven western countries (Australia, Canada, EU, Japan, Swiss, UK, US). Similarly as in the research so far, we acknowledge all the limitations our study may have towards a more causal interpretation of our estimates. Inspired by the Mars hypothesis, we report that a country's military spending, taken as a proxy for the size of a country, highly correlates with the country's currency in Foreign Exchange Reserves (FER), where the Chinese RMB is well outside the FER equilibrium, but there is a steady trend towards a new FER balance. If this gradual and not abrupt trend continues in the coming years, the RMB may reach the new FER balance within approximately 15 years. In the model, once China's GDP overtakes that of the U.S., the U.S. responds by implementing sanctions and imposing restrictions on its domestic market. In turn, China begins a process of dedollarization, which aligns well with empirical data.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 363,
+      "tag_name": "p",
+      "position": 32
+    }
+  },
+  {
+    "id": 27,
+    "content": "Our empirical findings are supported by our findings within a network theory model.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 13,
+      "tag_name": "p",
+      "position": 33
+    }
+  },
+  {
+    "id": 28,
+    "content": "[Image: Increase in India's holdings of U.S. Treasuries] (path/to/figure3.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 14,
+      "tag_name": "img",
+      "position": 35
+    }
+  },
+  {
+    "id": 29,
+    "content": "Figure 3: Increase in India's holdings of U.S. Treasuries",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 11,
+      "tag_name": "figcaption",
+      "position": 36
+    }
+  },
+  {
+    "id": 30,
+    "content": "2 Literature review",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 3,
+      "tag_name": "h1",
+      "position": 37,
+      "level": 1
+    }
+  },
+  {
+    "id": 31,
+    "content": "The accumulation of foreign exchange reserves (FER) has been a prominent feature of economic policy, especially among emerging market economies (EMEs), over the past several decades. The reasons for the accumulation of FER can be both political and economical. Our paper is on the intersection of political and economical motives, so we will provide insights into both strands of literature, as well as theoretical and empirical evidence. From the early 1990s to 2018, according to Arslan and Cantú (2019) emerging market economies increased their FX reserves from approximately 5% to nearly 30% of GDP. Historically, the US dollar has been a prominent currency for FER, but in the last decade we have seen significant shifts from that equilibrium. The shift in some countries is motivated by economic factors, while others are motivated purely geopolitically, as shown in Figures 1, 2, and 3.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 142,
+      "tag_name": "p",
+      "position": 38
+    }
+  },
+  {
+    "id": 32,
+    "content": "Different authors provide different economic reasons for the use of FER in a particular currency, and these reasons were evolving differently over time and geographical regions. In terms of economic motives, several factors have been involved, including precautionary motives, export competitiveness, and the pursuit of macroeconomic stability. The holding of substantial FER reserves can serve as a buffer against external shocks, reducing the volatility of the exchange rate, and fostering a stable economic environment conducive to growth. It is important to note that the findings in the literature are mixed and highly dependent on the context: the type of shock, the countries involved in a study, the time period and the methodology used to infer the main findings.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 118,
+      "tag_name": "p",
+      "position": 39
+    }
+  },
+  {
+    "id": 33,
+    "content": "Ito and McCauley (2020) analyses the factors that govern the choice of the currency composition of official foreign exchange reserves. They provide evidence that the currency composition of reserves is strongly related to the comovement of the domestic currency with key currencies and the currency invoice of trade. This is an important feature, which we also build in our theoretical model, since \"trade wars\" are one type of shock affecting the probability to switch to a different currency in FER.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 80,
+      "tag_name": "p",
+      "position": 40
+    }
+  },
+  {
+    "id": 34,
+    "content": "FER have also been used as a tool to maintain macroeconomic stability and have been supported by empirical work in the literature. Ahmed, Aizenman, Saadaoui, and Uddin (2023) show that an additional 10 percentage points of FX reserves in GDP are associated with a reduction of 1.5% to 2% in currency depreciation during periods of global financial stress. Similarly, Dominguez, Hashimoto, and Ito (2012) find that higher reserve accumulations before the crisis are associated with higher post-crisis GDP growth. More specifically, a contrary view Alwadeai, Vlasova, Mareeh, and Aljonaid (2024) investigates the impact of economic sanctions on the volatility of exchange rates, with a specific focus on the role of foreign reserves in mitigating these effects. They find that high reserves-to-GDP ratios do not fully stabilize exchange rate volatility in the presence of economic sanctions, challenging the traditional view of reserves as reliable stabilizers.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 148,
+      "tag_name": "p",
+      "position": 41
+    }
+  },
+  {
+    "id": 35,
+    "content": "However, according to Rodrik (2006) the benefits of maintaining large FER reserves must be balanced against the associated costs. The opportunity cost of holding reserves is significant, as these funds could otherwise be invested in domestic projects to stimulate economic growth. Moreover, excessive accumulation of reserves may lead to issues such as inflationary pressures and asset bubbles. Similarly, Levy-Yeyati and Gómez (2020) illustrate that the cost of holding reserves may have been considerably lower than is generally assumed in both the academic literature and the policy debate. In order to establish a benchmark, Jeanne and Rancière (2011) provide a framework for determining optimal reserve levels for emerging market economies based on various economic parameters. A benchmark calibration suggests that an optimal level of reserves for EMEs is approximately 10.1% of GDP, or 92% of short-term external debt, which is close to the average ratio observed between 1975 and 2003.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 152,
+      "tag_name": "p",
+      "position": 42
+    }
+  },
+  {
+    "id": 36,
+    "content": "Unlike most economics models which consider only an economic framework to calibrate the model, our theoretical model considers geopolitical shocks as both of economic or purely political nature. For example, Russia's invasion of Ukraine has been a military move that has had an enormous effect on cutting off geopolitical ties. For that reason, in our model we introduce different variables of military strength, which, in addition to economic strength, also have a crucial effect of positioning in the global FER market. The interconnection between FER reserves, GDP, and military spending is complex and multifaceted. Economic strength, as reflected in GDP, provides the foundation for both accumulating FER reserves and sustaining military expenditures.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 113,
+      "tag_name": "p",
+      "position": 43
+    }
+  },
+  {
+    "id": 37,
+    "content": "The first strand of the literature connects different economic measures, mainly GDP, with military spending. Clements, Gupta, and Khamidova (2021) find that military spending in relation to GDP does not reach a common level in 138 countries in their sample. It is divided into three main groups. The first group of 20 countries experiencing a high degree of conflict, spending has increased and diverged from the global trend. The second group has the largest number of countries - 77, of which 30 are advanced economies - generating 90 percent of global military spending. Their average military spending in relation to GDP fell significantly from 1990 through the mid-2000s, but has changed little since then. This group includes China, India, Russia, the United Kingdom and the United States. Furthermore, Barnum, Fariss, Markowitz, and Morales (2025) find two interesting findings related to our research. First, correlations between economic surplus and military spending are currently higher than at any point in the last 200 years. Second, find that the (negative) effect of a democratic ally on military spending is three times larger, and the (positive) effect of an increase in GDP is five times larger than previously estimated.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 194,
+      "tag_name": "p",
+      "position": 44
+    }
+  },
+  {
+    "id": 38,
+    "content": "Military expenditure is a critical component of a nation's defense strategy, directly influencing its military capabilities and power projection. The relationship between military spending and economic growth has been extensively studied, yielding mixed findings. Some research suggests that increased defense spending can stimulate economic activity through job creation and technological advancements. However, other studies argue that excessive military expenditure can crowd out public investment in other sectors, potentially hindering economic growth. For example, Peltier (2023) provide an in-depth analysis on how decades of high levels of military spending have changed the US government and society, strengthening its ability to fight wars while weakening its capacities to perform other core functions. They highlight in their study how investments in infrastructure, healthcare, education, and emergency preparedness, for instance, have all suffered as military spending and industry have crowded them out.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 140,
+      "tag_name": "p",
+      "position": 45
+    }
+  },
+  {
+    "id": 39,
+    "content": "The effectiveness of military spending in enhancing military power also depends on factors such as strategic allocation of resources, efficiency of defense institutions, and the existing security environment. The mere increase in the defense budget does not automatically translate into greater military effectiveness; the quality of expenditure and the geopolitical context play a pivotal role. In addition, political accountability and transparent governance are essential in ensuring that military spending contributes positively to national security without undermining economic stability.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 78,
+      "tag_name": "p",
+      "position": 46
+    }
+  },
+  {
+    "id": 40,
+    "content": "Historical analyses, such as Paul Kennedy's \"The Rise and Fall of the Great Powers,” illustrate that nations with disproportionate military expenditures relative to their economic base often experience \"imperial overstretch,” where the burden of defense commitments exceeds the country's economic capacity, leading to decline. This underscores the importance of aligning military ambitions with economic realities to ensure sustainable national power. Moreover, Modelski and Thompson (1996) argue that naval power is the key tool that allows world political leadership, colonization, and domination in world trade. However, a less explored topic in most studies of hegemonic patterns is the military expenditure factor in the competition between states for military and economic dominance. The leader nation increases its military capabilities to maintain its dominant position, while the alliance states support the leader in order to benefit from greater investments in their economies, as in Modelski and Thompson (1996). Regarding the link between military and economy, Kennedy (1989) pointed out a significant correlation between revenue raising capacities and the military strength of the country. Paul Kennedy also argued that military spending by hegemonic countries can become a burden on its economy, eventually heading to economic collapse. This argument seems to be controversial due to the lack of economic analyses that would support his basic idea of the interaction between military spending and economic growth.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 222,
+      "tag_name": "p",
+      "position": 47
+    }
+  },
+  {
+    "id": 41,
+    "content": "The complexity of the interaction between military and economic power and the subsequent connection to the use of a particular global power as the main currency lacks serious causal connections in the research. History has been full of changes in military and economic power, yet how these changes affected changes in foreign exchange reserves is relatively understudied. For many decades during which the United Kingdom had been dominating the entire world, the UK sterling was the leading currency, just to be later changed by the US dollar. For example, Triffin (1960) estimated that not only in 1928, the share of pound sterling of global foreign exchange reserves was around 80 percent, but even in 1938 pound starlings share remained around 70 percent. More recently, Chinn and Frankel (2008), suggested that dollars only overtook sterling after World War II. Based on data gained from central bank archives, Eichengreen and Sachs (1985) and Eichengreen and Sachs (1986), reported that the dollar overtook sterling as the leading global reserve currency in the mid-1920s, not in 1928, 1938 or 1948.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 177,
+      "tag_name": "p",
+      "position": 48
+    }
+  },
+  {
+    "id": 42,
+    "content": "One of the first historical investigations to show the connection between foreign currency reserves and military alliances was Eichengreen et al. (2019). Applying data on foreign currency reserves of 19 countries before World War I, for which the currency composition of reserves and military and security alliance memberships are known, Eichengreen et al. (2019) validated the hypotheses of Mercury and Mars. They demonstrated that military alliances increase the currency percentage in the ally's foreign reserve assets by 30 percentage points. Eichengreen et al. (2019) argued about why a country decides to use an ally's currency by linking the national security and military alliance on one side and foreign policy planning of foreign currency reserves on the other. Reserve currency issuers such as the US may use military-dependent nations to obtain finance from them by issuing treasuries or, as in the case of the US, the nuclear power as the financial center may borrow funds to their allies.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 160,
+      "tag_name": "p",
+      "position": 49
+    }
+  },
+  {
+    "id": 43,
+    "content": "Beyond solely geopolitical alliances, there are other factors to keep an ally s currency. In articles on foreign reserve currency, financial depth and development is an important factor Portes and Rey (1998). Moreover, Chitu, Eichengreen, and Mehl (2014) demonstrate that financial development was the most important factor in helping the dollar overcome sterling's dominance as an international financing currency during the interwar period. The credibility of the reserve currency issuers is motivated by theoretical models in which agents in non-dollar economies trade indirectly using the US dollar instead of using direct bilateral trade among their own currencies if these currencies depreciate too often and for too long and there are substantial transaction costs of exchange according to Devereux and Shi (2013). Economic size is another standard factor of international currency choice. Krugman (1980) discussed the effects of the network, focusing on the increased returns resulting from economies of scale. The economy of scale was a topic in the random matching model of Matsuyama, Kiyotaki, and Matsui (1993), who model the choice of international currencies in a way that the incentive of an agent to accept a country's currency depends on the frequency of trades with a given country. Furthermore, the strategic use of FER reserves can influence a nation's defense posture. For example, countries with substantial reserves may have greater flexibility in responding to economic sanctions or funding defense initiatives without resorting to external borrowing. However, the opportunity cost of holding large reserves, as opposed to investing in economic development, must be carefully considered. Thus, policymakers must navigate the delicate balance between maintaining sufficient FER reserves, fostering economic growth, and allocating resources to defense to ensure comprehensive national security.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 283,
+      "tag_name": "p",
+      "position": 50
+    }
+  },
+  {
+    "id": 44,
+    "content": "In summary, the literature indicates that while FER reserves and military spending are tools for achieving economic stability and national security, their optimal levels and effectiveness are contingent upon a nation's economic capacity and strategic priorities. Policymakers must consider the intricate interplay between these elements to formulate policies that promote sustainable growth and robust defense capabilities.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 57,
+      "tag_name": "p",
+      "position": 51
+    }
+  },
+  {
+    "id": 45,
+    "content": "3 Data.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "h1",
+      "position": 52,
+      "level": 1
+    }
+  },
+  {
+    "id": 46,
+    "content": "In the paper we use Allocated Reserves of Forex exchange reserves, where in a strict sense, FER includes only deposits of foreign currencies held by nationals and monetary authorities. The data are provided by the IMF, specifically claims in US dollars, Euro, Chinese RMB, Japanese yen, British pound sterling, Australian dollars, Canadian dollars, Swiss francs, and aggregated claims in other currencies. The data are listed quarterly, and in the paper we always use the last Q4 quarter. Military spending data are provided by the World Bank. The GDP data recorded annually are provided by imf (2024).",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 96,
+      "tag_name": "p",
+      "position": 53
+    }
+  },
+  {
+    "id": 47,
+    "content": "4 Methodology",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "h1",
+      "position": 54,
+      "level": 1
+    }
+  },
+  {
+    "id": 48,
+    "content": "4.1 Empirical strategy",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "h2",
+      "position": 55,
+      "level": 2
+    }
+  },
+  {
+    "id": 49,
+    "content": "Eichengreen et al. (2019) used data before World War I that analyze the composition of the currency of foreign exchange holdings by countries, focusing on the pairwise interaction between the currency reserve issuer and the holder of the reserve currency. We, on the contrary, used the most recent decade (2013 to 2023) to analyze the aggregate foreign exchange reserves and varying economic variables of a set of developed countries which are the reserve issuers, without asking which countries hold the money. For a set of Western currencies, we test the hypothesis that the Military Spending (MS) taken as a proxy for the size of a country strongly correlates with the Foreign Exchange Reserves (FER). To this end, precisely, for the dollar, euro, British sterling, Japanese yen, Swiss franc, Australian and Canadian dollars, for which the IMF provides data on Foreign Exchange Reserves, imf (2024), we apply Simple Regression Analyses (see Fig. 4). For each year t we apply simple regression for a set of countries i",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 166,
+      "tag_name": "p",
+      "position": 56
+    }
+  },
+  {
+    "id": 50,
+    "content": "ln(FER) = β + β ln(MS) + e ,",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 7,
+      "tag_name": "p",
+      "position": 57
+    }
+  },
+  {
+    "id": 51,
+    "content": "i,t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 58
+    }
+  },
+  {
+    "id": 52,
+    "content": "0",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 59
+    }
+  },
+  {
+    "id": 53,
+    "content": "1",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 60
+    }
+  },
+  {
+    "id": 54,
+    "content": "i,t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 61
+    }
+  },
+  {
+    "id": 55,
+    "content": "t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 62
+    }
+  },
+  {
+    "id": 56,
+    "content": "where, MS represents Military Spending and e is the random error. The MS variable can be considered as a proxy for a size of a country, but also a proxy for alliance variable, since all countries analyzed at this stage are the Western U.S. allies.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 46,
+      "tag_name": "p",
+      "position": 63
+    }
+  },
+  {
+    "id": 57,
+    "content": "t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 64
+    }
+  },
+  {
+    "id": 58,
+    "content": "However, GDP and MS are highly correlated, and next we apply methods such as Ridge and Lasso to take into account multicollinearity in multiple regression data as in James et al. (2013).",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 32,
+      "tag_name": "p",
+      "position": 65
+    }
+  },
+  {
+    "id": 59,
+    "content": "Ridge method defined as",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "p",
+      "position": 66
+    }
+  },
+  {
+    "id": 60,
+    "content": "β = arg min (1/N)Σ (Y – x β) + λ Σ β ,",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 12,
+      "tag_name": "p",
+      "position": 67
+    }
+  },
+  {
+    "id": 61,
+    "content": "λ",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 68
+    }
+  },
+  {
+    "id": 62,
+    "content": "i=1",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 69
+    }
+  },
+  {
+    "id": 63,
+    "content": "N",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 70
+    }
+  },
+  {
+    "id": 64,
+    "content": "i",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 71
+    }
+  },
+  {
+    "id": 65,
+    "content": "i",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 72
+    }
+  },
+  {
+    "id": 66,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 73
+    }
+  },
+  {
+    "id": 67,
+    "content": "j=1",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 74
+    }
+  },
+  {
+    "id": 68,
+    "content": "p",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 75
+    }
+  },
+  {
+    "id": 69,
+    "content": "j",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 76
+    }
+  },
+  {
+    "id": 70,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 77
+    }
+  },
+  {
+    "id": 71,
+    "content": "is most suitable when a data set contains a higher number of predictor variables than the number of observations. In the above formula β are coefficients, k is the number of coefficients and N stands for the number of data points, where the penalty parameter λ is a positive constant. Note that the variance of the ridge estimator is always smaller than the variance of the OLS estimator. Since the ridge estimator is not scale invariant, in analyses we must standardize all the variables in regressions by subtracting from each variable its mean and dividing it by its standard deviation. Both Ridge and Lasso regressions reduce the coefficient estimates toward zero. However, Lasso regression defined as",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 116,
+      "tag_name": "p",
+      "position": 78
+    }
+  },
+  {
+    "id": 72,
+    "content": "β = arg min (1/N)Σ (Y – x β) + λ Σ |β |,",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 12,
+      "tag_name": "p",
+      "position": 79
+    }
+  },
+  {
+    "id": 73,
+    "content": "λ",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 80
+    }
+  },
+  {
+    "id": 74,
+    "content": "i=1",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 81
+    }
+  },
+  {
+    "id": 75,
+    "content": "N",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 82
+    }
+  },
+  {
+    "id": 76,
+    "content": "i",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 83
+    }
+  },
+  {
+    "id": 77,
+    "content": "i",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 84
+    }
+  },
+  {
+    "id": 78,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 85
+    }
+  },
+  {
+    "id": 79,
+    "content": "j=1",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 86
+    }
+  },
+  {
+    "id": 80,
+    "content": "p",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 87
+    }
+  },
+  {
+    "id": 81,
+    "content": "j",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 88
+    }
+  },
+  {
+    "id": 82,
+    "content": "reduces some of the coefficients exactly to zero when the tuning parameter becomes large enough. Thus, in general, Ridge regression is used when the goal is to minimize the impact of less important features while keeping all variables in the model. In contrast, Lasso regression is preferred when the goal is feature selection with fewer variables, making a more interpretable model.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 61,
+      "tag_name": "p",
+      "position": 89
+    }
+  },
+  {
+    "id": 83,
+    "content": "Motivated by the literature on foreign currency reserves Li and Liu (2008) and Eichengreen et al. (2019), we model the reserve currency as:",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 23,
+      "tag_name": "p",
+      "position": 90
+    }
+  },
+  {
+    "id": 84,
+    "content": "ln(FER) = β + β ln(MS) + β X + β DV + β DV + e ,",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 13,
+      "tag_name": "p",
+      "position": 91
+    }
+  },
+  {
+    "id": 85,
+    "content": "i,t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 92
+    }
+  },
+  {
+    "id": 86,
+    "content": "0",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 93
+    }
+  },
+  {
+    "id": 87,
+    "content": "1",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 94
+    }
+  },
+  {
+    "id": 88,
+    "content": "i,t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 95
+    }
+  },
+  {
+    "id": 89,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 96
+    }
+  },
+  {
+    "id": 90,
+    "content": "i,t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 97
+    }
+  },
+  {
+    "id": 91,
+    "content": "3",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 98
+    }
+  },
+  {
+    "id": 92,
+    "content": "RMB",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 99
+    }
+  },
+  {
+    "id": 93,
+    "content": "i,t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 100
+    }
+  },
+  {
+    "id": 94,
+    "content": "4",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 101
+    }
+  },
+  {
+    "id": 95,
+    "content": "Other",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 102
+    }
+  },
+  {
+    "id": 96,
+    "content": "i,t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 103
+    }
+  },
+  {
+    "id": 97,
+    "content": "i,t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 104
+    }
+  },
+  {
+    "id": 98,
+    "content": "where i represents the country index and t is time dimension (i = 1...9;t = 1...20), X is a vector of control variables as varying as gold reserves, international trade and financial depth; MS is Military Spending of country i; DVs are two dummy variables denoted to RMB and Other currencies equivalent to alliance variable in Eichengreen et al. (2019); e is the residual and the βs are the regression's coefficients. Economic size is an additional standard determinant of the choice of international currencies. Empirically, we measure economic size by the Military Spending that is proportional to the GDP and, therefore, the output of the country issuing reserve currency.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 111,
+      "tag_name": "p",
+      "position": 105
+    }
+  },
+  {
+    "id": 99,
+    "content": "Among control variables, financial depth is an important factor in the choice of reserve currency Portes and Rey (1998). Motivated by King and Levine (1993), we quantify the financial depth by the financial monetization ratio (wide money M2 to GDP), taking data from the World Bank ( ).",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 46,
+      "tag_name": "p",
+      "position": 106
+    }
+  },
+  {
+    "id": 100,
+    "content": "https://data.worldbank.org/indicator/FM.LBL.BMNY.GD.ZS",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 10,
+      "tag_name": "a",
+      "position": 107
+    }
+  },
+  {
+    "id": 101,
+    "content": "We implement Equation (4) using multiple regression and report the values of p. If geopolitical considerations dominate, we expect the coefficient on economic size to be statistically significant. Hence, our test for supporting the \" Mars\" hypothesis is:",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 37,
+      "tag_name": "p",
+      "position": 108
+    }
+  },
+  {
+    "id": 102,
+    "content": "H : β > 0, β > 0,",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 5,
+      "tag_name": "p",
+      "position": 109
+    }
+  },
+  {
+    "id": 103,
+    "content": "0",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 110
+    }
+  },
+  {
+    "id": 104,
+    "content": "1",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 111
+    }
+  },
+  {
+    "id": 105,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 112
+    }
+  },
+  {
+    "id": 106,
+    "content": "where accepting H is evidence for the Mars hypothesis.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 9,
+      "tag_name": "p",
+      "position": 113
+    }
+  },
+  {
+    "id": 107,
+    "content": "0",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 114
+    }
+  },
+  {
+    "id": 108,
+    "content": "5 Results.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "h1",
+      "position": 115,
+      "level": 1
+    }
+  },
+  {
+    "id": 109,
+    "content": "In this first subsection, we provide the results of our empirical analysis. In the second part, we provide the results of our network theory model.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 25,
+      "tag_name": "p",
+      "position": 116
+    }
+  },
+  {
+    "id": 110,
+    "content": "5.1 Empirical",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 3,
+      "tag_name": "h2",
+      "position": 117,
+      "level": 2
+    }
+  },
+  {
+    "id": 111,
+    "content": "[Image: Regression between Military Spending and Foreign Exchange Reserves for 2022.] (path/to/figure4.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 15,
+      "tag_name": "img",
+      "position": 119
+    }
+  },
+  {
+    "id": 112,
+    "content": "Figure 4: Regression between Military Spending and Foreign Exchange Reserves for 2022. Regressions obtained in ln-ln plot in billions of dollars.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 22,
+      "tag_name": "figcaption",
+      "position": 120
+    }
+  },
+  {
+    "id": 113,
+    "content": "For equation 1 we report the regression coefficients for each year separately between 1993 and 2023, the country's currency enlisted in Foreign Exchange Reserves highly significantly depends on the country's Military Spending (MS) with surprisingly high R from 0.96 to 0.99, for each year (Table 1, last column). Surprisingly high R may support the Mars hypothesis, suggesting that western FER currencies have already reached an FER equilibrium between the average MS and the fraction of FER. Note that all currencies in our analysis belong to US allies and, therefore, the set represents a proxy for a variable alliance, as suggested by Eichengreen, Mehl, and ChituEichengreen et al. (2019). However, here we note that the number of currencies listed by FER has been changing over the years, as the Canadian and Australian dollars appeared in 2012.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 139,
+      "tag_name": "p",
+      "position": 121
+    }
+  },
+  {
+    "id": 114,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 122
+    }
+  },
+  {
+    "id": 115,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 123
+    }
+  },
+  {
+    "id": 116,
+    "content": "Table 1: Regression coefficients (standard errors) from log-log models estimating the relationship between Foreign Exchange Reserves (FER) and Gross Domestic Product (GDP), with and without the inclusion of the shares of Chinese RMB and Other Currencies in total reserves.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 40,
+      "tag_name": "h3",
+      "position": 124,
+      "level": 3
+    }
+  },
+  {
+    "id": 117,
+    "content": "β | GDP | China | Others | R | 2023 | -5.425 (0.0073) | 1.343 (-) | 0.933 | 2022 | -5.283 (0.0118) | 1.367 (0.00037) | -2.569 (0.00698) | -4.719 (0.00146) | 0.935 | 2021 | -5.616 (0.01868) | 1.428 (0.00076) | -2.547 (0.01509) | -4.876 (0.00281) | 0.914 | 2020 | -5.368 (0.02188) | 1.416 (0.00083) | -2.617 (0.0143) | -4.966 (0.00278) | 0.911 | 2019 | -5.957 (0.01350) | 1.468 (0.00062) | -2.726 (0.0107) | -5.135 (0.00212) | 0.921 | 2018 | -5.284 (0.01254) | 1.500 (0.00066) | -2.711 (0.01207) | -5.201 (0.00228) | 0.919 | 2017 | -5.708 (0.01622) | 1.438 (0.00072) | -3.020 (0.0069) | -5.061 (0.00230) | 0.916 | 2016 | -5.945 (0.02052) | 1.445 (0.00116) | -3.020 (0.00116) | -5.021 (0.0038) | 0.898 | 2015 | -5.809 (0.00755) | 1.344 (0.00034) | — | — | 0.937 | 2014 | -6.527 (0.00513) | 1.376 (0.00030) | — | — | 0.940 | 2013 | -6.429 (0.00484) | 1.336 (0.00028) | — | — | 0.942 | β | GDP | China | Others | R | β | GDP | China | Others | R | β",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "table",
+      "html_class": "",
+      "token_count": 191,
+      "tag_name": "table",
+      "position": 125,
+      "merged_chunks": 4
+    }
+  },
+  {
+    "id": 118,
+    "content": "0",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 130
+    }
+  },
+  {
+    "id": 119,
+    "content": "GDP | China | Others | R",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "table",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "th",
+      "position": 131,
+      "merged_chunks": 4
+    }
+  },
+  {
+    "id": 120,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 135
+    }
+  },
+  {
+    "id": 121,
+    "content": "2023 | -5.425 (0.0073) | 1.343 (-) | 0.933 | 2022 | -5.283 (0.0118) | 1.367 (0.00037) | -2.569 (0.00698) | -4.719 (0.00146) | 0.935 | 2021 | -5.616 (0.01868) | 1.428 (0.00076) | -2.547 (0.01509) | -4.876 (0.00281) | 0.914 | 2020 | -5.368 (0.02188) | 1.416 (0.00083) | -2.617 (0.0143) | -4.966 (0.00278) | 0.911 | 2019 | -5.957 (0.01350) | 1.468 (0.00062) | -2.726 (0.0107) | -5.135 (0.00212) | 0.921 | 2018 | -5.284 (0.01254) | 1.500 (0.00066) | -2.711 (0.01207) | -5.201 (0.00228) | 0.919 | 2017 | -5.708 (0.01622) | 1.438 (0.00072) | -3.020 (0.0069) | -5.061 (0.00230) | 0.916 | 2016 | -5.945 (0.02052) | 1.445 (0.00116) | -3.020 (0.00116) | -5.021 (0.0038) | 0.898 | 2015 | -5.809 (0.00755) | 1.344 (0.00034) | — | — | 0.937 | 2014 | -6.527 (0.00513) | 1.376 (0.00030) | — | — | 0.940 | 2013 | -6.429 (0.00484) | 1.336 (0.00028) | — | — | 0.942 | 2023 | -5.425 (0.0073) | 1.343 (-) | 0.933 | 2023 | -5.425 (0.0073) | 1.343 (-) | 0.933 | 2022 | -5.283 (0.0118) | 1.367 (0.00037) | -2.569 (0.00698) | -4.719 (0.00146) | 0.935 | 2022 | -5.283 (0.0118) | 1.367 (0.00037) | -2.569 (0.00698) | -4.719 (0.00146) | 0.935 | 2021 | -5.616 (0.01868) | 1.428 (0.00076) | -2.547 (0.01509) | -4.876 (0.00281) | 0.914 | 2021 | -5.616 (0.01868) | 1.428 (0.00076) | -2.547 (0.01509) | -4.876 (0.00281) | 0.914 | 2020 | -5.368 (0.02188) | 1.416 (0.00083) | -2.617 (0.0143) | -4.966 (0.00278) | 0.911 | 2020 | -5.368 (0.02188) | 1.416 (0.00083) | -2.617 (0.0143) | -4.966 (0.00278) | 0.911 | 2019 | -5.957 (0.01350) | 1.468 (0.00062) | -2.726 (0.0107) | -5.135 (0.00212) | 0.921 | 2019 | -5.957 (0.01350) | 1.468 (0.00062) | -2.726 (0.0107) | -5.135 (0.00212) | 0.921 | 2018 | -5.284 (0.01254) | 1.500 (0.00066) | -2.711 (0.01207) | -5.201 (0.00228) | 0.919 | 2018 | -5.284 (0.01254) | 1.500 (0.00066) | -2.711 (0.01207) | -5.201 (0.00228) | 0.919 | 2017 | -5.708 (0.01622) | 1.438 (0.00072) | -3.020 (0.0069) | -5.061 (0.00230) | 0.916 | 2017 | -5.708 (0.01622) | 1.438 (0.00072) | -3.020 (0.0069) | -5.061 (0.00230) | 0.916 | 2016 | -5.945 (0.02052) | 1.445 (0.00116) | -3.020 (0.00116) | -5.021 (0.0038) | 0.898 | 2016 | -5.945 (0.02052) | 1.445 (0.00116) | -3.020 (0.00116) | -5.021 (0.0038) | 0.898 | 2015 | -5.809 (0.00755) | 1.344 (0.00034) | — | — | 0.937 | 2015 | -5.809 (0.00755) | 1.344 (0.00034) | — | — | 0.937 | 2014 | -6.527 (0.00513) | 1.376 (0.00030) | — | — | 0.940 | 2014 | -6.527 (0.00513) | 1.376 (0.00030) | — | — | 0.940 | 2013 | -6.429 (0.00484) | 1.336 (0.00028) | — | — | 0.942 | 2013 | -6.429 (0.00484) | 1.336 (0.00028) | — | — | 0.942",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "table",
+      "html_class": "",
+      "token_count": 525,
+      "tag_name": "tbody",
+      "position": 136,
+      "merged_chunks": 76
+    }
+  },
+  {
+    "id": 122,
+    "content": "Notes: Values are reported as coefficient (standard error). \"—\" indicates missing values. β is the intercept. GDP refers to U.S. Gross Domestic Product. \"China\" and \"Others\" represent currency shares in global reserves. R indicates model fit. All values are expressed in billions of U.S. dollars.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 46,
+      "tag_name": "p",
+      "position": 214
+    }
+  },
+  {
+    "id": 123,
+    "content": "0",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 215
+    }
+  },
+  {
+    "id": 124,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 216
+    }
+  },
+  {
+    "id": 125,
+    "content": "MS of a given country is somewhat proportional to its GDP, and therefore it is reasonable to assume that the fraction of the country's GDP in the world's GDP mainly determines how popular the country currency is in foreign exchange reserves. Indeed, the fractions of pounds, yen, euro, and both Australian and Canadian dollars in Foreign Exchange Reserves are just a bit larger than are the fraction of country's GDP in the world's GDP. Only in the case of the dollar, that currency is substantially more represented in the Reserves than is the US fraction in the World GDP. In contrast, the Chinese RMB is far from the balance, but with a steady increase towards the potential future balance. Next, we report that not only Military Spending, but also GDP (see Table 1) is in strong correlation with foreign exchange reserves. Comparing R in Table 1 and Table 2 we report that MS is also more influential than the overall country fraction of international trade. Recalling that the variables are standardized, Table 3 reports that MS is more influential than GDP for each year considered.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 189,
+      "tag_name": "p",
+      "position": 217
+    }
+  },
+  {
+    "id": 126,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 218
+    }
+  },
+  {
+    "id": 127,
+    "content": "Furthermore, we report that the Chinese RMB brings a distortion in the financial FER market where over time the entire market aims to a new equilibrium. Thus, next, we study how the Chinese currency has been changing over the years with the goal of predicting when the RMB may potentially reach a new FER equilibrium. Currently, the Chinese currency can be considered outside the FER equilibrium because the Chinese GDP in nominal dollars is around 17%, while the RMB contributes less than 3% in the foreign exchange reserves.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 88,
+      "tag_name": "p",
+      "position": 219
+    }
+  },
+  {
+    "id": 128,
+    "content": "Next, for each year between 2016 and 2022 for which the data for RMB are available, we add the Chinese RMB by introducing a dummy variable (DV) where its value is 1 in case the currency is RMB and 0 otherwise. Similarly, we also introduce a dummy variable for all other FER currencies, where again its value is 1 in case the currency is Others and 0 otherwise. For each year applying multiple regression for a set of countries i",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 80,
+      "tag_name": "p",
+      "position": 220
+    }
+  },
+  {
+    "id": 129,
+    "content": "ln(FER) = β + β ln(MS) + β DV + β DV + e ,",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 11,
+      "tag_name": "p",
+      "position": 221
+    }
+  },
+  {
+    "id": 130,
+    "content": "i,t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 222
+    }
+  },
+  {
+    "id": 131,
+    "content": "0",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 223
+    }
+  },
+  {
+    "id": 132,
+    "content": "1",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 224
+    }
+  },
+  {
+    "id": 133,
+    "content": "i,t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 225
+    }
+  },
+  {
+    "id": 134,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 226
+    }
+  },
+  {
+    "id": 135,
+    "content": "RMB",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 227
+    }
+  },
+  {
+    "id": 136,
+    "content": "i,t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 228
+    }
+  },
+  {
+    "id": 137,
+    "content": "3",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 229
+    }
+  },
+  {
+    "id": 138,
+    "content": "Other",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 230
+    }
+  },
+  {
+    "id": 139,
+    "content": "i,t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 231
+    }
+  },
+  {
+    "id": 140,
+    "content": "i,t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 232
+    }
+  },
+  {
+    "id": 141,
+    "content": "where, MS represents Military Spending, where two DVs are denoted to RMB and Other currencies aggregated on one, and e is the random error. First, note that two dummy variables do not change the regression coefficients obtained for simple regressions (see Fig. 4)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 43,
+      "tag_name": "p",
+      "position": 233
+    }
+  },
+  {
+    "id": 142,
+    "content": "i",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 234
+    }
+  },
+  {
+    "id": 143,
+    "content": "[Image: Deposit of gold in a set of developed countries.] (path/to/figure5.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 14,
+      "tag_name": "img",
+      "position": 236
+    }
+  },
+  {
+    "id": 144,
+    "content": "Figure 5: Deposit of gold in a set of developed countries.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 11,
+      "tag_name": "figcaption",
+      "position": 237
+    }
+  },
+  {
+    "id": 145,
+    "content": "In Table 1, we see that the coefficient of the dummy variable is negative as one may expect because compared with the Western counterpart currencies, the RMB is underrepresented in FER relative to the country's GDP. Second, consistently over the years the Chinese RMB coefficient has been ramping down in absolute terms bringing the FER market closer to the new FER equilibrium where roughly the share of the country's currency is in good agreement with the country's MS and roughly the GDP.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 85,
+      "tag_name": "p",
+      "position": 238
+    }
+  },
+  {
+    "id": 146,
+    "content": "Table 2: Regression coefficients (standard errors) from log-log models estimating the relationship between Foreign Exchange Reserves (FER) and international trade (exports and imports), including the shares of Chinese RMB and Other Currencies.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 33,
+      "tag_name": "h3",
+      "position": 239,
+      "level": 3
+    }
+  },
+  {
+    "id": 147,
+    "content": "β | Trade | China | Others | R | 2023 | -3.204 (0.399) | 1.251 (0.041) | -1.200 (0.414) | -3.106 (0.130) | 0.608 | 2022 | -3.598 (0.313) | 1.291 (0.027) | -1.995 (0.189) | -3.155 (0.096) | 0.659 | 2021 | -3.518 (0.355) | 1.308 (0.036) | -2.051 (0.220) | -3.228 (0.114) | 0.622 | 2020 | -3.338 (0.372) | 1.316 (0.037) | -2.171 (0.199) | -3.398 (0.103) | 0.624 | 2019 | -4.025 (0.288) | 1.376 (0.029) | -2.222 (0.182) | -3.466 (0.093) | 0.655 | 2018 | -4.203 (0.269) | 1.390 (0.028) | -2.210 (0.186) | -3.502 (0.092) | 0.659 | 2017 | -3.783 (0.300) | 1.344 (0.029) | -2.585 (0.121) | -3.425 (0.089) | 0.667 | 2016 | -3.844 (0.310) | 1.334 (0.036) | -2.604 (0.134) | -3.319 (0.108) | 0.643 | β | Trade | China | Others | R | β | Trade | China | Others | R | β",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "table",
+      "html_class": "",
+      "token_count": 168,
+      "tag_name": "table",
+      "position": 240,
+      "merged_chunks": 4
+    }
+  },
+  {
+    "id": 148,
+    "content": "0",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 245
+    }
+  },
+  {
+    "id": 149,
+    "content": "Trade | China | Others | R",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "table",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "th",
+      "position": 246,
+      "merged_chunks": 4
+    }
+  },
+  {
+    "id": 150,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 250
+    }
+  },
+  {
+    "id": 151,
+    "content": "2023 | -3.204 (0.399) | 1.251 (0.041) | -1.200 (0.414) | -3.106 (0.130) | 0.608 | 2022 | -3.598 (0.313) | 1.291 (0.027) | -1.995 (0.189) | -3.155 (0.096) | 0.659 | 2021 | -3.518 (0.355) | 1.308 (0.036) | -2.051 (0.220) | -3.228 (0.114) | 0.622 | 2020 | -3.338 (0.372) | 1.316 (0.037) | -2.171 (0.199) | -3.398 (0.103) | 0.624 | 2019 | -4.025 (0.288) | 1.376 (0.029) | -2.222 (0.182) | -3.466 (0.093) | 0.655 | 2018 | -4.203 (0.269) | 1.390 (0.028) | -2.210 (0.186) | -3.502 (0.092) | 0.659 | 2017 | -3.783 (0.300) | 1.344 (0.029) | -2.585 (0.121) | -3.425 (0.089) | 0.667 | 2016 | -3.844 (0.310) | 1.334 (0.036) | -2.604 (0.134) | -3.319 (0.108) | 0.643 | 2023 | -3.204 (0.399) | 1.251 (0.041) | -1.200 (0.414) | -3.106 (0.130) | 0.608 | 2023 | -3.204 (0.399) | 1.251 (0.041) | -1.200 (0.414) | -3.106 (0.130) | 0.608 | 2022 | -3.598 (0.313) | 1.291 (0.027) | -1.995 (0.189) | -3.155 (0.096) | 0.659 | 2022 | -3.598 (0.313) | 1.291 (0.027) | -1.995 (0.189) | -3.155 (0.096) | 0.659 | 2021 | -3.518 (0.355) | 1.308 (0.036) | -2.051 (0.220) | -3.228 (0.114) | 0.622 | 2021 | -3.518 (0.355) | 1.308 (0.036) | -2.051 (0.220) | -3.228 (0.114) | 0.622 | 2020 | -3.338 (0.372) | 1.316 (0.037) | -2.171 (0.199) | -3.398 (0.103) | 0.624 | 2020 | -3.338 (0.372) | 1.316 (0.037) | -2.171 (0.199) | -3.398 (0.103) | 0.624 | 2019 | -4.025 (0.288) | 1.376 (0.029) | -2.222 (0.182) | -3.466 (0.093) | 0.655 | 2019 | -4.025 (0.288) | 1.376 (0.029) | -2.222 (0.182) | -3.466 (0.093) | 0.655 | 2018 | -4.203 (0.269) | 1.390 (0.028) | -2.210 (0.186) | -3.502 (0.092) | 0.659 | 2018 | -4.203 (0.269) | 1.390 (0.028) | -2.210 (0.186) | -3.502 (0.092) | 0.659 | 2017 | -3.783 (0.300) | 1.344 (0.029) | -2.585 (0.121) | -3.425 (0.089) | 0.667 | 2017 | -3.783 (0.300) | 1.344 (0.029) | -2.585 (0.121) | -3.425 (0.089) | 0.667 | 2016 | -3.844 (0.310) | 1.334 (0.036) | -2.604 (0.134) | -3.319 (0.108) | 0.643 | 2016 | -3.844 (0.310) | 1.334 (0.036) | -2.604 (0.134) | -3.319 (0.108) | 0.643",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "table",
+      "html_class": "",
+      "token_count": 456,
+      "tag_name": "tbody",
+      "position": 251,
+      "merged_chunks": 57
+    }
+  },
+  {
+    "id": 152,
+    "content": "Notes: Values are reported as coefficient (standard error). Trade refers to the sum of exports and imports in billions of U.S. dollars. \"China\" and \"Others\" represent the respective currency shares in global reserves. R indicates the model's explanatory power. Although the models show relatively high R , they are notably lower than models using military spending as a predictor. All values are expressed in billions of U.S. dollars.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 70,
+      "tag_name": "p",
+      "position": 308
+    }
+  },
+  {
+    "id": 153,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 309
+    }
+  },
+  {
+    "id": 154,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 310
+    }
+  },
+  {
+    "id": 155,
+    "content": "Extrapolating the data on the RMB dummy coefficient in Table 1, roughly, one can predict that the RMB could reach an equilibrium with the currencies of western countries where it will be considered a regular FER currency in ≈ 18 years (see Fig. 5). The prediction assumes that in years to come the world will experience gradual changes in relationship between the U.S. and China, and not the breakdown-in-relations scenario in which the world financial system is heading to a tipping point. In contrast to the RMB dummy coefficient, the dummy coefficient corresponding to Others exhibits stability to a great extent in the same years. It is important to note that this is based on linear trend and is a simplification because year-to-year ceteris paribus conditions of other variables will have a differential effect on the trend.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 141,
+      "tag_name": "p",
+      "position": 311
+    }
+  },
+  {
+    "id": 156,
+    "content": "At the 0.05 level, for all years, the regression coefficients are jointly significant (F-test), and the slope and dummies coefficients are individually significant (t-test). Over time the regression coefficients exhibit stability, where only during the last two years characterized by the Russian invasion the regression coefficients slightly ramped down. However, the intercept coefficients are individually significant only after 2012 (the IMF data exclude AUD, CAD before 2012). Furthermore, at 0.05 level, for all years, homoskedasticity is not rejected (Breusch-Pagan), while the stability (equality) of coefficients between the groups is rejected (Chow).",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 96,
+      "tag_name": "p",
+      "position": 312
+    }
+  },
+  {
+    "id": 157,
+    "content": "Table 3: Regression coefficients from Ridge and Lasso models estimating the relationship between Foreign Exchange Reserves (FER), Military Spending, and GDP for seven Western currencies.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 25,
+      "tag_name": "h3",
+      "position": 313,
+      "level": 3
+    }
+  },
+  {
+    "id": 158,
+    "content": "Model | Military Spending | GDP | R | 2022 | Ridge | 1.232 | 0.389 | 0.965 | Lasso | 1.236 | 0.384 | 0.965 | 2021 | Ridge | 1.433 | 0.261 | 0.959 | Lasso | 1.438 | 0.256 | 0.959 | 2020 | Ridge | 1.440 | 0.264 | 0.957 | Lasso | 1.443 | 0.259 | 0.957 | 2019 | Ridge | 1.548 | 0.221 | 0.972 | Lasso | 1.552 | 0.216 | 0.971 | 2018 | Ridge | 1.627 | 0.171 | 0.978 | Lasso | 1.632 | 0.165 | 0.978 | 2017 | Ridge | 1.570 | 0.158 | 0.983 | Lasso | 1.574 | 0.153 | 0.983 | 2016 | Ridge | 1.706 | 0.040 | 0.980 | Lasso | 1.780 | 0.036 | 0.981 | 2015 | Ridge | 1.388 | 0.262 | 0.995 | Lasso | 1.391 | 0.258 | 0.995 | 2014 | Ridge | 1.294 | 0.401 | 0.999 | Lasso | 1.296 | 0.398 | 0.988 | 2013 | Ridge | 1.238 | 0.425 | 0.991 | Lasso | 1.240 | 0.422 | 0.981 | Model | Military Spending | GDP | R | Model | Military Spending | GDP | R | Model | Military Spending | GDP | R",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "table",
+      "html_class": "",
+      "token_count": 170,
+      "tag_name": "table",
+      "position": 314,
+      "merged_chunks": 7
+    }
+  },
+  {
+    "id": 159,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 322
+    }
+  },
+  {
+    "id": 160,
+    "content": "2022 | Ridge | 1.232 | 0.389 | 0.965 | Lasso | 1.236 | 0.384 | 0.965 | 2021 | Ridge | 1.433 | 0.261 | 0.959 | Lasso | 1.438 | 0.256 | 0.959 | 2020 | Ridge | 1.440 | 0.264 | 0.957 | Lasso | 1.443 | 0.259 | 0.957 | 2019 | Ridge | 1.548 | 0.221 | 0.972 | Lasso | 1.552 | 0.216 | 0.971 | 2018 | Ridge | 1.627 | 0.171 | 0.978 | Lasso | 1.632 | 0.165 | 0.978 | 2017 | Ridge | 1.570 | 0.158 | 0.983 | Lasso | 1.574 | 0.153 | 0.983 | 2016 | Ridge | 1.706 | 0.040 | 0.980 | Lasso | 1.780 | 0.036 | 0.981 | 2015 | Ridge | 1.388 | 0.262 | 0.995 | Lasso | 1.391 | 0.258 | 0.995 | 2014 | Ridge | 1.294 | 0.401 | 0.999 | Lasso | 1.296 | 0.398 | 0.988 | 2013 | Ridge | 1.238 | 0.425 | 0.991 | Lasso | 1.240 | 0.422 | 0.981 | 2022 | Ridge | 1.232 | 0.389 | 0.965 | 2022 | Ridge | 1.232 | 0.389 | 0.965 | Lasso | 1.236 | 0.384 | 0.965 | Lasso | 1.236 | 0.384 | 0.965 | 2021 | Ridge | 1.433 | 0.261 | 0.959 | 2021 | Ridge | 1.433 | 0.261 | 0.959 | Lasso | 1.438 | 0.256 | 0.959 | Lasso | 1.438 | 0.256 | 0.959 | 2020 | Ridge | 1.440 | 0.264 | 0.957 | 2020 | Ridge | 1.440 | 0.264 | 0.957 | Lasso | 1.443 | 0.259 | 0.957 | Lasso | 1.443 | 0.259 | 0.957 | 2019 | Ridge | 1.548 | 0.221 | 0.972 | 2019 | Ridge | 1.548 | 0.221 | 0.972 | Lasso | 1.552 | 0.216 | 0.971 | Lasso | 1.552 | 0.216 | 0.971 | 2018 | Ridge | 1.627 | 0.171 | 0.978 | 2018 | Ridge | 1.627 | 0.171 | 0.978 | Lasso | 1.632 | 0.165 | 0.978 | Lasso | 1.632 | 0.165 | 0.978 | 2017 | Ridge | 1.570 | 0.158 | 0.983 | 2017 | Ridge | 1.570 | 0.158 | 0.983 | Lasso | 1.574 | 0.153 | 0.983 | Lasso | 1.574 | 0.153 | 0.983 | 2016 | Ridge | 1.706 | 0.040 | 0.980 | 2016 | Ridge | 1.706 | 0.040 | 0.980 | Lasso | 1.780 | 0.036 | 0.981 | Lasso | 1.780 | 0.036 | 0.981 | 2015 | Ridge | 1.388 | 0.262 | 0.995 | 2015 | Ridge | 1.388 | 0.262 | 0.995 | Lasso | 1.391 | 0.258 | 0.995 | Lasso | 1.391 | 0.258 | 0.995 | 2014 | Ridge | 1.294 | 0.401 | 0.999 | 2014 | Ridge | 1.294 | 0.401 | 0.999 | Lasso | 1.296 | 0.398 | 0.988 | Lasso | 1.296 | 0.398 | 0.988 | 2013 | Ridge | 1.238 | 0.425 | 0.991 | 2013 | Ridge | 1.238 | 0.425 | 0.991 | Lasso | 1.240 | 0.422 | 0.981 | Lasso | 1.240 | 0.422 | 0.981",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "table",
+      "html_class": "",
+      "token_count": 450,
+      "tag_name": "tbody",
+      "position": 323,
+      "merged_chunks": 111
+    }
+  },
+  {
+    "id": 161,
+    "content": "Notes: Military Spending refers to global annual defense expenditures in billions of U.S. dollars. GDP represents Gross Domestic Product in billions of U.S. dollars. R denotes the coefficient of determination, indicating model fit. Ridge and Lasso refer to regularized regression techniques applied to improve model generalization.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 48,
+      "tag_name": "p",
+      "position": 444
+    }
+  },
+  {
+    "id": 162,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 445
+    }
+  },
+  {
+    "id": 163,
+    "content": "We again report that for each year separately between 2016 and 2022 the country's currency enlisted in Foreign Exchange Reserves significantly depends on the country's Military Spending (MS) chosen to represent the country's size. The estimated highly statistically significant coefficient on military spending is in line with the Mars hypothesis. Among controlling variables, gold reserves significantly negatively depend on FER for some years, where it is not surprising that the coefficient is negative, since gold and money are competitors, which is vividly shown for Russia and China which dollars have been replacing with gold. Note that in contrast to China and Russia, developed western countries have decreased gold reserves during the last two decades. Table 4 shows that international trade is generally not a significant variable. Table 4 shows that FER significantly depends on the monetary instrument M2 for most of the years chosen (shown in Figs. 6 and 7). However, for each year shown, MS is more statistically significant than M2. Comparing Tables 3 and 4, we note that over time the inclusion of controlling variables reduces the coefficient β much faster than without controlling variables. Table 5 shows that standard errors are robust to heteroskedasticity.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 200,
+      "tag_name": "p",
+      "position": 446
+    }
+  },
+  {
+    "id": 164,
+    "content": "0",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 447
+    }
+  },
+  {
+    "id": 165,
+    "content": "Extrapolating the data on the RMB dummy coefficient in Table 4, when control variables are included, one can roughly predict that the RMB could reach an equilibrium with currencies from western countries in ≈ 40 years. Interestingly, when the M2 variable is omitted, we find that the RMB could reach an equilibrium in ≈ 15 years, a value closer to the one we obtained based on the data in Table 1.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 69,
+      "tag_name": "p",
+      "position": 448
+    }
+  },
+  {
+    "id": 166,
+    "content": "Table 4: Regression coefficients (standard errors) from log-log models estimating the relationship between Foreign Exchange Reserves (FER) and key macroeconomic variables.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 22,
+      "tag_name": "h3",
+      "position": 449,
+      "level": 3
+    }
+  },
+  {
+    "id": 167,
+    "content": "Year | β | MS | Gold | IT | M2 | CHN | R | 2022 | -3.04 (0.02) | 0.70 (0.00) | -0.18 (0.01) | 0.18 (0.06) | 0.66 (0.01) | -2.84 (0.00) | 1.00 | 0.60 (0.76) | 1.07 (0.01) | -0.13 (0.34) | 0.22 (0.56) | — | -2.21 (0.02) | 0.99 | 1.73 (0.02) | 1.15 (0.00) | -0.08 (0.38) | — | — | -2.14 (0.01) | 0.95 | 2021 | -3.09 (0.05) | 0.85 (0.01) | -0.24 (0.02) | 0.23 (0.13) | 0.57 (0.03) | 2.76 (0.00) | 1.00 | 2020 | -2.74 (0.19) | 0.91 (0.02) | -0.24 (0.07) | 0.22 (0.36) | 0.52 (0.09) | -2.86 (0.00) | 0.99 | 2019 | -2.77 (0.11) | 0.92 (0.01) | -0.22 (0.04) | 0.23 (0.21) | 0.49 (0.05) | -2.96 (0.00) | 0.99 | -0.03 (0.99) | 1.18 (0.00) | -0.17 (0.23) | 0.26 (0.49) | — | -2.53 (0.01) | — | 1.38 (0.02) | 1.27 (0.00) | -0.11 (0.24) | — | — | -2.49 (0.00) | — | 2018 | -2.62 (0.05) | 0.98 (0.00) | -0.21 (0.02) | 0.25 (0.09) | 0.43 (0.03) | -2.93 (0.00) | 1.00 | 2017 | -1.79 (0.05) | 0.99 (0.00) | -0.18 (0.01) | 0.23 (0.05) | 0.34 (0.02) | -3.21 (0.00) | 1.00 | 2016 | -1.53 (0.09) | 1.10 (0.00) | -0.22 (0.01) | 0.35 (0.03) | 0.14 (0.15) | -3.12 (0.00) | 1.00 | -0.81 (0.25) | 1.17 (0.00) | -0.21 (0.01) | 0.37 (0.04) | — | -3.00 (0.00) | 1.00 | -1.20 (0.01) | 1.28 (0.00) | -0.12 (0.10) | — | — | -2.95 (0.00) | 0.98 | Year | β | MS | Gold | IT | M2 | CHN | R | Year | β | MS | Gold | IT | M2 | CHN | R | Year | β",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "table",
+      "html_class": "",
+      "token_count": 331,
+      "tag_name": "table",
+      "position": 450,
+      "merged_chunks": 5
+    }
+  },
+  {
+    "id": 168,
+    "content": "0",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 455
+    }
+  },
+  {
+    "id": 169,
+    "content": "MS | Gold | IT | M2 | CHN | R",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "table",
+      "html_class": "",
+      "token_count": 6,
+      "tag_name": "th",
+      "position": 456,
+      "merged_chunks": 6
+    }
+  },
+  {
+    "id": 170,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 462
+    }
+  },
+  {
+    "id": 171,
+    "content": "2022 | -3.04 (0.02) | 0.70 (0.00) | -0.18 (0.01) | 0.18 (0.06) | 0.66 (0.01) | -2.84 (0.00) | 1.00 | 0.60 (0.76) | 1.07 (0.01) | -0.13 (0.34) | 0.22 (0.56) | — | -2.21 (0.02) | 0.99 | 1.73 (0.02) | 1.15 (0.00) | -0.08 (0.38) | — | — | -2.14 (0.01) | 0.95 | 2021 | -3.09 (0.05) | 0.85 (0.01) | -0.24 (0.02) | 0.23 (0.13) | 0.57 (0.03) | 2.76 (0.00) | 1.00 | 2020 | -2.74 (0.19) | 0.91 (0.02) | -0.24 (0.07) | 0.22 (0.36) | 0.52 (0.09) | -2.86 (0.00) | 0.99 | 2019 | -2.77 (0.11) | 0.92 (0.01) | -0.22 (0.04) | 0.23 (0.21) | 0.49 (0.05) | -2.96 (0.00) | 0.99 | -0.03 (0.99) | 1.18 (0.00) | -0.17 (0.23) | 0.26 (0.49) | — | -2.53 (0.01) | — | 1.38 (0.02) | 1.27 (0.00) | -0.11 (0.24) | — | — | -2.49 (0.00) | — | 2018 | -2.62 (0.05) | 0.98 (0.00) | -0.21 (0.02) | 0.25 (0.09) | 0.43 (0.03) | -2.93 (0.00) | 1.00 | 2017 | -1.79 (0.05) | 0.99 (0.00) | -0.18 (0.01) | 0.23 (0.05) | 0.34 (0.02) | -3.21 (0.00) | 1.00 | 2016 | -1.53 (0.09) | 1.10 (0.00) | -0.22 (0.01) | 0.35 (0.03) | 0.14 (0.15) | -3.12 (0.00) | 1.00 | -0.81 (0.25) | 1.17 (0.00) | -0.21 (0.01) | 0.37 (0.04) | — | -3.00 (0.00) | 1.00 | -1.20 (0.01) | 1.28 (0.00) | -0.12 (0.10) | — | — | -2.95 (0.00) | 0.98 | 2022 | -3.04 (0.02) | 0.70 (0.00) | -0.18 (0.01) | 0.18 (0.06) | 0.66 (0.01) | -2.84 (0.00) | 1.00 | 2022 | -3.04 (0.02) | 0.70 (0.00) | -0.18 (0.01) | 0.18 (0.06) | 0.66 (0.01) | -2.84 (0.00) | 1.00 | 0.60 (0.76) | 1.07 (0.01) | -0.13 (0.34) | 0.22 (0.56) | — | -2.21 (0.02) | 0.99 | 0.60 (0.76) | 1.07 (0.01) | -0.13 (0.34) | 0.22 (0.56) | — | -2.21 (0.02) | 0.99 | 1.73 (0.02) | 1.15 (0.00) | -0.08 (0.38) | — | — | -2.14 (0.01) | 0.95 | 1.73 (0.02) | 1.15 (0.00) | -0.08 (0.38) | — | — | -2.14 (0.01) | 0.95 | 2021 | -3.09 (0.05) | 0.85 (0.01) | -0.24 (0.02) | 0.23 (0.13) | 0.57 (0.03) | 2.76 (0.00) | 1.00 | 2021 | -3.09 (0.05) | 0.85 (0.01) | -0.24 (0.02) | 0.23 (0.13) | 0.57 (0.03) | 2.76 (0.00) | 1.00 | 2020 | -2.74 (0.19) | 0.91 (0.02) | -0.24 (0.07) | 0.22 (0.36) | 0.52 (0.09) | -2.86 (0.00) | 0.99 | 2020 | -2.74 (0.19) | 0.91 (0.02) | -0.24 (0.07) | 0.22 (0.36) | 0.52 (0.09) | -2.86 (0.00) | 0.99 | 2019 | -2.77 (0.11) | 0.92 (0.01) | -0.22 (0.04) | 0.23 (0.21) | 0.49 (0.05) | -2.96 (0.00) | 0.99 | 2019 | -2.77 (0.11) | 0.92 (0.01) | -0.22 (0.04) | 0.23 (0.21) | 0.49 (0.05) | -2.96 (0.00) | 0.99 | -0.03 (0.99) | 1.18 (0.00) | -0.17 (0.23) | 0.26 (0.49) | — | -2.53 (0.01) | — | -0.03 (0.99) | 1.18 (0.00) | -0.17 (0.23) | 0.26 (0.49) | — | -2.53 (0.01) | — | 1.38 (0.02) | 1.27 (0.00) | -0.11 (0.24) | — | — | -2.49 (0.00) | — | 1.38 (0.02) | 1.27 (0.00) | -0.11 (0.24) | — | — | -2.49 (0.00) | — | 2018 | -2.62 (0.05) | 0.98 (0.00) | -0.21 (0.02) | 0.25 (0.09) | 0.43 (0.03) | -2.93 (0.00) | 1.00 | 2018 | -2.62 (0.05) | 0.98 (0.00) | -0.21 (0.02) | 0.25 (0.09) | 0.43 (0.03) | -2.93 (0.00) | 1.00 | 2017 | -1.79 (0.05) | 0.99 (0.00) | -0.18 (0.01) | 0.23 (0.05) | 0.34 (0.02) | -3.21 (0.00) | 1.00 | 2017 | -1.79 (0.05) | 0.99 (0.00) | -0.18 (0.01) | 0.23 (0.05) | 0.34 (0.02) | -3.21 (0.00) | 1.00 | 2016 | -1.53 (0.09) | 1.10 (0.00) | -0.22 (0.01) | 0.35 (0.03) | 0.14 (0.15) | -3.12 (0.00) | 1.00 | 2016 | -1.53 (0.09) | 1.10 (0.00) | -0.22 (0.01) | 0.35 (0.03) | 0.14 (0.15) | -3.12 (0.00) | 1.00 | -0.81 (0.25) | 1.17 (0.00) | -0.21 (0.01) | 0.37 (0.04) | — | -3.00 (0.00) | 1.00 | -0.81 (0.25) | 1.17 (0.00) | -0.21 (0.01) | 0.37 (0.04) | — | -3.00 (0.00) | 1.00 | -1.20 (0.01) | 1.28 (0.00) | -0.12 (0.10) | — | — | -2.95 (0.00) | 0.98 | -1.20 (0.01) | 1.28 (0.00) | -0.12 (0.10) | — | — | -2.95 (0.00) | 0.98",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "table",
+      "html_class": "",
+      "token_count": 915,
+      "tag_name": "tbody",
+      "position": 463,
+      "merged_chunks": 112
+    }
+  },
+  {
+    "id": 172,
+    "content": "Notes: MS = Military Spending; Gold = Gold Reserves; IT = International Trade (exports + imports); M2 = Broad money supply; CHN = Share of Chinese RMB in global reserves. All variables are expressed in logarithmic form and in billions of U.S. dollars. Coefficients are shown with standard errors in parentheses. R indicates model fit. Rows without a year are alternate specifications for the same year.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 61,
+      "tag_name": "p",
+      "position": 581
+    }
+  },
+  {
+    "id": 173,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 582
+    }
+  },
+  {
+    "id": 174,
+    "content": "Table 5: Results of Breusch-Pagan (LM) and F-tests for heteroskedasticity in residuals from FER regression models, 2016–2022.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 20,
+      "tag_name": "h3",
+      "position": 583,
+      "level": 3
+    }
+  },
+  {
+    "id": 175,
+    "content": "Year | LM Statistic | LM p-value | F-statistic | F p-value | 2022 | 7.813 | 0.166 | 16.73 | 0.057 | 2021 | 4.325 | 0.503 | 0.471 | 0.785 | 2020 | 5.632 | 0.344 | 0.952 | 0.583 | 2019 | 5.944 | 0.312 | 1.156 | 0.524 | 2018 | 4.540 | 0.475 | 0.525 | 0.757 | 2017 | 4.666 | 0.458 | 0.559 | 0.740 | 2016 | 0.940 | 0.967 | 0.053 | 0.995 | Year | LM Statistic | LM p-value | F-statistic | F p-value | Year | LM Statistic | LM p-value | F-statistic | F p-value | Year | LM Statistic | LM p-value | F-statistic | F p-value | 2022 | 7.813 | 0.166 | 16.73 | 0.057 | 2021 | 4.325 | 0.503 | 0.471 | 0.785 | 2020 | 5.632 | 0.344 | 0.952 | 0.583 | 2019 | 5.944 | 0.312 | 1.156 | 0.524 | 2018 | 4.540 | 0.475 | 0.525 | 0.757 | 2017 | 4.666 | 0.458 | 0.559 | 0.740 | 2016 | 0.940 | 0.967 | 0.053 | 0.995 | 2022 | 7.813 | 0.166 | 16.73 | 0.057 | 2022 | 7.813 | 0.166 | 16.73 | 0.057 | 2021 | 4.325 | 0.503 | 0.471 | 0.785 | 2021 | 4.325 | 0.503 | 0.471 | 0.785 | 2020 | 5.632 | 0.344 | 0.952 | 0.583 | 2020 | 5.632 | 0.344 | 0.952 | 0.583 | 2019 | 5.944 | 0.312 | 1.156 | 0.524 | 2019 | 5.944 | 0.312 | 1.156 | 0.524 | 2018 | 4.540 | 0.475 | 0.525 | 0.757 | 2018 | 4.540 | 0.475 | 0.525 | 0.757 | 2017 | 4.666 | 0.458 | 0.559 | 0.740 | 2017 | 4.666 | 0.458 | 0.559 | 0.740 | 2016 | 0.940 | 0.967 | 0.053 | 0.995 | 2016 | 0.940 | 0.967 | 0.053 | 0.995",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "table",
+      "html_class": "",
+      "token_count": 296,
+      "tag_name": "table",
+      "position": 584,
+      "merged_chunks": 51
+    }
+  },
+  {
+    "id": 176,
+    "content": "Notes: The LM (Lagrange Multiplier) and F-statistics test for heteroskedasticity in the residuals of regression models. A p-value greater than 0.05 suggests failure to reject the null hypothesis of homoskedasticity. Across all years from 2016 to 2022, results indicate no significant evidence of heteroskedasticity at the 5% significance level.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 52,
+      "tag_name": "p",
+      "position": 635
+    }
+  },
+  {
+    "id": 177,
+    "content": "[Image: Deposit of gold in a set of BRICS countries, together with the U.S.] (path/to/figure6.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 19,
+      "tag_name": "img",
+      "position": 637
+    }
+  },
+  {
+    "id": 178,
+    "content": "Figure 6: Deposit of gold in a set of BRICS countries, together with the U.S.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 16,
+      "tag_name": "figcaption",
+      "position": 638
+    }
+  },
+  {
+    "id": 179,
+    "content": "5.2 Model",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 3,
+      "tag_name": "h2",
+      "position": 639,
+      "level": 2
+    }
+  },
+  {
+    "id": 180,
+    "content": "In globalization, China has probably benefited the most, and since approximately 1994, when China began to open up, its economic growth has been incredibly fast, in a way comparable to the growth of America in the nineteenth century. As a country grows economically, especially through international trade, more and more countries are using its currency. As China's GDP approaches the US GDP, especially measured in the PPP, the probability of geopolitical motives such as trade wars and tariffs starts to increase because the country that introduced globalization will not allow another country to overtake its primacy as a world economic leader. Namely, a country that would achieve the same GDP and then even larger GDP than the U.S:, especially in PPP terms, would be in position to invest more money than the U.S. in the military, research and science, and as time passes, then that country would naturally become a new world leader. As we stated in the introductory part of the paper, there is a reason why there is no place on Earth where tigers and lions live together because they are predators of the same level.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 191,
+      "tag_name": "p",
+      "position": 640
+    }
+  },
+  {
+    "id": 181,
+    "content": "Similarly as in the living world where if lions and tigers met randomly, they would tear each other apart, in geopolitics, in order to preserve its primacy, the most powerful country in the world imposes geopolitical tools through sanctions and tariffs against the rising competing rival. However, as a countermeasure, the competing country also uses geopolitical tools and even initiates geopolitical tools in an economic war. If a particular country is a competitor, it will not help the economy of different geopolitical blocs by saving in their currency and using it in trades with other countries. The introduction of tariffs and sanctions is an example of different geopolitical tools to increase country's geopolitical position.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 115,
+      "tag_name": "p",
+      "position": 641
+    }
+  },
+  {
+    "id": 182,
+    "content": "We model the global monetary system as an undirected network G = (V, E) consisting of N = 195 sovereign states, represented as nodes. Each edge (i, j) ∈ E denotes economic interactions: trade flows, financial interdependencies, or strategic partnerships. Node 0 is assigned to the United States (USD) while nodes 1 and 2 represent a set of geopolitical rivals, China and Russia, explicitly assigned their own currencies (CNY, RUB) and economic growth characteristics. The remaining nodes (3–194) represent independent states, initially dollarized but subject to network contagion-driven dedollarization. Each country i maintains three dynamic state variables: a GDP time series GDP (m), a dedollarization level d (m) ∈ [0,1], and a primary currency label c (m) ∈ {USD, CNY, RUB}. We initialize GDP trajectories using historical annual data (2010 to the latest available year) for the United States, China, and Russia, which we interpolate to a monthly frequency. Beyond empirical observations, each core series is extrapolated using fixed annual growth rates: 2% for the U.S., 3% for China, and 1% for Russia, converted to equivalent monthly growth factors. For peripheral states, we draw the initial GDPs from a Pareto distribution with shape parameter α = 2.5 and scale x = 0.5 × 10 , a choice motivated by the heavy-tailed heterogeneous size distribution observed in real-world country GDPs, and then apply a uniform annual growth rate 2% (also converted to a monthly factor). The network employs a hub-and-spoke topology with the U.S. (node 0) at its center. Each non-U.S. node connects directly to the U.S. Additional peer-to-peer edges are introduced among non-U.S. countries to achieve a minimum degree of ten, with probabilities proportional to their GDP. Thus, larger economies exhibit greater centrality. We have found that GDP and military spending correlate with a surprisingly high R , suggesting that GDP serves as an excellent proxy for military spending. In other words, based on the analysis of Clements et al. (2021), there is a general convergence to a steady state of military spending as a share of GDP between countries. Therefore, implicitly in our analysis, GDP growth also represents a proportionally growth of military spending. Based on this finding, we assume in the model that GDP and military spending are linearly dependent, such that MS = γ · GDP. Thus, in our model, GDP effectively serves as a proxy for military spending.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 398,
+      "tag_name": "p",
+      "position": 642
+    }
+  },
+  {
+    "id": 183,
+    "content": "i",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 643
+    }
+  },
+  {
+    "id": 184,
+    "content": "i",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 644
+    }
+  },
+  {
+    "id": 185,
+    "content": "i",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 645
+    }
+  },
+  {
+    "id": 186,
+    "content": "min",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 646
+    }
+  },
+  {
+    "id": 187,
+    "content": "12",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 647
+    }
+  },
+  {
+    "id": 188,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 648
+    }
+  },
+  {
+    "id": 189,
+    "content": "[Image: Deposit of gold in a set of developed countries.] (path/to/figure7.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 14,
+      "tag_name": "img",
+      "position": 650
+    }
+  },
+  {
+    "id": 190,
+    "content": "Figure 7: Deposit of gold in a set of developed countries.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 11,
+      "tag_name": "figcaption",
+      "position": 651
+    }
+  },
+  {
+    "id": 191,
+    "content": "Precisely, we model the international economic system started with the fall of socialism when globalization gained its momentum and many countries including China began their rapid growth. During the period of globalization, the world FER market was in a state of equilibrium or at least quasi-equilibrium, where only the currencies of developed Western democracies were being used for the savings of all countries. However, in the model, we hypothesize that as China approaches the US in terms of GDP, the probability that the U.S. will respond with geopolitical moves such as sanctions, reduction of imports from China, ban of chip exports, and tariffs ramps up, where as a response China automatically responds with de-dollarization. In agreement with this hypothesis, Fig. 8 shows how USA imports from China grew continuously for years until China reached the American GDP in terms of purchasing power. We further hypothesize that if the public debt interest of the global leader exceeds its military spending, it leads to a declining confidence in the global leader currency in agreement with Ferguson's law which states that any great power that spends more on debt than on military spending risks ceasing to be a great power.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 201,
+      "tag_name": "p",
+      "position": 652
+    }
+  },
+  {
+    "id": 192,
+    "content": "[Image: Yearly U.S. imports of goods from China, reported on a customs basis in millions of U.S. dollars.] (path/to/figure8.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 24,
+      "tag_name": "img",
+      "position": 654
+    }
+  },
+  {
+    "id": 193,
+    "content": "Figure 8: Yearly U.S. imports of goods from China, reported on a customs basis in millions of U.S. dollars.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 21,
+      "tag_name": "figcaption",
+      "position": 655
+    }
+  },
+  {
+    "id": 194,
+    "content": "We set the constraint that the U.S., as a global leader, wants to preserve its economic dominance and is eager to respond using economic terms if the country's GDP of any US rival approaches the U.S. GDP. Therefore, a dedollarization cascade begins at the time t , when China's GDP first surpasses that of the U.S. Prior to this point, independent nodes are fully dollarized (d (t) = 0). In addition, as we discovered in the empirical part of the research, dedollarization is perhaps an inappropriate name for the financial process in which the FER market mainly due to Chinese RMB simply moves from one equilibrium level to the next one. We model this tendency towards a new FER equilibrium by postulating that for simplicity reason, after t , dedollarization pressures initiate with maximum intensity, linearly decaying over a horizon of L = 180 months:",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 146,
+      "tag_name": "p",
+      "position": 656
+    }
+  },
+  {
+    "id": 195,
+    "content": "*",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 0,
+      "tag_name": "sup",
+      "position": 657
+    }
+  },
+  {
+    "id": 196,
+    "content": "i",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 658
+    }
+  },
+  {
+    "id": 197,
+    "content": "*",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 0,
+      "tag_name": "sup",
+      "position": 659
+    }
+  },
+  {
+    "id": 198,
+    "content": "δ(t) = max (0, 1 - max(0,t-t )/L)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 10,
+      "tag_name": "p",
+      "position": 660
+    }
+  },
+  {
+    "id": 199,
+    "content": "*",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 0,
+      "tag_name": "sup",
+      "position": 661
+    }
+  },
+  {
+    "id": 200,
+    "content": "where in agreement with our findings, it takes 15 years (or 180 months) to reach a new equilibrium. Two contagion mechanisms operate simultaneously after t :",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 25,
+      "tag_name": "p",
+      "position": 662
+    }
+  },
+  {
+    "id": 201,
+    "content": "*",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 0,
+      "tag_name": "sup",
+      "position": 663
+    }
+  },
+  {
+    "id": 202,
+    "content": "• In the model, when China's GDP first surpasses U.S. GDP at time t , the U.S. triggers sanctions and imposes restrictions on the U.S. market (see Fig. 8). In response, China initiates dedollarization (see Fig. 1). Each node independently undergoes dedollarization increments with probability p (t) = 0.02 δ(t), representing idiosyncratic economic shocks or policy decisions.\n• Nodes are influenced by their economic neighbors (excluding the U.S.). Let d̄(t) represent the average level of dedollarization of the neighbors of node i. If d̄(t) ≥ 0.25 and the US debt service obligations exceed its military spending, node i experiences a similar random dedollarization increase with probability p(t) = 0.008 δ(t). In this context, the military power of the U.S., as reflected in its fiscal capacity, affects the willingness of other countries to move away from the dollar in their savings and possibly in trade.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 152,
+      "tag_name": "ul",
+      "position": 664,
+      "list_type": "ul"
+    }
+  },
+  {
+    "id": 203,
+    "content": "In the model, when China's GDP first surpasses U.S. GDP at time t , the U.S. triggers sanctions and imposes restrictions on the U.S. market (see Fig. 8). In response, China initiates dedollarization (see Fig. 1). Each node independently undergoes dedollarization increments with probability p (t) = 0.02 δ(t), representing idiosyncratic economic shocks or policy decisions.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 60,
+      "tag_name": "li",
+      "position": 665
+    }
+  },
+  {
+    "id": 204,
+    "content": "Inherent Shocks:",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "strong",
+      "position": 666
+    }
+  },
+  {
+    "id": 205,
+    "content": "*",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 0,
+      "tag_name": "sup",
+      "position": 667
+    }
+  },
+  {
+    "id": 206,
+    "content": "0",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 668
+    }
+  },
+  {
+    "id": 207,
+    "content": "Nodes are influenced by their economic neighbors (excluding the U.S.). Let d̄(t) represent the average level of dedollarization of the neighbors of node i. If d̄(t) ≥ 0.25 and the US debt service obligations exceed its military spending, node i experiences a similar random dedollarization increase with probability p(t) = 0.008 δ(t). In this context, the military power of the U.S., as reflected in its fiscal capacity, affects the willingness of other countries to move away from the dollar in their savings and possibly in trade.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 92,
+      "tag_name": "li",
+      "position": 669
+    }
+  },
+  {
+    "id": 208,
+    "content": "Neighbor Influence:",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "strong",
+      "position": 670
+    }
+  },
+  {
+    "id": 209,
+    "content": "When the dedollarization of a node exceeds 0.5 and remains labeled USD, it adopts the most common alternative currency (CNY or RUB) among its neighbors. In bonds, assignment occurs randomly with equal probability. Finally, after 180 steps, the system reaches a new FER equilibrium.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 45,
+      "tag_name": "p",
+      "position": 671
+    }
+  },
+  {
+    "id": 210,
+    "content": "In order to explore the predictive power of the network model for instance where we could expect a new FER equilibrium in the future, for simplicity's sake, let's assume that at the beginning of simulations each country saves equally in dollars, with fraction say 0.56. As we have information about GDP for each country i, it makes sense to assume that savings in dollars are some fraction of GDP, say FER = βGDP. For a given set of network parameters, at each step we know how many countries, accepted dedollarization either inherently or externally. In the model, when a country inherently or externally accepts dedollarization, it is randomly assigned the extent to which it accepts dedollarization, where it is any fraction between 0 and the FER fraction of dollar savings f in that step. Then at the following step we calculate the time dependent fraction of FER in dollars f .",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 152,
+      "tag_name": "p",
+      "position": 672
+    }
+  },
+  {
+    "id": 211,
+    "content": "i",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 673
+    }
+  },
+  {
+    "id": 212,
+    "content": "t",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 674
+    }
+  },
+  {
+    "id": 213,
+    "content": "t+1",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "sub",
+      "position": 675
+    }
+  },
+  {
+    "id": 214,
+    "content": "Each simulation step includes a monetary expansion event, wherein the United States injects a fixed quantity of dollars (M ) into the global economy. These dollars are distributed among dollarized countries proportionally to their GDP, simulating the global spread of US liquidity through trade and finance. The effective inflation rate faced by the United States is computed as:",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 57,
+      "tag_name": "p",
+      "position": 676
+    }
+  },
+  {
+    "id": 215,
+    "content": "printed",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 677
+    }
+  },
+  {
+    "id": 216,
+    "content": "I = I / (1-f)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "p",
+      "position": 678
+    }
+  },
+  {
+    "id": 217,
+    "content": "eff",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 679
+    }
+  },
+  {
+    "id": 218,
+    "content": "base",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 680
+    }
+  },
+  {
+    "id": 219,
+    "content": "where f denotes the fraction of countries that are partially or fully dedollarized. As f → 1, inflation rises asymptotically, simulating the collapse of global dollar demand. The interest payments on US public debt increase proportionally with monetary expansion, adding fiscal stress and feedback into the external de-dollarization mechanism. This interaction captures a potential tipping point, where fiscal irresponsibility may directly undermine global trust in the USD.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 67,
+      "tag_name": "p",
+      "position": 681
+    }
+  },
+  {
+    "id": 220,
+    "content": "To assess the robustness of our dedollarization framework under stochastic variability, we perform R = 100 independent Monte Carlo runs. Each run generates time series for the global dedollarization fraction, the effective U.S. inflation rate, and the currency-share per country. From these values we compute ensemble averages. To analyze system evolution, the model tracks several macroeconomic indicators over time, including:",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 61,
+      "tag_name": "p",
+      "position": 682
+    }
+  },
+  {
+    "id": 221,
+    "content": "• The average dedollarization score across all countries.\n• The effective US inflation rate.\n• The distribution of global currencies (USD, CNY, RUB).\n• US public debt interest burden.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 25,
+      "tag_name": "ul",
+      "position": 683,
+      "list_type": "ul"
+    }
+  },
+  {
+    "id": 222,
+    "content": "The average dedollarization score across all countries.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 7,
+      "tag_name": "li",
+      "position": 684
+    }
+  },
+  {
+    "id": 223,
+    "content": "The effective US inflation rate.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 5,
+      "tag_name": "li",
+      "position": 685
+    }
+  },
+  {
+    "id": 224,
+    "content": "The distribution of global currencies (USD, CNY, RUB).",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 8,
+      "tag_name": "li",
+      "position": 686
+    }
+  },
+  {
+    "id": 225,
+    "content": "US public debt interest burden.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 5,
+      "tag_name": "li",
+      "position": 687
+    }
+  },
+  {
+    "id": 226,
+    "content": "5.3 Simulation Results",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "h2",
+      "position": 688,
+      "level": 2
+    }
+  },
+  {
+    "id": 227,
+    "content": "Snapshots of the network state are captured at multiple intervals to visualize structural transitions, such as the emergence of new currency blocs or the reduction of US-centric connectivity.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 29,
+      "tag_name": "p",
+      "position": 689
+    }
+  },
+  {
+    "id": 228,
+    "content": "The simulation's ensemble-mean dedollarization trajectory (Figure 9) exhibits three distinct regimes. In the first 60 time steps, the average dedollarization fraction remains at zero, reflecting the period prior to China's GDP overtaking that of the United States and before any contagion begins. Once the cascade is triggered, dedollarization spreads in an approximately linear fashion, climbing from zero to roughly 0.25 in the first 130 time steps. Thereafter the propagation accelerates slightly, reaching around 0.35 by step 150 and approaching 0.5 by step 220. This shape reflects the time-decaying contagion probability—which dampens new shocks over a 15-year horizon—and the cumulative effect of peer influence once a critical mass of neighbors has moved away from USD.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 124,
+      "tag_name": "p",
+      "position": 690
+    }
+  },
+  {
+    "id": 229,
+    "content": "[Image: The spread of de-dollarization (top) and its impact on US inflation (bottom).] (path/to/figure9.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 18,
+      "tag_name": "img",
+      "position": 692
+    }
+  },
+  {
+    "id": 230,
+    "content": "Figure 9: The spread of de-dollarization (top) and its impact on US inflation (bottom). As de-dollarization increases over time, US inflation also rises, indicating an economic feedback loop.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 30,
+      "tag_name": "figcaption",
+      "position": 693
+    }
+  },
+  {
+    "id": 231,
+    "content": "The corresponding inflation shock remains pinned at the base rate of 2% until the dedollarization cascade commences. Thereafter, effective U.S. inflation rises gradually—first to about 2.2% by step 100 and then accelerating to roughly 3% by step 150—before climbing more steeply to around 4% by step 220. This convex profile arises because inflation is modeled as",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 60,
+      "tag_name": "p",
+      "position": 694
+    }
+  },
+  {
+    "id": 232,
+    "content": "I = I / (1-f)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "p",
+      "position": 695
+    }
+  },
+  {
+    "id": 233,
+    "content": "eff",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 696
+    }
+  },
+  {
+    "id": 234,
+    "content": "base",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sub",
+      "position": 697
+    }
+  },
+  {
+    "id": 235,
+    "content": "so that as the dedollarization fraction f grows, marginal increases in f exert an ever-larger inflationary impact. The late-horizon uptick reflects both the saturation of dedollarization—and hence the divergence of the denominator—and the cumulative build-up of U.S. debt-service costs, which tightens the neighbor-influence channel and sustains upward pressure on π.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 58,
+      "tag_name": "p",
+      "position": 698
+    }
+  },
+  {
+    "id": 236,
+    "content": "In the currency-share series (Figure 10), the USD share begins at nearly 100% (1.0 on the vertical axis), then declines steadily, falling to approximately 75% by step 150, 60% by 2022, and stabilizing around 50% by 2028. The CNY emerges as the principal alternative, rising to about 10% share by step 100, 25% by step 180, and reaching roughly 40% by step 220. The RUB share grows more modestly—to about 10% by step 150—reflecting its more limited peer-to-peer influence and lower initial network centrality. Together these trajectories illustrate a multipolar currency regime in which China's renminbi captures the lion's share of dedollarized economies, while the ruble plays a secondary regional role.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 119,
+      "tag_name": "p",
+      "position": 699
+    }
+  },
+  {
+    "id": 237,
+    "content": "[Image: Ensemble-mean evolution of primary currency shares.] (path/to/figure10.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 12,
+      "tag_name": "img",
+      "position": 701
+    }
+  },
+  {
+    "id": 238,
+    "content": "Figure 10: Ensemble-mean evolution of primary currency shares. Following the dedollarization cascade onset, the USD's share (blue) declines steadily from near-unity to approximately 50 percent, while the CNY (orange) rises to about 40 percent and the RUB (green) to roughly 10 percent, signaling the emergence of a multipolar reserve-currency regime.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 54,
+      "tag_name": "figcaption",
+      "position": 702
+    }
+  },
+  {
+    "id": 239,
+    "content": "A snapshot of the network (Figure 11) makes these aggregate patterns concrete at the micro-level. Node 0 (the U.S.) remains an entrenched hub, but roughly half of the peripheral nodes have switched to CNY (red) and a smaller cluster to RUB (blue), leaving the remainder still pegged to USD (gray). CNY-adopting countries tend to cluster around node 1 (China) and among each other, forming contiguous red communities that show GDP-weighted attachment and neighbor-influence dynamics. RUB adopters likewise form local blue clusters around node 2 (Russia) and along Russian trade corridors. Gray nodes are increasingly isolated, connected mainly to the U.S. hub but lacking sufficient neighbor pressure to switch. The dense web of black edges makes partially dedollarized states remain structurally embedded in the broader network, suggesting that full fragmentation of U.S. centrality would require deeper and more widespread currency realignments.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 147,
+      "tag_name": "p",
+      "position": 703
+    }
+  },
+  {
+    "id": 240,
+    "content": "In the USD-only subgraph (Figure 12) we see roughly half of all countries still pegged to the dollar. This cluster remains extremely dense—most nodes are directly linked to the U.S. hub (node 0) and, thanks to the original \"hub-and-spoke\" plus peer-attachment construction, many of those peripheral nodes also maintain significant interconnections amongst themselves. Visually, the U.S. node sits dead-center with a spider-web of gray edges; the high local clustering and large average degree indicate that dollarized states still form a highly cohesive core. Even as other blocs emerge, these gray-pegged countries continue to enjoy robust mutual linkages.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 107,
+      "tag_name": "p",
+      "position": 704
+    }
+  },
+  {
+    "id": 241,
+    "content": "[Image: Network snapshot illustrating the micro-state of dedollarization contagion.] (path/to/figure11.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 14,
+      "tag_name": "img",
+      "position": 706
+    }
+  },
+  {
+    "id": 242,
+    "content": "Figure 11: Network snapshot illustrating the micro-state of dedollarization contagion. Gray nodes remain USD-pegged, red nodes have switched to CNY, and blue nodes to RUB. The U.S. hub (node 0) retains high centrality, while CNY and RUB adopters form contiguous clusters around China (node 1) and Russia (node 2), respectively.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 53,
+      "tag_name": "figcaption",
+      "position": 707
+    }
+  },
+  {
+    "id": 243,
+    "content": "[Image: USD-only subgraph (December 2027)] (path/to/figure12.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 10,
+      "tag_name": "img",
+      "position": 709
+    }
+  },
+  {
+    "id": 244,
+    "content": "Figure 12: USD-only subgraph (December 2027): Approximately half of all states remain dollar-pegged, forming a dense hub-and-spoke network with the U.S. at its center.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 29,
+      "tag_name": "figcaption",
+      "position": 710
+    }
+  },
+  {
+    "id": 245,
+    "content": "The CNY-only network (Figure 13) comprises the largest non-USD community. Compared to USD, this red cluster is somewhat sparser but still shows clear cohesion: many red nodes share edges with both China and one another, forming multiple overlapping triads. The elevated clustering coefficient here reflects regional or trade-corridor effects: once a country switches to CNY, it tends to bring along several of its neighbors. The CNY cluster's fairly uniform radial spread around node 1 (China) signals that renminbi adopters are not just direct Chinese trading partners but also peers of peers, creating a secondary core in the global network.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 103,
+      "tag_name": "p",
+      "position": 711
+    }
+  },
+  {
+    "id": 246,
+    "content": "By contrast, the RUB-only network (Figure 14) is much smaller—only a couple dozen nodes—and considerably more fragmented. Node 2 (Russia) serves as the focal point, yet many blue nodes lie at distance two or three, connected by only one or two edges. The average degree here is low, and the clustering coefficient is nearly zero outside Russia's immediate neighbors, indicating only small regional clusters rather than a broad-based community. In effect, the ruble's sphere remains limited: it captures a tight \"inner circle\" of Russian-aligned economies, but beyond that, adoption is too sparse to form a full structural core.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 105,
+      "tag_name": "p",
+      "position": 712
+    }
+  },
+  {
+    "id": 247,
+    "content": "[Image: CNY-only subgraph] (path/to/figure13.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 8,
+      "tag_name": "img",
+      "position": 714
+    }
+  },
+  {
+    "id": 248,
+    "content": "Figure 13: CNY-only subgraph: The largest non-USD community—centered on China (node 1). Although sparser than the USD network, it exhibits a robust clustering pattern, with many red nodes linked both to China and to one other.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 39,
+      "tag_name": "figcaption",
+      "position": 715
+    }
+  },
+  {
+    "id": 249,
+    "content": "[Image: RUB-only subgraph] (path/to/figure14.png)",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "image",
+      "html_class": "",
+      "token_count": 8,
+      "tag_name": "img",
+      "position": 717
+    }
+  },
+  {
+    "id": 250,
+    "content": "Figure 14: RUB-only subgraph: A small, regionally concentrated cluster surrounds Russia (node 2). Low average degree and minimal clustering beyond Russia's immediate neighbors indicate that the ruble's sphere of influence remains limited to a tight inner circle rather than a broad global core.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 46,
+      "tag_name": "figcaption",
+      "position": 718
+    }
+  },
+  {
+    "id": 251,
+    "content": "6 Discussion.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "h1",
+      "position": 719,
+      "level": 1
+    }
+  },
+  {
+    "id": 252,
+    "content": "Military spending serves not just to protect the country's borders, but in the case of the largest countries to protect the country's economic interests and vouch for stability when other countries are investing in its currency. In globalization, every nation competes with all others, and if it is more competitive, it has a chance to develop faster than the less competitive ones. Throughout the history we have seen how changes in military and economic power are interconnected, hence the importance of a leader's currency in the world trade. The UK's pound sterling was the primary reserve currency of the world in the 19th century and the first half of the 20th century. However, by the mid 20th century, the United States dollar had overtook pound sterling as the leading world's currency.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 136,
+      "tag_name": "p",
+      "position": 720
+    }
+  },
+  {
+    "id": 253,
+    "content": "Currently, the dollar's dominance as an international reserve currency correlates with the U.S. global military position and its role to guarantee the security of its allies. In this paper, inspired by Mars hypothesis Eichengreen et al. (2019) used to explain composition of FER, we report how the country's GDP and the country's MS highly correlates with the country's currency enlisted in Foreign Exchange Reserves (FER) (R always higher than 0.95), for a set of Western countries all characterized by liberal democracy, for each year over the past 20 years, supporting the hypothesis that these countries are presumably in an equilibrium state involving GDP, military spending and FER composition. Moreover, military spending explains slightly better than GDP this type of equilibrium.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 126,
+      "tag_name": "p",
+      "position": 721
+    }
+  },
+  {
+    "id": 254,
+    "content": "2",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "sup",
+      "position": 722
+    }
+  },
+  {
+    "id": 255,
+    "content": "However, in aforementioned equilibrium the Chinese RMB and the overall set of other currencies can be considered as outliers pushing the FER composition in the direction of a new equilibrium where the RMB will take the larger share. The Chinese RMB is currently well beyond the FER balance, but there is a steady trend towards a new FER balance. By assuming geopolitical relationships similar to those that have been present in the last 20 years, our analysis indicates a trend such that RMB could reach a new FER balance within 15 years. However, our prediction is just an extrapolation of past behavior, and we are perfectly aware that predictions on the FER currency composition have been shown to be wrong Chinn and Frankel (2008). In our network model changes to a different FER currency are mechanically connected to international trade. As certain country's share of international trade grows at an above average rate, its closest neighbors will trade more in its currency, so the growth of dedollarization in our model is implicitly related to the growth of international trade. Empirically, that was a significant feature of China's growth over the past few decades.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 195,
+      "tag_name": "p",
+      "position": 723
+    }
+  },
+  {
+    "id": 256,
+    "content": "In order to accept the RMB as a new alternative reserve currency, many experts believe that China should first substantially expand access to its financial market and, second, increase imports the same as the US did in order to offer dollars as a dominant reserve currency. Recently, the Chinese premier Li Qiang told in Shanghai during the annual China International Import Expo that China was committed to opening up its economy, where he speculated that Chinese imports of goods and services were predicted to be around 17 trillion dollars in the next five years. The potentially larger share of RMB in the FER pool implies the smaller share of other currencies.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 111,
+      "tag_name": "p",
+      "position": 724
+    }
+  },
+  {
+    "id": 257,
+    "content": "In addition to a gradual diversification of international reserves, an alternative scenario can lead to a partial or complete financial and economic breakdown between the United States and China according to Eichengreen (2024). In our model, when China's GDP surpasses that of the U.S., the U.S. reacts by imposing sanctions and tightening access to its domestic market. In response, China accelerates dedollarization efforts, a dynamic consistent with the patterns observed in recent empirical data. Data cannot be used to predict the possible outcome of the world economy, but our model results suggest that we are moving towards a new global multi-currency FER equilibrium, where the dedolarization level will depend not only on economic factors, but also on geopolitical factors and how US will be able to maintain good geopolitical ties with their allies, old and new.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "paragraph",
+      "html_class": "",
+      "token_count": 140,
+      "tag_name": "p",
+      "position": 725
+    }
+  },
+  {
+    "id": 258,
+    "content": "References",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "header",
+      "html_class": "",
+      "token_count": 1,
+      "tag_name": "h1",
+      "position": 726,
+      "level": 1
+    }
+  },
+  {
+    "id": 259,
+    "content": "• International monetary fund data portal. , 2024. Accessed April 2025.\n• Rashad Ahmed, Joshua Aizenman, Jamel Saadaoui, and Gazi Salah Uddin. On the effectiveness of foreign exchange reserves during the 2021-22 us monetary tightening cycle. , 233:111367, 2023.\n• Ahmed Alwadeai, Nataliia Vlasova, Hadi Mareeh, and Nadeem Aljonaid. Beyond traditional defenses: Unraveling the dynamics of reserves and exchange rate volatility in the face of economic sanctions. , 10(1):1–19, 2024.\n• Yavuz Arslan and Carlos Cantú. The size of foreign exchange reserves. , (104a), 2019.\n• Miriam Barnum, Christopher J Fariss, Jonathan N Markowitz, and Gaea Morales. Measuring arms: Introducing the global military spending dataset. , 69(2-3):540–567, 2025.\n• Menzie Chinn and Jeffrey Frankel. The euro may over the next 15 years surpass the dollar as the leading international currency. Working Paper 13909, National Bureau of Economic Research, 2008. Available at .\n• Livia Chitu, Barry Eichengreen, and Arnaud Mehl. When did the dollar overtake sterling as the leading international currency: Evidence from the bond markets. , 111:225–245, 2014.\n• B Clements, S Gupta, and S Khamidova. Military spending in the post-pandemic era: countries' efforts to secure a more peaceful world could have a positive economic effect. , 2021.\n• Michael Devereux and Shouyong Shi. Vehicle currency. , 54: 97–133, 2013.\n• Kathryn ME Dominguez, Yuko Hashimoto, and Takatoshi Ito. International reserves and the global financial crisis. , 88(2):388–406, 2012.\n• Barry Eichengreen. International finance and geopolitics. , 19: 84–100, 2024.\n• Barry Eichengreen and Marc Flandreau. The rise and fall of the dollar, or when did the dollar replace sterling as the leading reserve currency? Working Paper 14154, National Bureau of Economic Research, 2008.\n• Barry Eichengreen and Jeffrey Sachs. Exchange rates and economic recovery in the 1930s. , 45:925–946, 1985.\n• Barry Eichengreen and Jeffrey Sachs. Competitive devaluation and the great depression: A theoretical reassessment. , 22:67–71, 1986.\n• Barry Eichengreen, Arnaud Mehl, and Livia Chiţu. Mars or mercury? the geopolitics of international currency choice. , 34(98):315–363 2019.\n• Hiro Ito and Robert N McCauley. Currency composition of foreign exchange reserves. , 102:102104, 2020.\n• Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani, and Jonathan Taylor. . Springer Texts in Statistics. Springer New York, New York, NY, 2013.\n• Olivier Jeanne and Romain Rancière. The optimal level of international reserves for emerging market countries: A new formula and some applications. , 121 (555):905–930, 2011.\n• Paul Kennedy. . Fontana, London, 1989.\n• Robert G. King and Ross Levine. Finance and growth: Schumpeter might be right. , 108:717–737, 1993.\n• Paul Krugman. Vehicle currencies and the structure of international exchange. , 12:513–526, 1980.\n• Eduardo Levy-Yeyati and Juan Francisco Gómez. . Springer, 2020.\n• David Li and Linlin Liu. Rmb internationalization: An empirical analysis. , 11:1–16, 2008.\n• Kiminori Matsuyama, Nobuhiro Kiyotaki, and Akihiko Matsui. Toward a theory of international currency. , 60:283–307, 1993.\n• George Modelski and William R. Thompson. . Studies in International Relations. University of South Carolina Press, Columbia, SC, 1996.\n• Heidi Peltier. We get what we pay for: the cycle of military spending, industry power, and economic dependence. , 2023.\n• Richard Portes and Hélène Rey. The emergence of the euro as an international currency. , 13:307–343, 1998.\n• Dani Rodrik. The social cost of foreign exchange reserves. , 20 (3):253–266, 2006.\n• Christina D. Romer and David H. Romer. Federal reserve information and the behavior of interest rates. , 90(3):429–457, 2000.\n• Robert Triffin. . Yale University Press, New Haven, 1960.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 562,
+      "tag_name": "ul",
+      "position": 727,
+      "list_type": "ul"
+    }
+  },
+  {
+    "id": 260,
+    "content": "International monetary fund data portal. , 2024. Accessed April 2025.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 9,
+      "tag_name": "li",
+      "position": 728
+    }
+  },
+  {
+    "id": 261,
+    "content": "https://data.imf.org/?sk=e6a5f467-c14b-4aa8-9f6d-5a09ec4e62a4",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 10,
+      "tag_name": "a",
+      "position": 729
+    }
+  },
+  {
+    "id": 262,
+    "content": "Rashad Ahmed, Joshua Aizenman, Jamel Saadaoui, and Gazi Salah Uddin. On the effectiveness of foreign exchange reserves during the 2021-22 us monetary tightening cycle. , 233:111367, 2023.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 28,
+      "tag_name": "li",
+      "position": 730
+    }
+  },
+  {
+    "id": 263,
+    "content": "Economics Letters",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "em",
+      "position": 731
+    }
+  },
+  {
+    "id": 264,
+    "content": "Ahmed Alwadeai, Nataliia Vlasova, Hadi Mareeh, and Nadeem Aljonaid. Beyond traditional defenses: Unraveling the dynamics of reserves and exchange rate volatility in the face of economic sanctions. , 10(1):1–19, 2024.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 32,
+      "tag_name": "li",
+      "position": 732
+    }
+  },
+  {
+    "id": 265,
+    "content": "Russian Journal of Economics",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "em",
+      "position": 733
+    }
+  },
+  {
+    "id": 266,
+    "content": "Yavuz Arslan and Carlos Cantú. The size of foreign exchange reserves. , (104a), 2019.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 13,
+      "tag_name": "li",
+      "position": 734
+    }
+  },
+  {
+    "id": 267,
+    "content": "BIS paper",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "em",
+      "position": 735
+    }
+  },
+  {
+    "id": 268,
+    "content": "Miriam Barnum, Christopher J Fariss, Jonathan N Markowitz, and Gaea Morales. Measuring arms: Introducing the global military spending dataset. , 69(2-3):540–567, 2025.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 25,
+      "tag_name": "li",
+      "position": 736
+    }
+  },
+  {
+    "id": 269,
+    "content": "Journal of Conflict Resolution",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "em",
+      "position": 737
+    }
+  },
+  {
+    "id": 270,
+    "content": "Menzie Chinn and Jeffrey Frankel. The euro may over the next 15 years surpass the dollar as the leading international currency. Working Paper 13909, National Bureau of Economic Research, 2008. Available at .",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 32,
+      "tag_name": "li",
+      "position": 738
+    }
+  },
+  {
+    "id": 271,
+    "content": "http://www.nber.org/papers/w13909",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 6,
+      "tag_name": "a",
+      "position": 739
+    }
+  },
+  {
+    "id": 272,
+    "content": "Livia Chitu, Barry Eichengreen, and Arnaud Mehl. When did the dollar overtake sterling as the leading international currency: Evidence from the bond markets. , 111:225–245, 2014.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 27,
+      "tag_name": "li",
+      "position": 740
+    }
+  },
+  {
+    "id": 273,
+    "content": "Journal of Development Economics",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "em",
+      "position": 741
+    }
+  },
+  {
+    "id": 274,
+    "content": "B Clements, S Gupta, and S Khamidova. Military spending in the post-pandemic era: countries' efforts to secure a more peaceful world could have a positive economic effect. , 2021.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 29,
+      "tag_name": "li",
+      "position": 742
+    }
+  },
+  {
+    "id": 275,
+    "content": "Finance & Development",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "em",
+      "position": 743
+    }
+  },
+  {
+    "id": 276,
+    "content": "Michael Devereux and Shouyong Shi. Vehicle currency. , 54: 97–133, 2013.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 11,
+      "tag_name": "li",
+      "position": 744
+    }
+  },
+  {
+    "id": 277,
+    "content": "International Economic Review",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 3,
+      "tag_name": "em",
+      "position": 745
+    }
+  },
+  {
+    "id": 278,
+    "content": "Kathryn ME Dominguez, Yuko Hashimoto, and Takatoshi Ito. International reserves and the global financial crisis. , 88(2):388–406, 2012.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 20,
+      "tag_name": "li",
+      "position": 746
+    }
+  },
+  {
+    "id": 279,
+    "content": "Journal of International Economics",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "em",
+      "position": 747
+    }
+  },
+  {
+    "id": 280,
+    "content": "Barry Eichengreen. International finance and geopolitics. , 19: 84–100, 2024.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 10,
+      "tag_name": "li",
+      "position": 748
+    }
+  },
+  {
+    "id": 281,
+    "content": "Asian Economic Policy Review",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "em",
+      "position": 749
+    }
+  },
+  {
+    "id": 282,
+    "content": "Barry Eichengreen and Marc Flandreau. The rise and fall of the dollar, or when did the dollar replace sterling as the leading reserve currency? Working Paper 14154, National Bureau of Economic Research, 2008.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 33,
+      "tag_name": "li",
+      "position": 750
+    }
+  },
+  {
+    "id": 283,
+    "content": "Barry Eichengreen and Jeffrey Sachs. Exchange rates and economic recovery in the 1930s. , 45:925–946, 1985.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 17,
+      "tag_name": "li",
+      "position": 751
+    }
+  },
+  {
+    "id": 284,
+    "content": "Journal of Economic History",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "em",
+      "position": 752
+    }
+  },
+  {
+    "id": 285,
+    "content": "Barry Eichengreen and Jeffrey Sachs. Competitive devaluation and the great depression: A theoretical reassessment. , 22:67–71, 1986.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 18,
+      "tag_name": "li",
+      "position": 753
+    }
+  },
+  {
+    "id": 286,
+    "content": "Economics Letters",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "em",
+      "position": 754
+    }
+  },
+  {
+    "id": 287,
+    "content": "Barry Eichengreen, Arnaud Mehl, and Livia Chiţu. Mars or mercury? the geopolitics of international currency choice. , 34(98):315–363 2019.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 21,
+      "tag_name": "li",
+      "position": 755
+    }
+  },
+  {
+    "id": 288,
+    "content": "Economic Policy",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "em",
+      "position": 756
+    }
+  },
+  {
+    "id": 289,
+    "content": "Hiro Ito and Robert N McCauley. Currency composition of foreign exchange reserves. , 102:102104, 2020.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 15,
+      "tag_name": "li",
+      "position": 757
+    }
+  },
+  {
+    "id": 290,
+    "content": "Journal of International Money and Finance",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 6,
+      "tag_name": "em",
+      "position": 758
+    }
+  },
+  {
+    "id": 291,
+    "content": "Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani, and Jonathan Taylor. . Springer Texts in Statistics. Springer New York, New York, NY, 2013.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 22,
+      "tag_name": "li",
+      "position": 759
+    }
+  },
+  {
+    "id": 292,
+    "content": "An Introduction to Statistical Learning",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 5,
+      "tag_name": "em",
+      "position": 760
+    }
+  },
+  {
+    "id": 293,
+    "content": "Olivier Jeanne and Romain Rancière. The optimal level of international reserves for emerging market countries: A new formula and some applications. , 121 (555):905–930, 2011.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 26,
+      "tag_name": "li",
+      "position": 761
+    }
+  },
+  {
+    "id": 294,
+    "content": "The Economic Journal",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 3,
+      "tag_name": "em",
+      "position": 762
+    }
+  },
+  {
+    "id": 295,
+    "content": "Paul Kennedy. . Fontana, London, 1989.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 5,
+      "tag_name": "li",
+      "position": 763
+    }
+  },
+  {
+    "id": 296,
+    "content": "The Rise and Fall of the Great Powers: Economic Change and Military Conflict from 1500 to 2000",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 17,
+      "tag_name": "em",
+      "position": 764
+    }
+  },
+  {
+    "id": 297,
+    "content": "Robert G. King and Ross Levine. Finance and growth: Schumpeter might be right. , 108:717–737, 1993.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 17,
+      "tag_name": "li",
+      "position": 765
+    }
+  },
+  {
+    "id": 298,
+    "content": "Quarterly Journal of Economics",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "em",
+      "position": 766
+    }
+  },
+  {
+    "id": 299,
+    "content": "Paul Krugman. Vehicle currencies and the structure of international exchange. , 12:513–526, 1980.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 14,
+      "tag_name": "li",
+      "position": 767
+    }
+  },
+  {
+    "id": 300,
+    "content": "Journal of Money, Credit and Banking",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 6,
+      "tag_name": "em",
+      "position": 768
+    }
+  },
+  {
+    "id": 301,
+    "content": "Eduardo Levy-Yeyati and Juan Francisco Gómez. . Springer, 2020.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 9,
+      "tag_name": "li",
+      "position": 769
+    }
+  },
+  {
+    "id": 302,
+    "content": "The cost of holding foreign exchange reserves",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 7,
+      "tag_name": "em",
+      "position": 770
+    }
+  },
+  {
+    "id": 303,
+    "content": "David Li and Linlin Liu. Rmb internationalization: An empirical analysis. , 11:1–16, 2008.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 14,
+      "tag_name": "li",
+      "position": 771
+    }
+  },
+  {
+    "id": 304,
+    "content": "Journal of Financial Research",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "em",
+      "position": 772
+    }
+  },
+  {
+    "id": 305,
+    "content": "Kiminori Matsuyama, Nobuhiro Kiyotaki, and Akihiko Matsui. Toward a theory of international currency. , 60:283–307, 1993.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 17,
+      "tag_name": "li",
+      "position": 773
+    }
+  },
+  {
+    "id": 306,
+    "content": "Review of Economic Studies",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 4,
+      "tag_name": "em",
+      "position": 774
+    }
+  },
+  {
+    "id": 307,
+    "content": "George Modelski and William R. Thompson. . Studies in International Relations. University of South Carolina Press, Columbia, SC, 1996.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 18,
+      "tag_name": "li",
+      "position": 775
+    }
+  },
+  {
+    "id": 308,
+    "content": "Leading Sectors and World Powers: The Coevolution of Global Politics and Economics",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 12,
+      "tag_name": "em",
+      "position": 776
+    }
+  },
+  {
+    "id": 309,
+    "content": "Heidi Peltier. We get what we pay for: the cycle of military spending, industry power, and economic dependence. , 2023.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 19,
+      "tag_name": "li",
+      "position": 777
+    }
+  },
+  {
+    "id": 310,
+    "content": "Costs of War",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 3,
+      "tag_name": "em",
+      "position": 778
+    }
+  },
+  {
+    "id": 311,
+    "content": "Richard Portes and Hélène Rey. The emergence of the euro as an international currency. , 13:307–343, 1998.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 18,
+      "tag_name": "li",
+      "position": 779
+    }
+  },
+  {
+    "id": 312,
+    "content": "Economic Policy",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 2,
+      "tag_name": "em",
+      "position": 780
+    }
+  },
+  {
+    "id": 313,
+    "content": "Dani Rodrik. The social cost of foreign exchange reserves. , 20 (3):253–266, 2006.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 14,
+      "tag_name": "li",
+      "position": 781
+    }
+  },
+  {
+    "id": 314,
+    "content": "International economic journal",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 3,
+      "tag_name": "em",
+      "position": 782
+    }
+  },
+  {
+    "id": 315,
+    "content": "Christina D. Romer and David H. Romer. Federal reserve information and the behavior of interest rates. , 90(3):429–457, 2000.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 21,
+      "tag_name": "li",
+      "position": 783
+    }
+  },
+  {
+    "id": 316,
+    "content": "American Economic Review",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 3,
+      "tag_name": "em",
+      "position": 784
+    }
+  },
+  {
+    "id": 317,
+    "content": "Robert Triffin. . Yale University Press, New Haven, 1960.",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "list",
+      "html_class": "",
+      "token_count": 8,
+      "tag_name": "li",
+      "position": 785
+    }
+  },
+  {
+    "id": 318,
+    "content": "Gold and the Dollar Crisis",
+    "metadata": {
+      "name": "Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending",
+      "type": "unknown",
+      "html_class": "",
+      "token_count": 5,
+      "tag_name": "em",
+      "position": 786
+    }
+  }
+]

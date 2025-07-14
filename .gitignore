@@ -1,0 +1,11 @@
+# Ignore all _pycache_ folders
+__pycache__/
+venv/
+
+# Ignore all .env files
+.env
+
+# Ignore all experiments and tests
+experiments/
+tests/
+chroma_db/

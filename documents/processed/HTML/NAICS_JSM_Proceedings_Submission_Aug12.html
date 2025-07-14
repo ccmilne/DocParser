@@ -1,0 +1,591 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+        }
+        .authors {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .abstract, .keywords, .disclaimer {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        .keywords p strong {
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .figure-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .figure-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .figure-caption {
+            font-size: 0.9em;
+            margin-top: 5px;
+            color: #555;
+        }
+        .footnote {
+            font-size: 0.8em;
+            vertical-align: super;
+        }
+        .references {
+            font-size: 0.9em;
+        }
+        .references ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .references li {
+            margin-bottom: 10px;
+        }
+        .naics-definition {
+            display: flex;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #fefefe;
+        }
+        .naics-col {
+            flex: 1;
+            padding: 5px;
+        }
+        .naics-col.left {
+            border-right: 1px dashed #eee;
+        }
+        .naics-heading {
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .naics-item {
+            margin-bottom: 5px;
+        }
+        .naics-code-table {
+            width: auto;
+            margin: 0 auto; /* Center the table */
+        }
+        .naics-code-table th, .naics-code-table td {
+            padding: 4px 8px;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        .figure-1-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .individual-context, .combined-context {
+            border: 1px solid #eee;
+            padding: 10px;
+        }
+        .individual-context h4, .combined-context h4 {
+            text-align: center;
+            margin-top: 0;
+        }
+        .box {
+            border: 1px solid #aaa;
+            padding: 5px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            position: relative;
+        }
+        .box-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .inner-box {
+            border: 1px dashed #ddd;
+            padding: 5px;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        .label {
+            position: absolute;
+            top: -10px;
+            left: 5px;
+            background-color: #f9f9f9;
+            padding: 0 5px;
+            font-size: 0.8em;
+            color: #666;
+        }
+        .figure-1-content {
+            font-size: 0.85em;
+        }
+        .small-table {
+            font-size: 0.85em;
+        }
+        .list-indent {
+            margin-left: 20px;
+        }
+        .list-indent li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau</h1>
+
+    <div class="authors">
+        <p>Cameron Milne, Yezzi Angi Lee, Taylor Wilson, Hector Ferronato<br>
+        Reveal Global Consulting, 8115 Maple Lawn Blvd, Fulton, MD 27509</p>
+    </div>
+
+    <div class="abstract">
+        <h2>Abstract</h2>
+        <p>Large Language Models (LLMs) have achieved significant gains in performance over classical approaches in Information Retrieval (IR) systems. Semantic search, a concept involving a contextual understanding of a query, significantly outperforms its keyword predecessors in recent academic literature. This paper examines five research questions critical to an effective multi-stage retrieval pipeline: [1] how much better can dense embeddings perform over sparse embeddings? [2] what combination of context windows in an ensemble approach can maximize first-candidate generation? [3] among top performers in ensemble approaches, which approach can generate the highest accuracy scores when we increase k? [4] can a fast-reranking algorithm complement first-candidate generation to further boost accuracy? [5] can a cache of seen-before queries help boost performance where the corpus fails? This project designs a novel search engine for the North American Industry Classification System (NAICS) using semantic retrieval models and achieves an accuracy of 86.87% on synthetic data, a 45.1% improvement over a keyword search. The strategies for bootstrapping data, selecting language models, and using open-source technologies within this project can serve as reference material for future LLM applications in the U.S. Census Bureau.</p>
+    </div>
+
+    <div class="keywords">
+        <p><strong>Keywords</strong>: Large Language Models (LLMs), Semantic Search, Information Retrieval, Natural Language Processing (NLP), Federal Statistics</p>
+    </div>
+
+    <div class="disclaimer">
+        <p><em>All views expressed in this paper are those of the authors and do not necessarily reflect the views or policies of the U.S. Census Bureau.</em></p>
+    </div>
+
+    <section id="introduction">
+        <h2>1. Introduction</h2>
+        <p>The North American Industry Classification System (NAICS) is a standard developed jointly by the United States, Canada, and Mexico to better categorize and analyze data around their economies (United States Census Bureau 2019). NAICS was developed by the Office of Management and Budget (OMB) in 1997 to replace the Standard Industrial Classification (SIC) system with innovative classification methodologies for the purpose of supporting interoperability of economic classification between the U.S., Canada, and Mexico. Since 1997, NAICS has evolved through five-year review cycles to 1,012 unique codes within 20 sectors that group establishments by similarity in processes used to produce goods or services. Examples range from Soybean Farming (111110) comprising establishments primarily engaged in growing or producing soybeans to Used Merchandise Retailers (459510) which includes establishments retailing used merchandise, antiques, and secondhand goods. Common definitions for industries and economic sectors such as these have helped the U.S., Canada, and Mexico to understand economic inputs and outputs, industrial performance, productivity, unit labor costs, and employment growth in North America.</p>
+        <p>The U.S. Census Bureau offers a NAICS search engine<sup class="footnote">1</sup> on its website that employs string-matching: an information retrieval (IR) technique that identifies exact matches between a query and a corpus. This approach is supported by Bureau analysts who maintain detailed documentation of descriptions, illustrative examples, and cross-references that evolve with economic terminology. However, string-matching itself constrains user experience by failing to provide relevant documents when queries are lengthy or complex. As a result, Census classification analysts report 15-25% of their work hours are dedicated to assisting users over email and phone, impressing the need for more advanced tools to efficiently manage user queries.</p>
+        <p>Recent progress in instruction fine-tuned large language models (LLMs) is driving fast-paced advances in IR systems by transitioning from lexical search strategies to semantic search. Semantic search, where “semantic” meaning is given consideration through the underlying language model's self-attention mechanism, is more effective at handling ambiguity and delivering targeted results. Relatedly, the increasing availability of powerful language models on platforms like Hugging Face, inexpensive vector databases to replace NoSQL databases with faster indexing and querying, and evolving research around retrieval-augmented generation (RAG) have made development of customized search engines easier. These advancements present an opportunity for enhancing the retrieval tools available for analysts.</p>
+        <p>This paper introduces a NAICS search engine built on semantic retrieval models. Our project seeks to answer a few questions related to search: [RQ1] How much better can dense embeddings perform over sparse embeddings? [RQ2] What combination of context windows in an ensemble approach can maximize first-candidate generation? [RQ3] Among top performers in ensemble approaches, which approach can generate the highest accuracy scores when we increase k? [RQ4] Can a fast-reranking algorithm complement first-candidate generation to further boost accuracy? [RQ5] Can a cache of seen-before queries boost performance where the corpus fails? By performing a series of experiments, we draw conclusions on critical elements of a multi-stage retrieval pipeline for this use-case and provide a roadmap for improvement through data augmentation.</p>
+        <p>This project utilizes open-source, state-of-the-art technologies in machine learning and natural language processing, advancing the Federal government's efforts to embrace artificial intelligence (AI) initiatives while alleviating a taxing burden for human analysts in the U.S. Census Bureau. This paper aims to provide a framework for testing and deploying LLM applications for production in the Federal government.</p>
+    </section>
+
+    <section id="background">
+        <h2>2. Background and Related Work</h2>
+        <p>Retrievers and reranking are the primary objects of study for this project. Per standard parlance in IR, document generally refers to a unit of text being retrieved and can vary from a single keyword to multiple passages.</p>
+
+        <section id="retrievers">
+            <h3>2.1 Retrievers</h3>
+            <p>Given a corpus C = {D<sub>1</sub>, D<sub>2</sub>, ..., D<sub>n</sub>} containing a collection of documents and a query q, a retriever should efficiently return a list of k documents from C that are most relevant to the query q according to some metric relevant to the use-case. While researchers typically use nDCG or mean average precision to assess the performance of these systems, custom-use cases require different signals for relevance.</p>
+            <p>"Bag of word" models including TF-IDF and BM25 represent the classical approaches to retrieving relevant documents and have received interest in academia (Matveeva, et al. 2006, Wang, Lin and Metzler 2011, Asadi and Lin 2013, Chen, et al. 2017, Mackenzie, et al. 2018) as well as industry. Bing's search engine (Pedersen 2010) and Alibaba's ecommerce platform (Liu, et al. 2017) reportedly used these approaches in the early 2000s. These lexical approaches can perform modestly in first-stage candidate generation and serve as strong baselines for zero-shot retrieval (Thakur, et al. 2021), but can struggle to overcome lexical gaps (Berger, et al. 2000). Specifically, they are prone to returning false positives or irrelevant results when search terms have multiple interpretations.</p>
+            <p>Semantic search updates these methods through a few key differences: using dense representations typically learned from questions and passages by an encoder-encoder framework (Karpukhin, et al. 2020) and replacing the discrete inverted index with standard approximate nearest neighbor (ANN) to rely on distances between learned embeddings (Gillick, Presta and Singh Tomar 2018). Dual-encoder neural architectures using pre-trained transformers have shown strong performance on various open-domain question answering tasks (Guo, et al. 2020, Karpukhin, et al. 2020, Liang, et al. 2020, Ma, et al. 2020) and have become a promising framework for advanced IR systems. More recently, the dense approach was extended by hybrid lexical-dense approaches aiming to combine the strengths of both approaches and overcome any weaknesses in distance-based retrieval (Luan, et al. 2021, Raffel, et al. 2020, Gao, et al. 2021).</p>
+            <p>Relatedly, research on RAG architectures (Lewis, et al. 2020) have advanced IR research as well by exhaustively studying chunking approaches (Liu, et al. 2021, Izacard and Grave 2020, Gong, et al. 2020, Majumder, et al. 2021), lengths of context windows (Zaheer, et al. 2020, Borgeaud, et al. 2022, Izacard and Grave 2020), model selection (Kandpal, et al. 2023, Zhao, et al. 2024, Neelakantan, et al. 2022), and more. Results from these studies often depend on details specific to the use-case, necessitating a kitchen-sink strategy for experimentation in this project to understand where each of these variables should be tuned.</p>
+        </section>
+
+        <section id="reranking">
+            <h3>2.2 Reranking</h3>
+            <p>Reranking a collection of k documents after retrieval can often further improve the quality of documents retrieved using the same metric or an alternative (particularly useful when the first-candidate generation is through dense retrieval which automatically performs ranking). Retrievers and reranking together form multi-stage ranking pipelines for text ranking and have been studied in both IR and NLP contexts in recent years (Lin, Nogueira and Yates 2021).</p>
+            <p>Classical approaches to reranking, including Condorcet Fuse and Reciprocal Rank Fusion (RRF), have provided effective reranking for hybrid lexical-dense retrieval systems by combining results and recomputing based on predetermined weights (Cormack, Clarke and Buttcher 2009). Yet, these methods are LLM-agnostic and require hyperparameter tuning for optimal performance—a challenge when a project lacks reliable data for development.</p>
+            <p>Contextualized Late Interaction over BERT (ColBERT) is a novel reranking strategy that computes multiple contextualized embeddings at the token level for both queries and documents and uses a maximum-similarity function for retrieval or reranking (Thakur, et al. 2021). The priority on keywords, combined with applying the attention mechanism after encoding prevents the need for storing documents in a vector space until called upon (Khattab and Zaharia 2020). ColBERT can leverage the expressiveness of a power language model while performing orders-of-magnitude faster, suggesting a powerful complementary algorithm for dense retrieval.</p>
+            <p>LLMs have also been researched in the context of reranking, with RankGPT (Sun, et al. 2023), RankVicuna (Pradeep, Sharifymoghaddam and Lin, RankVicuna: Zero-Shot Listwise Document Reranking with Open-Source Large Language Models 2023), and RankZephyr (Pradeep, Sharifymoghaddam and Lin, RankZephyr: Effective and Robust Zero-Shot Listwise Reranking is a Breeze! 2023) demonstrating strong reasoning capabilities with applied prompt engineering. However, this project aims to provide a self-service platform where analysts can interact with the search engine directly, necessitating fast inference. Given these constraints, we elected to experiment without seq2seq models as rerankers.</p>
+        </section>
+    </section>
+
+    <section id="proposed-methods">
+        <h2>3. Proposed Methods</h2>
+        <p>We explore each component of a multi-stage retrieval pipeline: assembling a corpus, model selection, reranking design, and generating synthetic testing data.</p>
+
+        <div class="figure-container">
+            <p class="figure-caption">Figure 1: Example document with annotations for proposed context windows</p>
+            <div class="figure-1-layout">
+                <div class="individual-context">
+                    <h4>Individual Context Windows</h4>
+                    <div class="box">
+                        <span class="label">2022 NAICS Definition</span>
+                        <p class="figure-1-content">T = Canadian, Mexican, and United States industries are comparable.</p>
+                        <p class="figure-1-content"><strong>624190 Other Individual and Family Services</strong></p>
+                    </div>
+                    <div class="box">
+                        <span class="label">Code, Title</span>
+                        <p class="figure-1-content">This industry comprises establishments primarily engaged in providing nonresidential individual and family social assistance services (except those specifically directed toward children, the elderly, or persons with intellectual and/or developmental disabilities).</p>
+                    </div>
+                    <div class="box">
+                        <span class="label">Description</span>
+                        <div class="inner-box">
+                            <p class="figure-1-content">Illustrative Examples:</p>
+                            <ul class="list-indent">
+                                <li>Community action services agencies</li>
+                                <li>Marriage counseling services (except by offices of mental health practitioners)</li>
+                                <li>Crisis intervention centers</li>
+                                <li>Multi-purpose social services centers</li>
+                                <li>Family social services agencies</li>
+                                <li>Family welfare services</li>
+                                <li>Self-help organizations (except for disabled persons, the elderly)</li>
+                                <li>Suicide crisis centers</li>
+                                <li>Hotline centers</li>
+                                <li>Telephone counseling services</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <span class="label">Illustrative Examples</span>
+                        <div class="inner-box">
+                            <p class="figure-1-content">Cross-References. Establishments primarily engaged in—</p>
+                            <ul class="list-indent">
+                                <li>Providing clinical psychological and psychiatric counseling services (except by offices of physicians)—are classified in Industry 621330, Offices of Mental Health Practitioners (except Physicians);</li>
+                                <li>Providing child and youth social assistance services (except child care services)—are classified in Industry 624110, Child and Youth Services;</li>
+                                <li>Providing child care services—are classified in Industry 624410, Child Care Services;</li>
+                                <li>Providing social assistance services for the elderly and persons with intellectual and/or developmental disabilities—are classified in Industry 624120, Services for the Elderly and Persons with Disabilities;</li>
+                                <li>Community action advocacy—are classified in U.S. Industry 813319, Other Social Advocacy Organizations; and</li>
+                                <li>Providing in-home health care services—are classified in Subsector 621, Ambulatory Health Care Services.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <span class="label">Cross References</span>
+                        <div class="inner-box">
+                            <table class="naics-code-table">
+                                <thead>
+                                    <tr>
+                                        <th>2012 NAICS</th>
+                                        <th>2017 NAICS</th>
+                                        <th>2022 NAICS</th>
+                                        <th>Corresponding Index Entries</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>624190</td><td>624190</td><td>624190</td><td>Alcoholism and drug addiction self-help organizations</td></tr>
+                                    <tr><td>624190</td><td>624190</td><td>624190</td><td>Alcohollism counseling (except medical treatment), nonresidential</td></tr>
+                                    <tr><td>624190</td><td>624190</td><td>624190</td><td>Alcoholism self-help organizations</td></tr>
+                                    <tr><td>624190</td><td>624190</td><td>624190</td><td>Community action service agencies</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <span class="label">Indexed Keywords</span>
+                    </div>
+                </div>
+
+                <div class="combined-context">
+                    <h4>Combined Context Windows</h4>
+                    <div class="box">
+                        <span class="label">Title + Description</span>
+                    </div>
+                    <div class="box">
+                        <span class="label">Title: Description + Illustrative Examples</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <section id="corpus">
+            <h3>3.1 Corpus</h3>
+            <p>All documents containing information associated with the 1,012 unique NAICS codes are publicly available on the U.S. Census Bureau's website. Files of particular interest were the 2022 NAICS Descriptions containing Codes, Titles, Descriptions, and Illustrative Examples, the 2022 NAICS Cross-References, and the 2022 NAICS Index File which contains indexed keywords. From these files, they are chunked into their context windows and stored in a vector database. Because each document was reasonably small (including combined context windows), chunking size experimentation was unnecessary.</p>
+            <p>Seven documents (i.e. context windows) are used for experimentation. Individual context windows such as Title (T), Description (D), Illustrative Examples (IE), Cross-References (CR), and Indexed Keywords (IK) when used in combination represent a complementary ensemble approach. Additional context windows are combinations of these sections: Title + Description (T-D) and Title + Description + Illustrative Examples (T-D-IE). By using these sections in addition to the individual context windows, we can examine whether overlapping information helps home in on the best answers or crowds them out. Figure 2 provides an example of an existing document as seen on the legacy NAICS search engine with annotations of each context used in the experiments.</p>
+            <p>Additionally, we hypothesize that where semantic relationships are weak between queries and existing documents, a caching mechanism where historical queries are stored can help address edge cases. The cache is a sample of 679 annotated emails representing “real” queries supplied by Census analysts. The original sample contained 1,910 emails and had been stripped of any personally identifiable information. Pruning unrelated emails (general inquiries, emails lacking business descriptions, non-English, 2017 NAICS codes, etc.) left 1,291 emails, which were then denoised with Zephyr-7b-Beta (Tunstall, et al. 2023), a seq2seq model available on Hugging Face using a prompt that extracts the sentence or two where a business description is mentioned. Removing unnecessary language was crucial for improving signal in prediction and altering queries towards those expected by a search engine. From there, we performed our own annotations and removed any descriptions that evaded previous filters for relevant queries or consisted of typos and incomplete thoughts. The resulting cache consisted of 679 unique queries representing 25.59% of all unique 2022 NAICS codes. Table 2 displays the most frequently seen NAICS codes.</p>
+
+            <table class="small-table">
+                <caption>Table 2: Most Frequently seen NAICS codes in Cache</caption>
+                <thead>
+                    <tr>
+                        <th>Count</th>
+                        <th>Code</th>
+                        <th>Title</th>
+                        <th>Sector</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>37</td><td>458110</td><td>Clothing and Clothing Accessories Retailers</td><td>Retail Trade</td></tr>
+                    <tr><td>32</td><td>459999</td><td>All Other Miscellaneous Retailers</td><td>Retail Trade</td></tr>
+                    <tr><td>29</td><td>812990</td><td>All Other Personal Services</td><td>Other Services (except Public Administration)</td></tr>
+                    <tr><td>20</td><td>711510</td><td>Independent Artists, Writers, and Performers</td><td>Arts, Entertainment, and Recreation</td></tr>
+                    <tr><td>16</td><td>561720</td><td>Janitorial Services</td><td>Administrative and Support and Waste Management and Remediation Services</td></tr>
+                    <tr><td>13</td><td>339999</td><td>All Other Miscellaneous Manufacturing</td><td>Manufacturing</td></tr>
+                    <tr><td>12</td><td>236118</td><td>Residential Remodelers</td><td>Construction</td></tr>
+                    <tr><td>11</td><td>541990</td><td>All Other Professional, Scientific, and Technical Services</td><td>Professional, Scientific, and Technical Services</td></tr>
+                    <tr><td>9</td><td>445298</td><td>All Other Specialty Food Retailers</td><td>Retail Trade</td></tr>
+                    <tr><td>8</td><td>523910</td><td>Miscellaneous Intermediation</td><td>Finance and Insurance</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="embeddings-model-selection">
+            <h3>3.2 Embeddings Model Selection</h3>
+            <p>Embeddings models were sourced from Hugging Face where open-source models are made freely available. Using the MTEB English leaderboard<sup class="footnote">2</sup>, approximately fifteen models were selected to see which model would best approximate our corpus' vocabulary. Criteria for models were relaxed on underlying training data in effort to sample diverse vocabularies, but were constrained to English and a model size of less than 1 GB.</p>
+            <p>Separate vector databases were created for the corpus and each embeddings model before performing semantic search on the synthetic data—the dataset that was believed to best approximate a query seen in a search engine. The document for this stage of experimentation was T-D-IE with results recorded for accuracy at Hit@1 and Hit@5. The highest performing model, thenelper/gte-base (Li, et al. 2023) with a dimension of 768 and size of 0.22 GB at an accuracy of 83.4% at Hit@5 was selected for experimentation. The lowest performing model achieved an accuracy of 62.1% at Hit@5, illuminating the importance of selecting an appropriate embeddings model for downstream effectiveness.</p>
+        </section>
+
+        <section id="reranking-design">
+            <h3>3.3 Reranking</h3>
+            <p>ColBERT is the only reranker selected for this project. Figure 2 depicts the general architecture for ColBERT where, given a query q and document d, a query encoder f<sub>Q</sub> encodes q into a bag of fix-sized embeddings E<sub>q</sub>, while a document encoder f<sub>D</sub> encodes d into another bag E<sub>d</sub>. The relevance score for E<sub>q</sub> and E<sub>d</sub> is computed by summing the maximum similarity (MaxSim) operators.</p>
+
+            <div class="figure-container">
+                <img src="placeholder_colbert_architecture.png" alt="ColBERT Architecture Diagram">
+                <p class="figure-caption">Figure 2: ColBERT architecture (Khattab and Zaharia 2020)</p>
+            </div>
+
+            <p>Dense retrieval methods often perform well on academic benchmarks because they are specifically trained for these tasks. ColBERT, unlike RRF which requires weight tuning for performance, acts as an independent algorithm with an affinity for keywords that can complement first-stage candidate generation. Hardcoded thresholds based on normalized distributions of correct answers were considered for relevance scores when combining and reranking, but decided against given these values could change if the underlying embeddings model is replaced. Additionally, varying context sizes can produce unpredictable spreads in relevance values making comparison difficult.</p>
+        </section>
+
+        <section id="testing-data">
+            <h3>3.4 Testing Data</h3>
+            <p>We assess retrieval performance with a synthetic dataset generated by GPT-4 of queries resembling queries describing businesses. Queries were created by providing GPT-4 with a 2022 NAICS code and a topic from which it could generate a plausible business description through parametric memory. This was performed for a total of 2,323 unique inquiries representing 48.32% of all NAICS codes. Table 3 displays the most frequently seen codes in the synthetic dataset. During data generation, we noticed many descriptions that could also apply to other codes when described ambiguously. While our prompt remained generally relaxed to source diverse language and descriptions, it is possible some query-code pairs are less than optimal. However, this was an acceptable risk for the purposes of bootstrapping search-engine compatible data for development.</p>
+
+            <table class="small-table">
+                <caption>Table 3: Most Frequently seen NAICS codes in Synthetic Dataset</caption>
+                <thead>
+                    <tr>
+                        <th>Count</th>
+                        <th>Code</th>
+                        <th>Title</th>
+                        <th>Sector</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>63</td><td>722511</td><td>Full-Service Restaurants</td><td>Accommodation and Food Services</td></tr>
+                    <tr><td>43</td><td>813110</td><td>Religious Organizations</td><td>Other Services (except Public Administration)</td></tr>
+                    <tr><td>42</td><td>541110</td><td>Offices of Lawyers</td><td>Professional, Scientific, and Technical Services</td></tr>
+                    <tr><td>39</td><td>531210</td><td>Offices of Real Estate Agents and Brokers</td><td>Real Estate and Rental and Leasing</td></tr>
+                    <tr><td>36</td><td>524210</td><td>Insurance Agencies and Brokerages</td><td>Finance and Insurance</td></tr>
+                    <tr><td>36</td><td>621210</td><td>Offices of Dentists</td><td>Health Care and Social Assistance</td></tr>
+                    <tr><td>33</td><td>236118</td><td>Residential Remodelers</td><td>Construction</td></tr>
+                    <tr><td>31</td><td>561730</td><td>Landscaping Services</td><td>Administrative and Support and Waste Management and Remediation Services.</td></tr>
+                    <tr><td>30</td><td>722513</td><td>Limited-Service Restaurants</td><td>Accommodation and Food Services</td></tr>
+                    <tr><td>29</td><td>621111</td><td>Offices of Physicians (except Mental Health Specialists)</td><td>Health Care and Social Assistance</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </section>
+
+    <section id="experiments">
+        <h2>4. Experiments</h2>
+        <p>Each of the five research questions are addressed in sequential order where the results of one experiment inform the next to reduce the scope of analysis and establish key mechanisms in an effective multi-stage retrieval pipeline:</p>
+        <ol>
+            <li>First-Candidate Generation (Dense vs. Sparse)</li>
+            <li>Combinations of Context Windows in Ensemble Approaches</li>
+            <li>Preparing for Reranking: Identifying Improvements Beyond k=5 Documents</li>
+            <li>Reranking with ColBERT</li>
+            <li>Caching for Edge Cases</li>
+        </ol>
+        <p>Test 1 addresses RQ1 and establishes how much better dense retrieval performs over sparse on each context window. Test 2 explores RQ2 and reports accuracy at <em>Hit@1</em> and <em>Hit@5</em> for all combinations of context windows. From these tests, we generate hypotheses about which combinations are useful, narrowing down to two for future experiments. Test 3 supports RQ3 by analyzing which approach generates reasonable increases in accuracy when given additional k documents, providing the best field of first-generation candidates for reranking. Within this analysis we use the two ensemble approaches selected from the previous test and apply two pruning approaches: Lazy and Greedy. Lazy lets each context window in the ensemble produce the top five documents regardless of whether a previous context window also generated a document with an identical code. The final k documents are sorted by document relevance score. Greedy forces each context window to produce only unique codes, replacing documents already collected only when the relevancy score for a document is higher. Test 4 addresses RQ4 by applying ColBERT as a reranker when given initial k documents ranging from 6-10. We use three unique reranking context windows to identify the best approach. We also keep a close eye on inference speed. Test 5 answers RQ5 by taking the wrong predictions from the best performer across previous experiments and using the cache alone to predict NAICS codes.</p>
+
+        <section id="first-candidate-generation">
+            <h3>4.1 First-Candidate Generation (Dense vs. Sparse)</h3>
+            <table class="small-table">
+                <caption>Table 4: Dense vs. Sparse Retrieval</caption>
+                <thead>
+                    <tr>
+                        <th>Retrieval</th>
+                        <th>Context Window</th>
+                        <th>Collection Size</th>
+                        <th>Hit@1</th>
+                        <th>Hit@5</th>
+                        <th>Speed (ms)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td rowspan="7">Dense (Semantic)</td><td>CR</td><td>3046</td><td>55.92</td><td>73.4</td><td>13.28</td></tr>
+                    <tr><td>D</td><td>1609</td><td>45.11</td><td>73.01</td><td>12.47</td></tr>
+                    <tr><td>IE</td><td>2019</td><td>24.84</td><td>35.34</td><td>12.51</td></tr>
+                    <tr><td>IK</td><td>20373</td><td>55.83</td><td>74.6</td><td>16.1</td></tr>
+                    <tr><td>T</td><td>1012</td><td><strong>59.66</strong></td><td>80.93</td><td>12.79</td></tr>
+                    <tr><td>T-D</td><td>1012</td><td>57.12</td><td>83.08</td><td>12.56</td></tr>
+                    <tr><td>T-D-IE</td><td>1012</td><td>57.73</td><td><strong>83.47</strong></td><td>13.04</td></tr>
+                    <tr><td rowspan="7">Sparse (BM25)</td><td>CR</td><td>3046</td><td>16.75</td><td>30.91</td><td>5.05</td></tr>
+                    <tr><td>D</td><td>1609</td><td>15.5</td><td>33.28</td><td>2.99</td></tr>
+                    <tr><td>IE</td><td>2019</td><td>6.67</td><td>13.56</td><td>3.43</td></tr>
+                    <tr><td>IK</td><td>20373</td><td>15.63</td><td>33.02</td><td>26.91</td></tr>
+                    <tr><td>T</td><td>1012</td><td>0.39</td><td>0.99</td><td>2</td></tr>
+                    <tr><td>T-D</td><td>1012</td><td>17.91</td><td>36.2</td><td>2.28</td></tr>
+                    <tr><td>T-D-IE</td><td>1012</td><td>20.71</td><td>40.03</td><td>2.19</td></tr>
+                </tbody>
+            </table>
+            <p>Dense retrieval significantly outperforms sparse across every context window. The largest context window T-D-IE outperforms others at 83.47%. Both T and T-D also achieve strong results suggesting the common feature across all three—a document's title—provides dense retrievers with strong signal. Notably, this pattern does not apply to the BM25 results where T scores just 0.99%, nearly 80% lower than semantic search. Shorter documents constrain word overlap-based retrieval strategies, particularly when language is attribute-centric.</p>
+            <p>Poor performance for IE in semantic search is likely a result of the many codes without associated illustrative examples. Additionally, we note the remarkably low inference speed for each context window in dense retrieval. Even IK for which BM25 took 0.2 seconds per query was faster in dense retrieval due to pre-indexing with a vector database. This is a crucial element of semantic search with LLMs: reliable retrieval speed even as the size of a corpus scales.</p>
+        </section>
+
+        <section id="combinations-of-context-windows">
+            <h3>4.2 Combinations of Context Windows in Ensemble Approaches</h3>
+            <table class="small-table">
+                <caption>Table 5: Top 10 Performers in Lazy Retrieval</caption>
+                <thead>
+                    <tr>
+                        <th>Contexts</th>
+                        <th>Overlapping Contexts</th>
+                        <th>Complementary Contexts</th>
+                        <th>Hit@1</th>
+                        <th>Hit@5</th>
+                        <th>Speed (sec)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>6</td><td>[T, T-D, T-D-IE, IE]</td><td>[IK, CR]</td><td>63.32</td><td>86.87</td><td>0.07</td></tr>
+                    <tr><td>5</td><td>[T, T-D-IE, IE]</td><td>[IK, CR]</td><td>63.19</td><td>86.78</td><td>0.06</td></tr>
+                    <tr><td>5</td><td>[T, T-D, IE]</td><td>[IK, CR]</td><td>63.07</td><td>86.78</td><td>0.06</td></tr>
+                    <tr><td>4</td><td>[T, T-D-IE, IE]</td><td>[CR]</td><td>61.73</td><td>86.78</td><td>0.06</td></tr>
+                    <tr><td>5</td><td>[T, T-D, T-D-IE]</td><td>[IK, CR]</td><td>63.02</td><td>86.74</td><td>0.07</td></tr>
+                    <tr><td>4</td><td>[T-D, T-D-IE]</td><td>[IK]</td><td>62.25</td><td>86.74</td><td>0.05</td></tr>
+                    <tr><td>3</td><td>[T-D-IE]</td><td>[IK]</td><td>61.90</td><td>86.74</td><td>0.04</td></tr>
+                    <tr><td>7</td><td>[T, T-D, T-D-IE, D, IE]</td><td>[IK, CR]</td><td>63.02</td><td>86.70</td><td>0.09</td></tr>
+                    <tr><td>6</td><td>[T, T-D, D, IE]</td><td>[IK, CR]</td><td>62.81</td><td>86.66</td><td>0.07</td></tr>
+                    <tr><td>5</td><td>[T-D, T-D-IE, IE]</td><td>[CR]</td><td>61.64</td><td>86.66</td><td>0.07</td></tr>
+                </tbody>
+            </table>
+
+            <table class="small-table">
+                <caption>Table 6: Top 10 Performers in Greedy Retrieval</caption>
+                <thead>
+                    <tr>
+                        <th>Contexts</th>
+                        <th>Overlapping Contexts</th>
+                        <th>Complementary Contexts</th>
+                        <th>Hit@1</th>
+                        <th>Hit@5</th>
+                        <th>Speed (sec)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>4</td><td>[T-D-IE, D, IE]</td><td>[CR]</td><td>58.98</td><td>85.97</td><td>0.02</td></tr>
+                    <tr><td>2</td><td>[T-D-IE]</td><td>[CR]</td><td>58.98</td><td>85.97</td><td>0.02</td></tr>
+                    <tr><td>5</td><td>[T-D-IE, D, IE]</td><td>[IK, CR]</td><td>58.98</td><td>85.97</td><td>0.02</td></tr>
+                    <tr><td>3</td><td>[T-D-IE, D]</td><td>[CR]</td><td>58.98</td><td>85.97</td><td>0.02</td></tr>
+                    <tr><td>3</td><td>[T-D-IE, IE]</td><td>[CR]</td><td>58.98</td><td>85.97</td><td>0.02</td></tr>
+                    <tr><td>3</td><td>[T-D-IE, D, IE]</td><td>[]</td><td>58.98</td><td>85.97</td><td>0.02</td></tr>
+                    <tr><td>3</td><td>[T-D-IE]</td><td>[IK, CR]</td><td>58.98</td><td>85.97</td><td>0.02</td></tr>
+                    <tr><td>4</td><td>[T-D-IE, D, IE]</td><td>[IK]</td><td>58.98</td><td>85.97</td><td>0.02</td></tr>
+                    <tr><td>4</td><td>[T-D-IE, IE]</td><td>[IK, CR]</td><td>58.98</td><td>85.97</td><td>0.02</td></tr>
+                    <tr><td>2</td><td>[T-D-IE, IE]</td><td>[]</td><td>58.98</td><td>85.97</td><td>0.02</td></tr>
+                </tbody>
+            </table>
+            <p>Table 5 and 6 display best performing ensembles sorted by Hit@5. Lazy retrieval appears to generate higher scores than Greedy. Moreover, Greedy's top 10 performers all posted the same score, suggesting a dominant context window in T-D-IE—the only context window present in each ensemble. We observe here that by generating more diverse options in a Greedy retrieval, accuracy scores underperform.</p>
+            <p>Regarding context windows, T-D-IE is used in 8 of the Lazy ensembles and all 10 of the Greedy, making it the most frequently seen context window and the strongest predictor of performance. IK and CR are also frequently used appearing 13 times and 14 times respectively across both retrieval strategies. However, it is difficult to discern whether they are adding any value given there are two ensembles in the Greedy Retrieval approach where neither are used and yet accuracy remains the same. This contradicts what one would assume about varying context window lengths. With IK and CR consisting of a couple of tokens and at most a sentence, they would yield higher relevance scores than T-D-IE. It's possible that they produce correct predictions when used, but when absent, T-D-IE can reliably close the gap.</p>
+            <p>Lastly, inference speed remains remarkably low despite additional context windows. With every additional context window, inference appears to slow by approximately 0.01 seconds. From Test 2, we identify two ensemble approaches that encompass the best performers in Table 9. Because no single ensemble approach generates strong performances across both retrieval strategies, we select two strong performers and look for additional clues in Test 3.</p>
+
+            <table class="small-table">
+                <caption>Table 9: Ensembles Selected from Test 2 Results</caption>
+                <thead>
+                    <tr>
+                        <th>Context Windows</th>
+                        <th>New Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>[T, T-D, T-D-IE, IE, IK, CR]</td><td>Comprehensive Overlapping, Lazy</td></tr>
+                    <tr><td>[T-D-IE, IK, CR]</td><td>Comprehensive Complementary, Lazy</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="preparing-for-reranking">
+            <h3>4.3 Preparing for Reranking: Identifying Improvements Beyond k=5 Documents</h3>
+            <p>Comprehensive Overlapping, Lazy achieves the highest accuracy scores on the synthetic dataset at every position k from 5 to 10. The resulting average is the highest of any approach and is selected to continue for the following experiment.</p>
+            <p>On Lazy vs. Greedy approaches, there are a few key takeaways. Because lazy generates many documents with the same code across context windows, we observe higher accuracy scores at smaller k positions (explaining Test 2's results), but performance plateaus at higher positions without additional unique documents. Conversely, greedy is forced to generate unique codes which provides marginal increases in performance for each additional document.</p>
+
+            <div class="figure-container">
+                <img src="placeholder_accuracy_k.png" alt="Accuracy as k increases for each retrieval strategy plot">
+                <p class="figure-caption">Figure 6: Accuracy as k Increases for Each Retrieval Strategy</p>
+            </div>
+        </section>
+
+        <section id="reranking-colbert">
+            <h3>4.4 Reranking</h3>
+            <p>ColBERT is largely unsuccessful in improving accuracy when given initial k documents of any number, likely generating more false positives. The one exception is using T-D-IE as a reranking context improving overall performance by just 0.13% when given k=6 initial documents, an improvement that likely does not justify the use of a reranker given a sizable increase in inference speed. The worst performer among reranking contexts is the S1 – Doc where ColBERT is comparing documents across context windows without any understanding of relevance scores, implying small context windows like IK are being compared with large ones such as T-D-IE.</p>
+
+            <div class="figure-container">
+                <img src="placeholder_reranking_accuracy.png" alt="Accuracy Changes after Reranking with ColBERT given initial k values plot">
+                <p class="figure-caption">Figure 7: Accuracy Changes after Reranking with ColBERT given initial k values on both datasets</p>
+            </div>
+        </section>
+
+        <section id="caching-for-edge-cases">
+            <h3>4.5 Caching for Edge Cases</h3>
+            <div class="figure-container">
+                <img src="placeholder_caching_plots.png" alt="Correct Predictions at Hit@5 using a Cache and Count of Wrong Predictions by Sector plots">
+                <p class="figure-caption">Figures 8-9: (Left) Correct Predictions at Hit@5 using a Cache on Previously Missed Predictions and (Right) Count of Correct and Wrong Predictions by Sector</p>
+            </div>
+            <p>Figure 8 displays the proportion (and accumulative proportion) of correct predictions using the cache (N=679) on those previously missed by our best performing semantic retriever. Of the remaining 305 queries missed by semantic retrieval, the cache correctly predicts 12.46% at Hit@5, justifying the use of a cache in addressing edge cases. Figure 9 displays the sectors where caching improve performance the most with strong performances in sectors 62 (Health Care and Social Assistance) and 72 (Accommodation and Food Services).</p>
+            <p>Providing a way of augmenting data over time will help address sectors and business classifications where the existing corpus cannot infer semantic connections. Additionally, caching provides a systematic way of identifying sectors that may warrant review for more granular subcategories as areas of the economy evolve and grow more sophisticated.</p>
+        </section>
+    </section>
+
+    <section id="conclusion">
+        <h2>5. Conclusion</h2>
+        <p>This paper introduces an alternative design for a NAICS search engine with semantic retrieval models achieving a final accuracy of 86.87% on synthetic test data. Our research delivers critical findings on building an effective multi-stage retrieval pipeline. Dense retrieval models provide a stronger selection of first-stage candidates over sparse retrieval models by relying on contextual similarity to overcome vocabulary mismatches. Additionally, combining multiple context windows expanded non-parametric memory with limited increases in inference speed, and multiple context windows associated with each code generated higher accuracy scores in early positions k. We observed a fast complementary reranker such as ColBERT was insufficient in boosting performance after dense retrieval, suggesting additional strategies on reranking are needed for state-of-the-art retrieval pipelines. Lastly, we proved seen-before queries can address edge cases and provide a path forward for improvement when the corpus fails. These findings offer an improved NAICS search experience and open new research directions for similar information retrieval tasks.</p>
+        <p>The findings from this study should also encourage new research opportunities on the use of LLMs for other critical services across the Bureau. The phases of experimentation in building the search engine—comparing context retrieval windows independently and within ensemble approaches, exploring embeddings models and their influence on downstream performance, reranking strategies, latency limitations, using generative models to clean or alter messy data—bear relevance on other applications beyond search. Summarization, classification, named entity recognition, and translation are among the tasks involved in the building of this project and are frequently used in services across the Bureau. Moreover, deploying LLMs and updating critical government services is a key mandate within the Federal government, motivated in part by a recent Executive Order<sup class="footnote">3</sup> encouraging the exploration of AI technologies. By adopting new technologies such as a semantic retrieval-based NAICS search engine, the U.S. Census Bureau can continue standard of excellence and technical prowess within the Federal government.</p>
+    </section>
+
+    <section id="references" class="references">
+        <h2>References</h2>
+        <ul>
+            <li><p>Asadi, Nima, and Jimmy Lin. 2013. "Effectiveness/efficiency tradeoffs for candidate generation in multi-stage retrieval architectures." In<em>Proceedings of the 36th international ACM SIGIR conference on Research and development in information retrieval</em> 997-1000.</p></li>
+            <li><p>Berger, Adam, Rich Caruana, David Cohn, Dayne Freitag, and Vibhu Mittal. 2000. "Bridging the Lexical Chasm: Statistical Approaches to Answer-Finding." In<em>Proceedings of the 23rd annual international ACM SIGIR conference on Research and development in information retrieval</em> 192-199.</p></li>
+            <li><p>Borgeaud, Sebastian, Arthur Mensch, Jordan Hoffman, Trevor Cai, Eliza Rutherford, Katie Millican, George van den Driessche, et al. 2022. "Improving Language Models by Retrieving from Trillions of Tokens." In<em>International conference on machine learning</em> 2206-2240.</p></li>
+            <li><p>Chen, Ruey-Cheng, Luke Gallagher, Roi Blanco, and J. Shane Culpepper. 2017. "Efficient cost-aware cascade ranking in multi-stage retrieval." In<em>Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval</em> 445-454.</p></li>
+            <li><p>Cormack, G.V., C.L.A. Clarke, and Stefan Buttcher. 2009. "Reciprocal Rank Fusion outperforms Condorcet and individual Rank Learning Methods." In<em>Proceedings of the 32nd international ACM SIGIR conference on Research and development in information retrieval</em> 758-759.</p></li>
+            <li><p>Gao, Luyu, Zhuyun Dai, Tongfei Chen, Zhen Fan, Benjamin Van Durme, and Jamie Callan. 2021. "Complementing Lexical Retrieval with Semantic Residual Embedding." In<em>Advances in Information Retrieval: 43rd European Conference on IR Research, ECIR 2021, Virtual Event, March 28–April 1, 2021, Proceedings, Part I</em> 43 146-160.</p></li>
+            <li><p>Gillick, Daniel, Allessandro Presta, and Gaurav Singh Tomar. 2018. "End-to-End Retrieval in Continuous Space." <em>arXiv preprint arXiv:1811.08008</em>.</p></li>
+            <li><p>Gong, Hongyu, Yelong Shen, Dian Yu, Jianshu Chen, and Dong Yu. 2020. "Recurrent Chunking Mechanisms for Long-Text Machine Reading Comprehension." <em>arXiv preprint arXiv:2005.08056</em>.</p></li>
+            <li><p>Guo, Mandy, Yinfei Yang, Daniel Cer, Qinlan Shen, and Noah Constant. 2020. "MultiReQA: A Cross-Domain Evaluation for Retrieval Question Answering Models." In<em>Proceedings of the Second Workshop on Domain Adaptation for NLP</em> 2021.</p></li>
+            <li><p>Izacard, Gautier, and Edouard Grave. 2020. "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering." <em>arXiv preprint arXiv:2007.01282</em>.</p></li>
+            <li><p>Kandpal, Nikhil, Haikang Deng, Adam Roberts, Eric Wallace, and Colin Raffel. 2023. "Large Language Models Struggle to Learn Long-Tail Knowledge." <em>Proceedings of the 40th International Conference on Machine Learning</em> 15696-15707.</p></li>
+            <li><p>Karpukhin, Vladimir, Barlas Oğuz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, and Wen-tau Yih. 2020. "Dense Passage Retrieval for Open-Domain Question Answering." <em>arXiv preprint arXiv:2004.04906</em>.</p></li>
+            <li><p>Khattab, Omar, and Matei Zaharia. 2020. "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT." In<em>Proceedings of the 43rd International ACM SIGIR conference on research and development in Information Retrieval</em> 39-48.</p></li>
+            <li><p>Lewis, Patrick, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Kuttler, et al. 2020. "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks." <em>Advances in Neural Information Processing Systems</em>. 33: 9458-74.</p></li>
+            <li><p>Li, Zehan, Xin Zhang, Yanzhao Zhang, Dingkun Long, Pengjun Xie, and Meishan Zhang. 2023. "Towards General Text Embeddings with Multi-stage Contrastive Learning." <em>arXiv preprint arXiv:2308.03281</em>.</p></li>
+            <li><p>Liang, Davis, Peng Xu, Siamak Shakeri, Cicero Noguiera dos Santos, Ramesh Nallapati, Zhiheng Huang, and Bing Xiang. 2020. "Embedding-based Zero-shot Retrieval through Query Generation." <em>arXiv preprint arXiv:2009.10270</em>.</p></li>
+            <li><p>Lin, Jimmy, Rodrigo Nogueira, and Andrew Yates. 2021. "Pretrained Transformers for Text Ranking: BERT and Beyond." In<em>Proceedings of the 14th ACM International Conference on web search and data mining</em> 1154-1156.</p></li>
+            <li><p>Liu, Jiachang, Dinghan Shen, Yizhe Zhang, Bill Dolan, Lawrence Carin, and Weizhu Chen. 2021. "What Makes Good In-Context Examples for GPT-3?" <em>arXiv preprint arXiv:2101.06804</em>.</p></li>
+            <li><p>Liu, Shichen, Fei Xiao, Wenwu Ou, and Luo Si. 2017. "Cascade ranking for operational e-commerce search." In <em>Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. Halifax, Nova Scotia, Canada</em>. 1557-1565.</p></li>
+            <li><p>Luan, Yi, Jacob Eisenstein, Kristina Toutanova, and Michael Collins. 2021. "Sparse, Dense, and Attentional Representations for Text Retrieval." <em>Transactions of the Association for Computational Linguistics</em>.</p></li>
+            <li><p>Ma, Ji, Ivan Korotkov, Yinfei Yang, Keith Hall, and Ryan McDonald. 2020. "Zero-shot Neural Passage Retrieval via Domain-targeted Synthetic Question Generation." <em>arXiv preprint arXiv:2004.14503</em>.</p></li>
+            <li><p>Mackenzie, Joel, Shane Culpepper, Roi Blanco, Matt Crane, Charles Clarke, and Jimmy Lin. 2018. "Query driven algorithm selection in early stage retrieval." In<em>Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining</em> 396-404.</p></li>
+            <li><p>Majumder, Goutam, Partha Pakray, Ranjita Das, and David Pinto. 2021. "Interpretable semantic textual similarity of sentences using alignment of chunks with classification and regression." <em>Applied Intelligence</em> 51: 7322-7349.</p></li>
+            <li><p>Matveeva, Irina, Chris Burges, Timo Burkard, Andy Laucius, and Leon Wong. 2006. "High accuracy retrieval with multiple nested ranker." In<em>Proceedings of the 29th annual international ACM SIGIR conference on Research and development in information retrieval</em> 437-444.</p></li>
+            <li><p>Neelakantan, Arvind, Tao Xu, Raul Puri, Alec Radford, Jesse Michael Han, Jerry Tworek, Qiming Yuan, et al. 2022. "Text and Code Embeddings by Contrastive Pre-Training." <em>arXiv preprint arXiv:2201.10005</em>.</p></li>
+            <li><p>Pedersen, Jan. 2010. "Query understanding at Bing." In <em>Industry Track Keynote at the 33rd Annual International ACM SIGIR Conference on Research and Development in Information Retrieval. Geneva, Switzerland</em>.</p></li>
+            <li><p>Pradeep, Ronak, Sahel Sharifymoghaddam, and Jimmy Lin. 2023. "RankVicuna: Zero-Shot Listwise Document Reranking with Open-Source Large Language Models." <em>arXiv preprint arXiv:2309.15088</em>.</p></li>
+            <li><p>Pradeep, Ronak, Sahel Sharifymoghaddam, and Jimmy Lin. 2023. "RankZephyr: Effective and Robust Zero-Shot Listwise Reranking is a Breeze!" <em>arXiv preprint arXiv:2312.02724</em>.</p></li>
+            <li><p>Raffel, Colin, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, and Peter Liu. 2020. "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer." <em>The Journal of Machine Learning Research</em> 21 (1): 5485-5551.</p></li>
+            <li><p>Sun, Weiwei, Lingyong Yan, Xinyu Ma, Shuaiqiang Wang, Pengjie Ren, Zhumin Chen, Dawei Yin, and Zhaochun Ren. 2023. "Is ChatGPT Good at Search? Investigating Large Language Models as Re-Ranking Agents." <em>arXiv preprint arXiv:2304.09542</em>.</p></li>
+            <li><p>Thakur, Nandan, Nils Reimers, Andreas Rücklé, Abhishek Srivastava, and Iryna Gurevych. 2021. "BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models." <em>arXiv preprint arXiv:2104.08663</em>.</p></li>
+            <li><p>Tunstall, Lewis, Edward Beeching, Nathan Lambert, Nazneen Rajani, Kashif Rasul, Younes Belkada, Shengyi Huang, et al. 2023. "Zephyr: Direct Distillation of LM Alignment." <em>arXiv preprint arXiv:2310.16944</em>.</p></li>
+            <li><p>United States Census Bureau. 2019. <em>North American Industry Classification System</em>. Accessed March 2, 2024. <a href="https://web.archive.org/web/20190305072906/https:/www.census.gov/eos/www/naics/faqs/faqs.html">https://web.archive.org/web/20190305072906/https:/www.census.gov/eos/www/naics/faqs/faqs.html</a>.</p></li>
+            <li><p>Wang, Lidan, Jimmy Lin, and Donald Metzler. 2011. "A cascade ranking model for efficient ranked retrieval." In<em>Proceedings of the 34th international ACM SIGIR conference on Research and development in Information Retrieval</em> 105-114.</p></li>
+            <li><p>Zaheer, Manzil, Guru Guruganesh, Avinava Dubey, Joshua Ainslie, Chris Alberti, Santiago Ontanon, Philip Pham, et al. 2020. "Big Bird: Transformers for Longer Sequences." <em>Advances in neural information processing systems</em> 33: 17283-97.</p></li>
+            <li><p>Zhao, Wayne Xin, Jing Liu, Ruiyang Ren, and Ji-Rong Wen. 2024. "Dense Text Retrieval Based on Pretrained Language Models: A Survey." <em>ACM Transactions on Information Systems</em> 42: 1-60.</p></li>
+        </ul>
+    </section>
+
+    <div class="footnotes">
+        <p><sup class="footnote">1</sup> <a href="https://www.census.gov/naics/">https://www.census.gov/naics/</a></p>
+        <p><sup class="footnote">2</sup> <a href="https://huggingface.co/spaces/mteb/leaderboard">https://huggingface.co/spaces/mteb/leaderboard</a></p>
+        <p><sup class="footnote">3</sup> <a href="https://www.whitehouse.gov/briefing-room/presidential-actions/2023/10/30/executive-order-on-the-safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence/">https://www.whitehouse.gov/briefing-room/presidential-actions/2023/10/30/executive-order-on-the-safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence/</a></p>
+    </div>
+
+</body>
+</html>
+```

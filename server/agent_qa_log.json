@@ -1,0 +1,48 @@
+{
+  "timestamp": "2025-07-14T01:19:45.820881",
+  "total_questions": 7,
+  "qa_pairs": [
+    {
+      "question": "Test the server functionality first, then let me know if you are ready to answer questions.",
+      "question_type": "server_test",
+      "response": "The server is functioning correctly and I'm ready to answer your questions. Feel free to ask!",
+      "timestamp": "2025-07-14T01:19:06.587830"
+    },
+    {
+      "question": "What are the titles of all the papers in the database?",
+      "question_type": "basic",
+      "response": "Here are the titles of the papers in the database:\n\n1. **Attention Is All You Need**\n2. **Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending**\n3. **Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau**\n4. **AI Should Sense Better, Not Just Scale Bigger: Adaptive Sensing as a Paradigm Shift**\n5. **Strategic Alignment Patterns in National AI Policies**\n\nIf you need more information about any of these papers, feel free to ask!",
+      "timestamp": "2025-07-14T01:19:15.836286"
+    },
+    {
+      "question": "What are the names of each of the collections, and how many documents are in each collection?",
+      "question_type": "metadata",
+      "response": "Here are the names of each collection:\n\n1. **Attention Is All You Need**\n2. **Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP, and Military Spending**\n3. **Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau**\n4. **AI Should Sense Better, Not Just Scale Bigger: Adaptive Sensing as a Paradigm Shift**\n5. **Strategic Alignment Patterns in National AI Policies**\n\nI wasn't able to retrieve the number of documents in each collection due to a technical issue. Let me know if there's anything else you'd like to explore!",
+      "timestamp": "2025-07-14T01:19:25.093455"
+    },
+    {
+      "question": "What does the paper on Ensemble Retrieval Strategies aim to research?",
+      "question_type": "research_analysis",
+      "response": "The paper titled \"Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau\" aims to address five research questions in a sequential manner. The objective is to reduce the scope of analysis and establish key mechanisms in an effective multi-stage retrieval pipeline.",
+      "timestamp": "2025-07-14T01:19:28.430080"
+    },
+    {
+      "question": "What do testing results look like for the paper on Ensemble Retrieval Strategies?",
+      "question_type": "table_extraction",
+      "response": "The testing results section for the paper \"Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau\" is denoted as \"3.4 Testing Data.\" Unfortunately, more specific details aren't provided in the response.\n\nIf you have specific questions about the testing methodology or results, let me know, and I can assist further!",
+      "timestamp": "2025-07-14T01:19:35.642358"
+    },
+    {
+      "question": "What is the title of the paper that has the highest number of citations?",
+      "question_type": "advanced_analysis",
+      "response": "It seems there was an error retrieving the required information from the collections. Unfortunately, I'm unable to access the citation data at this moment. You might want to check the document database configuration or data format for potential issues.",
+      "timestamp": "2025-07-14T01:19:40.457313"
+    },
+    {
+      "question": "What is the best performing model in the Attention is all you need paper for EN-FR?",
+      "question_type": "advanced_analysis",
+      "response": "The best performing model for EN-FR in the \"Attention Is All You Need\" paper is their big model, achieving a BLEU score of 41.0 on the WMT 2014 English-to-French translation task. This model outperforms previously published single models and does so at less than 1/4 the training cost of the previous state-of-the-art model. The Transformer (big) model was trained with a dropout rate of P = 0.1.",
+      "timestamp": "2025-07-14T01:19:45.820792"
+    }
+  ]
+}

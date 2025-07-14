@@ -1,0 +1,575 @@
+2025-07-13 13:01:37,022 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 13:01:37,186 - INFO - Found 1 PDF files
+2025-07-13 13:01:37,187 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 13:01:37,187 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 13:01:37,187 - INFO - Database already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:29:27,556 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 14:29:27,672 - INFO - Initialized persistent ChromaDB client at: chroma_db
+2025-07-13 14:29:27,672 - INFO - Found 1 PDF files
+2025-07-13 14:29:27,672 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:29:27,672 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:29:27,672 - INFO - Database already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:29:27,673 - INFO - PDF needs ChromaDB processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:33:29,676 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 14:33:29,792 - INFO - Initialized persistent ChromaDB client at: chroma_db
+2025-07-13 14:33:29,793 - INFO - Found 1 PDF files
+2025-07-13 14:33:29,793 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:33:29,793 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:33:29,793 - INFO - Database already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:33:29,793 - INFO - PDF needs ChromaDB processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:36:52,348 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 14:36:52,465 - INFO - Initialized persistent ChromaDB client at: chroma_db
+2025-07-13 14:36:52,465 - INFO - Starting document processing pipeline
+2025-07-13 14:36:52,466 - INFO - Found 1 PDF files
+2025-07-13 14:36:52,466 - INFO - Processing PDF: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:36:52,466 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:36:52,466 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:36:52,466 - INFO - Database already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:36:52,466 - INFO - PDF needs ChromaDB processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:36:52,466 - INFO - Ingesting into ChromaDB: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:36:52,466 - INFO - Processing: documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json
+2025-07-13 14:36:52,468 - INFO - Paper: Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau
+2025-07-13 14:36:53,014 - INFO - Created new collection: ensemble_retrieval_strategies_for_an_improved_naics_search_engi
+2025-07-13 14:36:53,015 - ERROR - Error processing documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json: Expected metadata value to be a str, int, float, bool, or None, got [] which is a list in add.
+2025-07-13 14:36:53,015 - WARNING - Failed to ingest NAICS_JSM_Proceedings_Submission_Aug12.pdf into ChromaDB
+2025-07-13 14:36:53,015 - INFO - ==================================================
+2025-07-13 14:36:53,015 - INFO - PROCESSING PIPELINE SUMMARY
+2025-07-13 14:36:53,015 - INFO - ==================================================
+2025-07-13 14:36:53,015 - INFO - Total PDFs: 1
+2025-07-13 14:36:53,015 - INFO - Successfully processed: 0
+2025-07-13 14:36:53,015 - INFO - Failed: 1
+2025-07-13 14:36:53,015 - INFO - 
+Errors:
+2025-07-13 14:36:53,015 - INFO -   - NAICS_JSM_Proceedings_Submission_Aug12.pdf: ['database_to_chroma']
+2025-07-13 14:36:53,016 - INFO - 
+ChromaDB Collections: 1
+2025-07-13 14:36:53,018 - INFO -   - ensemble_retrieval_strategies_for_an_improved_naics_search_engi: 0 documents
+2025-07-13 14:36:53,018 - INFO - ==================================================
+2025-07-13 14:44:40,365 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 14:44:40,481 - INFO - Initialized persistent ChromaDB client at: chroma_db
+2025-07-13 14:44:40,481 - INFO - Starting document processing pipeline
+2025-07-13 14:44:40,481 - INFO - Found 1 PDF files
+2025-07-13 14:44:40,481 - INFO - Processing PDF: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:44:40,481 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:44:40,482 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:44:40,482 - INFO - Database already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:44:40,482 - INFO - PDF needs ChromaDB processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:44:40,482 - INFO - Ingesting into ChromaDB: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:44:40,482 - INFO - Processing: documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json
+2025-07-13 14:44:40,484 - INFO - Paper: Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau
+2025-07-13 14:44:40,779 - INFO - Created new collection: ensemble_retrieval_strategies_for_an_improved_naics_search_engi
+2025-07-13 14:44:40,780 - ERROR - Error processing documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json: Expected metadata value to be a str, int, float, bool, or None, got [] which is a list in add.
+2025-07-13 14:44:40,780 - WARNING - Failed to ingest NAICS_JSM_Proceedings_Submission_Aug12.pdf into ChromaDB
+2025-07-13 14:44:40,780 - INFO - ==================================================
+2025-07-13 14:44:40,780 - INFO - PROCESSING PIPELINE SUMMARY
+2025-07-13 14:44:40,780 - INFO - ==================================================
+2025-07-13 14:44:40,780 - INFO - Total PDFs: 1
+2025-07-13 14:44:40,780 - INFO - Successfully processed: 0
+2025-07-13 14:44:40,780 - INFO - Failed: 1
+2025-07-13 14:44:40,780 - INFO - 
+Errors:
+2025-07-13 14:44:40,780 - INFO -   - NAICS_JSM_Proceedings_Submission_Aug12.pdf: ['database_to_chroma']
+2025-07-13 14:44:40,781 - INFO - 
+ChromaDB Collections: 1
+2025-07-13 14:44:40,783 - INFO -   - ensemble_retrieval_strategies_for_an_improved_naics_search_engi: 0 documents
+2025-07-13 14:44:40,783 - INFO - ==================================================
+2025-07-13 14:55:42,707 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 14:55:42,822 - INFO - Initialized persistent ChromaDB client at: chroma_db
+2025-07-13 14:55:42,823 - INFO - Starting document processing pipeline
+2025-07-13 14:55:42,823 - INFO - Found 1 PDF files
+2025-07-13 14:55:42,823 - INFO - Processing PDF: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:55:42,823 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:55:42,823 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:55:42,823 - INFO - Database already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:55:42,823 - INFO - PDF needs ChromaDB processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:55:42,823 - INFO - Ingesting into ChromaDB: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:55:42,823 - INFO - Processing: documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json
+2025-07-13 14:55:42,825 - INFO - Paper: Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau
+2025-07-13 14:55:42,826 - INFO - Retrieved existing collection: ensemble_retrieval_strategies_for_an_improved_naics_search_engi
+2025-07-13 14:55:42,827 - ERROR - Error processing documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json: Expected metadata value to be a str, int, float, bool, or None, got {'merged_chunks': 28, 'original_positions': [59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86]} which is a dict in add.
+2025-07-13 14:55:42,827 - WARNING - Failed to ingest NAICS_JSM_Proceedings_Submission_Aug12.pdf into ChromaDB
+2025-07-13 14:55:42,827 - INFO - ==================================================
+2025-07-13 14:55:42,828 - INFO - PROCESSING PIPELINE SUMMARY
+2025-07-13 14:55:42,828 - INFO - ==================================================
+2025-07-13 14:55:42,828 - INFO - Total PDFs: 1
+2025-07-13 14:55:42,828 - INFO - Successfully processed: 0
+2025-07-13 14:55:42,828 - INFO - Failed: 1
+2025-07-13 14:55:42,828 - INFO - 
+Errors:
+2025-07-13 14:55:42,828 - INFO -   - NAICS_JSM_Proceedings_Submission_Aug12.pdf: ['database_to_chroma']
+2025-07-13 14:55:42,828 - INFO - 
+ChromaDB Collections: 1
+2025-07-13 14:55:42,830 - INFO -   - ensemble_retrieval_strategies_for_an_improved_naics_search_engi: 0 documents
+2025-07-13 14:55:42,831 - INFO - ==================================================
+2025-07-13 14:57:59,035 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 14:57:59,153 - INFO - Initialized persistent ChromaDB client at: chroma_db
+2025-07-13 14:57:59,153 - INFO - Starting document processing pipeline
+2025-07-13 14:57:59,153 - INFO - Found 1 PDF files
+2025-07-13 14:57:59,153 - INFO - Processing PDF: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:57:59,153 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:57:59,153 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:57:59,154 - INFO - Database already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:57:59,154 - INFO - PDF needs ChromaDB processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:57:59,154 - INFO - Ingesting into ChromaDB: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 14:57:59,154 - INFO - Processing: documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json
+2025-07-13 14:57:59,156 - INFO - Paper: Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau
+2025-07-13 14:57:59,453 - INFO - Created new collection: ensemble_retrieval_strategies_for_an_improved_naics_search_engi
+2025-07-13 14:58:01,265 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-07-13 14:58:01,722 - ERROR - Error processing documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json: argument 'metadatas': failed to extract enum MetadataValue ('Bool | Int | Float | Str')
+- variant Bool (Bool): TypeError: failed to extract field MetadataValue::Bool.0, caused by TypeError: 'NoneType' object cannot be converted to 'PyBool'
+- variant Int (Int): TypeError: failed to extract field MetadataValue::Int.0, caused by TypeError: 'NoneType' object cannot be interpreted as an integer
+- variant Float (Float): TypeError: failed to extract field MetadataValue::Float.0, caused by TypeError: must be real number, not NoneType
+- variant Str (Str): TypeError: failed to extract field MetadataValue::Str.0, caused by TypeError: 'NoneType' object cannot be converted to 'PyString'
+2025-07-13 14:58:01,723 - WARNING - Failed to ingest NAICS_JSM_Proceedings_Submission_Aug12.pdf into ChromaDB
+2025-07-13 14:58:01,723 - INFO - ==================================================
+2025-07-13 14:58:01,723 - INFO - PROCESSING PIPELINE SUMMARY
+2025-07-13 14:58:01,723 - INFO - ==================================================
+2025-07-13 14:58:01,723 - INFO - Total PDFs: 1
+2025-07-13 14:58:01,723 - INFO - Successfully processed: 0
+2025-07-13 14:58:01,723 - INFO - Failed: 1
+2025-07-13 14:58:01,723 - INFO - 
+Errors:
+2025-07-13 14:58:01,723 - INFO -   - NAICS_JSM_Proceedings_Submission_Aug12.pdf: ['database_to_chroma']
+2025-07-13 14:58:01,724 - INFO - 
+ChromaDB Collections: 1
+2025-07-13 14:58:01,726 - INFO -   - ensemble_retrieval_strategies_for_an_improved_naics_search_engi: 0 documents
+2025-07-13 14:58:01,726 - INFO - ==================================================
+2025-07-13 15:00:04,782 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 15:00:04,898 - INFO - Initialized persistent ChromaDB client at: chroma_db
+2025-07-13 15:00:04,899 - INFO - Starting document processing pipeline
+2025-07-13 15:00:04,899 - INFO - Found 1 PDF files
+2025-07-13 15:00:04,899 - INFO - Processing PDF: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:00:04,899 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:00:04,899 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:00:04,899 - INFO - PDF needs database processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:00:04,899 - INFO - Converting JSON to database: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:00:04,916 - INFO - Successfully converted NAICS_JSM_Proceedings_Submission_Aug12.pdf to database format
+2025-07-13 15:00:04,916 - INFO - PDF needs ChromaDB processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:00:04,916 - INFO - Ingesting into ChromaDB: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:00:04,916 - INFO - Processing: documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json
+2025-07-13 15:00:04,917 - INFO - Paper: Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau
+2025-07-13 15:00:05,207 - INFO - Created new collection: ensemble_retrieval_strategies_for_an_improved_naics_search_engi
+2025-07-13 15:00:06,878 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-07-13 15:00:07,159 - ERROR - Error processing documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json: argument 'metadatas': failed to extract enum MetadataValue ('Bool | Int | Float | Str')
+- variant Bool (Bool): TypeError: failed to extract field MetadataValue::Bool.0, caused by TypeError: 'NoneType' object cannot be converted to 'PyBool'
+- variant Int (Int): TypeError: failed to extract field MetadataValue::Int.0, caused by TypeError: 'NoneType' object cannot be interpreted as an integer
+- variant Float (Float): TypeError: failed to extract field MetadataValue::Float.0, caused by TypeError: must be real number, not NoneType
+- variant Str (Str): TypeError: failed to extract field MetadataValue::Str.0, caused by TypeError: 'NoneType' object cannot be converted to 'PyString'
+2025-07-13 15:00:07,159 - WARNING - Failed to ingest NAICS_JSM_Proceedings_Submission_Aug12.pdf into ChromaDB
+2025-07-13 15:00:07,159 - INFO - ==================================================
+2025-07-13 15:00:07,159 - INFO - PROCESSING PIPELINE SUMMARY
+2025-07-13 15:00:07,159 - INFO - ==================================================
+2025-07-13 15:00:07,159 - INFO - Total PDFs: 1
+2025-07-13 15:00:07,159 - INFO - Successfully processed: 0
+2025-07-13 15:00:07,159 - INFO - Failed: 1
+2025-07-13 15:00:07,159 - INFO - 
+Errors:
+2025-07-13 15:00:07,159 - INFO -   - NAICS_JSM_Proceedings_Submission_Aug12.pdf: ['database_to_chroma']
+2025-07-13 15:00:07,160 - INFO - 
+ChromaDB Collections: 1
+2025-07-13 15:00:07,162 - INFO -   - ensemble_retrieval_strategies_for_an_improved_naics_search_engi: 0 documents
+2025-07-13 15:00:07,162 - INFO - ==================================================
+2025-07-13 15:07:56,136 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 15:07:56,253 - INFO - Initialized persistent ChromaDB client at: chroma_db
+2025-07-13 15:07:56,253 - INFO - Starting document processing pipeline
+2025-07-13 15:07:56,253 - INFO - Found 1 PDF files
+2025-07-13 15:07:56,253 - INFO - Processing PDF: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:07:56,254 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:07:56,254 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:07:56,254 - INFO - PDF needs database processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:07:56,254 - INFO - Converting JSON to database: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:07:56,270 - INFO - Successfully converted NAICS_JSM_Proceedings_Submission_Aug12.pdf to database format
+2025-07-13 15:07:56,271 - INFO - PDF needs ChromaDB processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:07:56,271 - INFO - Ingesting into ChromaDB: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 15:07:56,271 - INFO - Processing: documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json
+2025-07-13 15:07:56,271 - INFO - Paper: Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau
+2025-07-13 15:07:56,565 - INFO - Created new collection: ensemble_retrieval_strategies_for_an_improved_naics_search_engi
+2025-07-13 15:07:57,055 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-07-13 15:07:57,761 - INFO - Added 216 chunks to collection
+2025-07-13 15:07:57,762 - INFO - Successfully ingested NAICS_JSM_Proceedings_Submission_Aug12.pdf into ChromaDB
+2025-07-13 15:07:57,762 - INFO - ==================================================
+2025-07-13 15:07:57,762 - INFO - PROCESSING PIPELINE SUMMARY
+2025-07-13 15:07:57,762 - INFO - ==================================================
+2025-07-13 15:07:57,762 - INFO - Total PDFs: 1
+2025-07-13 15:07:57,762 - INFO - Successfully processed: 1
+2025-07-13 15:07:57,762 - INFO - Failed: 0
+2025-07-13 15:07:57,763 - INFO - 
+ChromaDB Collections: 1
+2025-07-13 15:07:57,771 - INFO -   - ensemble_retrieval_strategies_for_an_improved_naics_search_engi: 216 documents
+2025-07-13 15:07:57,771 - INFO - ==================================================
+2025-07-13 16:01:08,830 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 16:01:08,948 - INFO - Initialized persistent ChromaDB client at: chroma_db
+2025-07-13 16:01:08,949 - INFO - Starting document processing pipeline
+2025-07-13 16:01:08,949 - INFO - Found 1 PDF files
+2025-07-13 16:01:08,949 - INFO - Processing PDF: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 16:01:08,949 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 16:01:08,949 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 16:01:08,949 - INFO - Database already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 16:01:08,949 - INFO - PDF needs ChromaDB processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 16:01:08,949 - INFO - Ingesting into ChromaDB: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 16:01:08,949 - INFO - Processing: documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json
+2025-07-13 16:01:08,951 - INFO - Paper: Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau
+2025-07-13 16:01:09,251 - INFO - Created new collection: ensemble_retrieval_strategies_for_an_improved_naics_search_engi
+2025-07-13 16:01:09,930 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-07-13 16:01:10,626 - INFO - Added 216 chunks to collection
+2025-07-13 16:01:10,626 - INFO - Successfully ingested NAICS_JSM_Proceedings_Submission_Aug12.pdf into ChromaDB
+2025-07-13 16:01:10,627 - INFO - ==================================================
+2025-07-13 16:01:10,627 - INFO - PROCESSING PIPELINE SUMMARY
+2025-07-13 16:01:10,627 - INFO - ==================================================
+2025-07-13 16:01:10,627 - INFO - Total PDFs: 1
+2025-07-13 16:01:10,627 - INFO - Successfully processed: 1
+2025-07-13 16:01:10,627 - INFO - Failed: 0
+2025-07-13 16:01:10,627 - INFO - 
+ChromaDB Collections: 1
+2025-07-13 16:01:10,636 - INFO -   - ensemble_retrieval_strategies_for_an_improved_naics_search_engi: 216 documents
+2025-07-13 16:01:10,636 - INFO - ==================================================
+2025-07-13 18:21:25,433 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 18:21:25,555 - INFO - Initialized persistent ChromaDB client at: chroma_db
+2025-07-13 18:21:25,555 - INFO - Starting document processing pipeline
+2025-07-13 18:21:25,556 - INFO - Found 6 PDF files
+2025-07-13 18:21:25,556 - INFO - Processing PDF: 1706.03762.pdf
+2025-07-13 18:21:25,556 - INFO - PDF needs HTML processing: 1706.03762.pdf
+2025-07-13 18:21:25,556 - INFO - Converting PDF to HTML: 1706.03762.pdf
+2025-07-13 18:21:25,559 - ERROR - Failed to convert 1706.03762.pdf to HTML: 'utf-8' codec can't decode byte 0x8f in position 10: invalid start byte
+2025-07-13 18:21:25,559 - INFO - No JSON file for database processing: 1706.03762.pdf
+2025-07-13 18:21:25,559 - INFO - No database file for ChromaDB processing: 1706.03762.pdf
+2025-07-13 18:21:25,559 - INFO - Processing PDF: 2507.05400.pdf
+2025-07-13 18:21:25,559 - INFO - PDF needs HTML processing: 2507.05400.pdf
+2025-07-13 18:21:25,559 - INFO - Converting PDF to HTML: 2507.05400.pdf
+2025-07-13 18:21:25,571 - ERROR - Failed to convert 2507.05400.pdf to HTML: 'utf-8' codec can't decode byte 0xbf in position 10: invalid start byte
+2025-07-13 18:21:25,573 - INFO - No JSON file for database processing: 2507.05400.pdf
+2025-07-13 18:21:25,574 - INFO - No database file for ChromaDB processing: 2507.05400.pdf
+2025-07-13 18:21:25,574 - INFO - Processing PDF: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:21:25,574 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:21:25,574 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:21:25,574 - INFO - Database already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:21:25,574 - INFO - PDF needs ChromaDB processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:21:25,574 - INFO - Ingesting into ChromaDB: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:21:25,574 - INFO - Processing: documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json
+2025-07-13 18:21:25,575 - INFO - Paper: Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau
+2025-07-13 18:21:25,576 - INFO - Retrieved existing collection: ensemble_retrieval_strategies_for_an_improved_naics_search_engi
+2025-07-13 18:21:31,256 - ERROR - Error processing documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json: Collection expecting embedding with dimension of 1536, got 384
+2025-07-13 18:21:31,260 - WARNING - Failed to ingest NAICS_JSM_Proceedings_Submission_Aug12.pdf into ChromaDB
+2025-07-13 18:21:31,260 - INFO - Processing PDF: 2507.05856.pdf
+2025-07-13 18:21:31,261 - INFO - PDF needs HTML processing: 2507.05856.pdf
+2025-07-13 18:21:31,261 - INFO - Converting PDF to HTML: 2507.05856.pdf
+2025-07-13 18:21:31,261 - ERROR - Failed to convert 2507.05856.pdf to HTML: 'utf-8' codec can't decode byte 0xbf in position 10: invalid start byte
+2025-07-13 18:21:31,261 - INFO - No JSON file for database processing: 2507.05856.pdf
+2025-07-13 18:21:31,261 - INFO - No database file for ChromaDB processing: 2507.05856.pdf
+2025-07-13 18:21:31,261 - INFO - Processing PDF: 2507.07935.pdf
+2025-07-13 18:21:31,262 - INFO - PDF needs HTML processing: 2507.07935.pdf
+2025-07-13 18:21:31,262 - INFO - Converting PDF to HTML: 2507.07935.pdf
+2025-07-13 18:21:31,262 - ERROR - Failed to convert 2507.07935.pdf to HTML: 'utf-8' codec can't decode byte 0xbf in position 10: invalid start byte
+2025-07-13 18:21:31,262 - INFO - No JSON file for database processing: 2507.07935.pdf
+2025-07-13 18:21:31,262 - INFO - No database file for ChromaDB processing: 2507.07935.pdf
+2025-07-13 18:21:31,262 - INFO - Processing PDF: 2507.07820.pdf
+2025-07-13 18:21:31,262 - INFO - PDF needs HTML processing: 2507.07820.pdf
+2025-07-13 18:21:31,262 - INFO - Converting PDF to HTML: 2507.07820.pdf
+2025-07-13 18:21:31,263 - ERROR - Failed to convert 2507.07820.pdf to HTML: 'utf-8' codec can't decode byte 0xbf in position 10: invalid start byte
+2025-07-13 18:21:31,263 - INFO - No JSON file for database processing: 2507.07820.pdf
+2025-07-13 18:21:31,263 - INFO - No database file for ChromaDB processing: 2507.07820.pdf
+2025-07-13 18:21:31,263 - INFO - ==================================================
+2025-07-13 18:21:31,263 - INFO - PROCESSING PIPELINE SUMMARY
+2025-07-13 18:21:31,263 - INFO - ==================================================
+2025-07-13 18:21:31,264 - INFO - Total PDFs: 6
+2025-07-13 18:21:31,264 - INFO - Successfully processed: 0
+2025-07-13 18:21:31,264 - INFO - Failed: 6
+2025-07-13 18:21:31,264 - INFO - 
+Errors:
+2025-07-13 18:21:31,264 - INFO -   - 1706.03762.pdf: ['pdf_to_html']
+2025-07-13 18:21:31,264 - INFO -   - 2507.05400.pdf: ['pdf_to_html']
+2025-07-13 18:21:31,264 - INFO -   - NAICS_JSM_Proceedings_Submission_Aug12.pdf: ['database_to_chroma']
+2025-07-13 18:21:31,264 - INFO -   - 2507.05856.pdf: ['pdf_to_html']
+2025-07-13 18:21:31,264 - INFO -   - 2507.07935.pdf: ['pdf_to_html']
+2025-07-13 18:21:31,264 - INFO -   - 2507.07820.pdf: ['pdf_to_html']
+2025-07-13 18:21:31,265 - INFO - 
+ChromaDB Collections: 1
+2025-07-13 18:21:31,516 - INFO -   - ensemble_retrieval_strategies_for_an_improved_naics_search_engi: 216 documents
+2025-07-13 18:21:31,516 - INFO - ==================================================
+2025-07-13 18:30:46,789 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 18:30:46,906 - INFO - Initialized persistent ChromaDB client at: chroma_db
+2025-07-13 18:30:46,906 - INFO - Starting document processing pipeline
+2025-07-13 18:30:46,906 - INFO - Found 6 PDF files
+2025-07-13 18:30:46,906 - INFO - Processing PDF: 1706.03762.pdf
+2025-07-13 18:30:46,906 - INFO - PDF needs HTML processing: 1706.03762.pdf
+2025-07-13 18:30:46,906 - INFO - Converting PDF to HTML: 1706.03762.pdf
+2025-07-13 18:30:46,929 - ERROR - Failed to convert 1706.03762.pdf to HTML: 1 validation error for FileData
+data
+  Extra inputs are not permitted [type=extra_forbidden, input_value=b'%PDF-1.5\n%\x8f\n137 0 ...txref\n2095915\n%%EOF\n', input_type=bytes]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+2025-07-13 18:30:46,929 - INFO - No JSON file for database processing: 1706.03762.pdf
+2025-07-13 18:30:46,929 - INFO - No database file for ChromaDB processing: 1706.03762.pdf
+2025-07-13 18:30:46,929 - INFO - Processing PDF: 2507.05400.pdf
+2025-07-13 18:30:46,929 - INFO - PDF needs HTML processing: 2507.05400.pdf
+2025-07-13 18:30:46,929 - INFO - Converting PDF to HTML: 2507.05400.pdf
+2025-07-13 18:30:47,064 - ERROR - Failed to convert 2507.05400.pdf to HTML: 1 validation error for FileData
+data
+  Extra inputs are not permitted [type=extra_forbidden, input_value=b'%PDF-1.5\n%\xbf\xf7\xa2...txref\n9976554\n%%EOF\n', input_type=bytes]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+2025-07-13 18:30:47,065 - INFO - No JSON file for database processing: 2507.05400.pdf
+2025-07-13 18:30:47,065 - INFO - No database file for ChromaDB processing: 2507.05400.pdf
+2025-07-13 18:30:47,065 - INFO - Processing PDF: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:30:47,065 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:30:47,066 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:30:47,066 - INFO - Database already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:30:47,066 - INFO - PDF needs ChromaDB processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:30:47,066 - INFO - Ingesting into ChromaDB: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:30:47,066 - INFO - Processing: documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json
+2025-07-13 18:30:47,067 - INFO - Paper: Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau
+2025-07-13 18:30:47,068 - INFO - Retrieved existing collection: ensemble_retrieval_strategies_for_an_improved_naics_search_engi
+2025-07-13 18:33:49,798 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 18:33:49,914 - INFO - Initialized persistent ChromaDB client at: chroma_db
+2025-07-13 18:33:49,915 - INFO - Starting document processing pipeline
+2025-07-13 18:33:49,915 - INFO - Found 6 PDF files
+2025-07-13 18:33:49,915 - INFO - Processing PDF: 1706.03762.pdf
+2025-07-13 18:33:49,915 - INFO - PDF needs HTML processing: 1706.03762.pdf
+2025-07-13 18:33:49,915 - INFO - Converting PDF to HTML: 1706.03762.pdf
+2025-07-13 18:33:50,118 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/upload/v1beta/files "HTTP/1.1 200 OK"
+2025-07-13 18:33:50,518 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/upload/v1beta/files?upload_id=ABgVH88shOQtK0GzTHx8nFG--GKqNEjUGz28FmMgrQLUIA11_9OXBjlySm6v8KShf1_9fFlxN4AzZ4tu9lqsiEwfSEHCS4KJc_e-PQB6-EBl_w&upload_protocol=resumable "HTTP/1.1 200 OK"
+2025-07-13 18:33:50,519 - INFO - AFC is enabled with max remote calls: 10.
+2025-07-13 18:34:39,809 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-07-13 18:34:39,811 - INFO - AFC remote call 1 is done.
+2025-07-13 18:34:39,812 - INFO - Successfully converted 1706.03762.pdf to HTML
+2025-07-13 18:34:39,812 - INFO - PDF needs JSON processing: 1706.03762.pdf
+2025-07-13 18:34:39,812 - INFO - Converting HTML to JSON: 1706.03762.pdf
+2025-07-13 18:34:39,861 - INFO - Successfully converted 1706.03762.pdf to JSON
+2025-07-13 18:34:39,861 - INFO - PDF needs database processing: 1706.03762.pdf
+2025-07-13 18:34:39,861 - INFO - Converting JSON to database: 1706.03762.pdf
+2025-07-13 18:34:39,882 - INFO - Successfully converted 1706.03762.pdf to database format
+2025-07-13 18:34:39,882 - INFO - PDF needs ChromaDB processing: 1706.03762.pdf
+2025-07-13 18:34:39,883 - INFO - Ingesting into ChromaDB: 1706.03762.pdf
+2025-07-13 18:34:39,883 - INFO - Processing: documents/processed/database/1706.03762_database.json
+2025-07-13 18:34:39,884 - INFO - Paper: Attention Is All You Need
+2025-07-13 18:34:40,131 - INFO - Created new collection: attention_is_all_you_need
+2025-07-13 18:34:41,135 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-07-13 18:34:42,208 - INFO - Added 344 chunks to collection
+2025-07-13 18:34:42,208 - INFO - Successfully ingested 1706.03762.pdf into ChromaDB
+2025-07-13 18:34:42,208 - INFO - Processing PDF: 2507.05400.pdf
+2025-07-13 18:34:42,208 - INFO - PDF needs HTML processing: 2507.05400.pdf
+2025-07-13 18:34:42,208 - INFO - Converting PDF to HTML: 2507.05400.pdf
+2025-07-13 18:34:42,368 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/upload/v1beta/files "HTTP/1.1 200 OK"
+2025-07-13 18:34:42,506 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/upload/v1beta/files?upload_id=ABgVH8_1Lm_UP0K_-8jKbX_7HSUIJPc1VvqTeFZ1Gh8Iv05bTXR0rZYQsbZD1soIYtTrEs1ZFQ_OJ3t35HTss8hL_Yh1wGm55j4mIoFcL7DGAw&upload_protocol=resumable "HTTP/1.1 200 OK"
+2025-07-13 18:34:42,917 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/upload/v1beta/files?upload_id=ABgVH8_1Lm_UP0K_-8jKbX_7HSUIJPc1VvqTeFZ1Gh8Iv05bTXR0rZYQsbZD1soIYtTrEs1ZFQ_OJ3t35HTss8hL_Yh1wGm55j4mIoFcL7DGAw&upload_protocol=resumable "HTTP/1.1 200 OK"
+2025-07-13 18:34:42,918 - INFO - AFC is enabled with max remote calls: 10.
+2025-07-13 18:36:11,910 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-07-13 18:36:11,916 - INFO - AFC remote call 1 is done.
+2025-07-13 18:36:11,916 - INFO - Successfully converted 2507.05400.pdf to HTML
+2025-07-13 18:36:11,916 - INFO - PDF needs JSON processing: 2507.05400.pdf
+2025-07-13 18:36:11,916 - INFO - Converting HTML to JSON: 2507.05400.pdf
+2025-07-13 18:36:11,953 - INFO - Successfully converted 2507.05400.pdf to JSON
+2025-07-13 18:36:11,953 - INFO - PDF needs database processing: 2507.05400.pdf
+2025-07-13 18:36:11,953 - INFO - Converting JSON to database: 2507.05400.pdf
+2025-07-13 18:36:11,976 - INFO - Successfully converted 2507.05400.pdf to database format
+2025-07-13 18:36:11,976 - INFO - PDF needs ChromaDB processing: 2507.05400.pdf
+2025-07-13 18:36:11,976 - INFO - Ingesting into ChromaDB: 2507.05400.pdf
+2025-07-13 18:36:11,976 - INFO - Processing: documents/processed/database/2507.05400_database.json
+2025-07-13 18:36:11,977 - INFO - Paper: STRATEGIC ALIGNMENT PATTERNS IN NATIONAL AI POLICIES
+2025-07-13 18:36:12,037 - INFO - Created new collection: strategic_alignment_patterns_in_national_ai_policies
+2025-07-13 18:36:12,741 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-07-13 18:36:13,769 - INFO - Added 324 chunks to collection
+2025-07-13 18:36:13,770 - INFO - Successfully ingested 2507.05400.pdf into ChromaDB
+2025-07-13 18:36:13,770 - INFO - Processing PDF: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:36:13,770 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:36:13,770 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:36:13,770 - INFO - Database already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:36:13,770 - INFO - PDF needs ChromaDB processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:36:13,770 - INFO - Ingesting into ChromaDB: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 18:36:13,770 - INFO - Processing: documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json
+2025-07-13 18:36:13,771 - INFO - Paper: Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau
+2025-07-13 18:36:13,772 - INFO - Retrieved existing collection: ensemble_retrieval_strategies_for_an_improved_naics_search_engi
+2025-07-13 18:36:20,125 - ERROR - Error processing documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json: Collection expecting embedding with dimension of 1536, got 384
+2025-07-13 18:36:20,128 - WARNING - Failed to ingest NAICS_JSM_Proceedings_Submission_Aug12.pdf into ChromaDB
+2025-07-13 18:36:20,128 - INFO - Processing PDF: 2507.05856.pdf
+2025-07-13 18:36:20,129 - INFO - PDF needs HTML processing: 2507.05856.pdf
+2025-07-13 18:36:20,129 - INFO - Converting PDF to HTML: 2507.05856.pdf
+2025-07-13 18:36:20,389 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/upload/v1beta/files "HTTP/1.1 200 OK"
+2025-07-13 18:36:20,901 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/upload/v1beta/files?upload_id=ABgVH8_Iq7JuuuYC8y9habrpQmQMgHrHXtJZ9hGEkh1TWQpbO7wPiREkNTaxH_aKVWHsSAjxMcB9UpL2tq77DsrsQAChHuXZq-BioR7mmd3z89Q&upload_protocol=resumable "HTTP/1.1 200 OK"
+2025-07-13 18:36:20,901 - INFO - AFC is enabled with max remote calls: 10.
+2025-07-13 18:37:36,443 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-07-13 18:37:36,446 - INFO - AFC remote call 1 is done.
+2025-07-13 18:37:36,446 - INFO - Successfully converted 2507.05856.pdf to HTML
+2025-07-13 18:37:36,446 - INFO - PDF needs JSON processing: 2507.05856.pdf
+2025-07-13 18:37:36,446 - INFO - Converting HTML to JSON: 2507.05856.pdf
+2025-07-13 18:37:36,497 - INFO - Successfully converted 2507.05856.pdf to JSON
+2025-07-13 18:37:36,497 - INFO - PDF needs database processing: 2507.05856.pdf
+2025-07-13 18:37:36,497 - INFO - Converting JSON to database: 2507.05856.pdf
+2025-07-13 18:37:36,518 - INFO - Successfully converted 2507.05856.pdf to database format
+2025-07-13 18:37:36,518 - INFO - PDF needs ChromaDB processing: 2507.05856.pdf
+2025-07-13 18:37:36,518 - INFO - Ingesting into ChromaDB: 2507.05856.pdf
+2025-07-13 18:37:36,518 - INFO - Processing: documents/processed/database/2507.05856_database.json
+2025-07-13 18:37:36,519 - INFO - Paper: Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending
+2025-07-13 18:37:36,579 - INFO - Created new collection: cutting_the_geopolitical_ties_foreign_exchange_reserves_gdp_and
+2025-07-13 18:37:37,989 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-07-13 18:37:38,708 - INFO - Added 318 chunks to collection
+2025-07-13 18:37:38,709 - INFO - Successfully ingested 2507.05856.pdf into ChromaDB
+2025-07-13 18:37:38,709 - INFO - Processing PDF: 2507.07935.pdf
+2025-07-13 18:37:38,709 - INFO - PDF needs HTML processing: 2507.07935.pdf
+2025-07-13 18:37:38,709 - INFO - Converting PDF to HTML: 2507.07935.pdf
+2025-07-13 18:37:38,964 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/upload/v1beta/files "HTTP/1.1 200 OK"
+2025-07-13 18:37:39,370 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/upload/v1beta/files?upload_id=ABgVH8_FznbII6Czl6Kq-7B1J-MY_IHJQlYUI6wxZBZt0-HM0MgdnRn1PG8I7m8XBE-80CcKtAY8zWVcEBR87KuPnudwr7ZhLunGI6n0Svmyqlg&upload_protocol=resumable "HTTP/1.1 200 OK"
+2025-07-13 18:37:39,371 - INFO - AFC is enabled with max remote calls: 10.
+2025-07-13 18:39:49,175 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-07-13 18:39:49,183 - INFO - AFC remote call 1 is done.
+2025-07-13 18:39:49,184 - INFO - Successfully converted 2507.07935.pdf to HTML
+2025-07-13 18:39:49,184 - INFO - PDF needs JSON processing: 2507.07935.pdf
+2025-07-13 18:39:49,184 - INFO - Converting HTML to JSON: 2507.07935.pdf
+2025-07-13 18:39:49,312 - INFO - Successfully converted 2507.07935.pdf to JSON
+2025-07-13 18:39:49,312 - INFO - PDF needs database processing: 2507.07935.pdf
+2025-07-13 18:39:49,312 - INFO - Converting JSON to database: 2507.07935.pdf
+2025-07-13 18:39:49,349 - INFO - Successfully converted 2507.07935.pdf to database format
+2025-07-13 18:39:49,349 - INFO - PDF needs ChromaDB processing: 2507.07935.pdf
+2025-07-13 18:39:49,349 - INFO - Ingesting into ChromaDB: 2507.07935.pdf
+2025-07-13 18:39:49,349 - INFO - Processing: documents/processed/database/2507.07935_database.json
+2025-07-13 18:39:49,350 - INFO - Paper: Working with AI: Measuring the Occupational Implications of Generative AI*
+2025-07-13 18:39:49,410 - INFO - Created new collection: working_with_ai_measuring_the_occupational_implications_of_gene
+2025-07-13 18:39:50,022 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 400 Bad Request"
+2025-07-13 18:39:50,023 - ERROR - Error processing documents/processed/database/2507.07935_database.json: Error code: 400 - {'error': {'message': "This model's maximum context length is 8192 tokens, however you requested 12319 tokens (12319 in your prompt; 0 for the completion). Please reduce your prompt; or completion length.", 'type': 'invalid_request_error', 'param': None, 'code': None}} in add.
+2025-07-13 18:39:50,023 - WARNING - Failed to ingest 2507.07935.pdf into ChromaDB
+2025-07-13 18:39:50,023 - INFO - Processing PDF: 2507.07820.pdf
+2025-07-13 18:39:50,023 - INFO - PDF needs HTML processing: 2507.07820.pdf
+2025-07-13 18:39:50,023 - INFO - Converting PDF to HTML: 2507.07820.pdf
+2025-07-13 18:39:50,260 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/upload/v1beta/files "HTTP/1.1 200 OK"
+2025-07-13 18:39:50,689 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/upload/v1beta/files?upload_id=ABgVH893GsqXhJbuUg09C551CfTii2IJ3r8xA8desaZmz_BVrWGXmXaWLQVo07jPDdkyhZALd-bk7FHRfsIrVfEsVYB5FHgGvBI7GI20R3jwug&upload_protocol=resumable "HTTP/1.1 200 OK"
+2025-07-13 18:39:50,690 - INFO - AFC is enabled with max remote calls: 10.
+2025-07-13 18:40:51,902 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2025-07-13 18:40:51,905 - INFO - AFC remote call 1 is done.
+2025-07-13 18:40:51,905 - INFO - Successfully converted 2507.07820.pdf to HTML
+2025-07-13 18:40:51,905 - INFO - PDF needs JSON processing: 2507.07820.pdf
+2025-07-13 18:40:51,905 - INFO - Converting HTML to JSON: 2507.07820.pdf
+2025-07-13 18:40:51,935 - INFO - Successfully converted 2507.07820.pdf to JSON
+2025-07-13 18:40:51,935 - INFO - PDF needs database processing: 2507.07820.pdf
+2025-07-13 18:40:51,935 - INFO - Converting JSON to database: 2507.07820.pdf
+2025-07-13 18:40:51,956 - INFO - Successfully converted 2507.07820.pdf to database format
+2025-07-13 18:40:51,956 - INFO - PDF needs ChromaDB processing: 2507.07820.pdf
+2025-07-13 18:40:51,956 - INFO - Ingesting into ChromaDB: 2507.07820.pdf
+2025-07-13 18:40:51,956 - INFO - Processing: documents/processed/database/2507.07820_database.json
+2025-07-13 18:40:51,958 - INFO - Paper: AI Should Sense Better, Not Just Scale Bigger: Adaptive Sensing as a Paradigm Shift
+2025-07-13 18:40:52,018 - INFO - Created new collection: ai_should_sense_better_not_just_scale_bigger_adaptive_sensing_a
+2025-07-13 18:40:53,115 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-07-13 18:40:54,279 - INFO - Added 495 chunks to collection
+2025-07-13 18:40:54,280 - INFO - Successfully ingested 2507.07820.pdf into ChromaDB
+2025-07-13 18:40:54,281 - INFO - ==================================================
+2025-07-13 18:40:54,281 - INFO - PROCESSING PIPELINE SUMMARY
+2025-07-13 18:40:54,281 - INFO - ==================================================
+2025-07-13 18:40:54,281 - INFO - Total PDFs: 6
+2025-07-13 18:40:54,281 - INFO - Successfully processed: 4
+2025-07-13 18:40:54,281 - INFO - Failed: 2
+2025-07-13 18:40:54,281 - INFO - 
+Errors:
+2025-07-13 18:40:54,281 - INFO -   - NAICS_JSM_Proceedings_Submission_Aug12.pdf: ['database_to_chroma']
+2025-07-13 18:40:54,281 - INFO -   - 2507.07935.pdf: ['database_to_chroma']
+2025-07-13 18:40:54,282 - INFO - 
+ChromaDB Collections: 6
+2025-07-13 18:40:54,295 - INFO -   - strategic_alignment_patterns_in_national_ai_policies: 324 documents
+2025-07-13 18:40:54,297 - INFO -   - working_with_ai_measuring_the_occupational_implications_of_gene: 0 documents
+2025-07-13 18:40:54,311 - INFO -   - attention_is_all_you_need: 344 documents
+2025-07-13 18:40:54,523 - INFO -   - ensemble_retrieval_strategies_for_an_improved_naics_search_engi: 216 documents
+2025-07-13 18:40:54,537 - INFO -   - cutting_the_geopolitical_ties_foreign_exchange_reserves_gdp_and: 318 documents
+2025-07-13 18:40:54,562 - INFO -   - ai_should_sense_better_not_just_scale_bigger_adaptive_sensing_a: 495 documents
+2025-07-13 18:40:54,562 - INFO - ==================================================
+2025-07-13 19:29:02,697 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-13 19:29:02,813 - INFO - Initialized persistent ChromaDB client at: chroma_db
+2025-07-13 19:29:02,813 - INFO - Starting document processing pipeline
+2025-07-13 19:29:02,814 - INFO - Found 6 PDF files
+2025-07-13 19:29:02,814 - INFO - Processing PDF: 1706.03762.pdf
+2025-07-13 19:29:02,814 - INFO - HTML already exists and is current: 1706.03762.pdf
+2025-07-13 19:29:02,814 - INFO - JSON already exists and is current: 1706.03762.pdf
+2025-07-13 19:29:02,814 - INFO - PDF needs database processing: 1706.03762.pdf
+2025-07-13 19:29:02,814 - INFO - Converting JSON to database: 1706.03762.pdf
+2025-07-13 19:29:02,836 - INFO - Successfully converted 1706.03762.pdf to database format
+2025-07-13 19:29:02,836 - INFO - PDF needs ChromaDB processing: 1706.03762.pdf
+2025-07-13 19:29:02,837 - INFO - Ingesting into ChromaDB: 1706.03762.pdf
+2025-07-13 19:29:02,837 - INFO - Processing: documents/processed/database/1706.03762_database.json
+2025-07-13 19:29:02,838 - INFO - Paper: Attention Is All You Need
+2025-07-13 19:29:03,094 - INFO - Created new collection: attention_is_all_you_need
+2025-07-13 19:29:09,445 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-07-13 19:29:10,332 - INFO - Added 344 chunks to collection
+2025-07-13 19:29:10,333 - INFO - Successfully ingested 1706.03762.pdf into ChromaDB
+2025-07-13 19:29:10,333 - INFO - Processing PDF: 2507.05400.pdf
+2025-07-13 19:29:10,333 - INFO - HTML already exists and is current: 2507.05400.pdf
+2025-07-13 19:29:10,333 - INFO - JSON already exists and is current: 2507.05400.pdf
+2025-07-13 19:29:10,333 - INFO - PDF needs database processing: 2507.05400.pdf
+2025-07-13 19:29:10,333 - INFO - Converting JSON to database: 2507.05400.pdf
+2025-07-13 19:29:10,356 - INFO - Successfully converted 2507.05400.pdf to database format
+2025-07-13 19:29:10,356 - INFO - PDF needs ChromaDB processing: 2507.05400.pdf
+2025-07-13 19:29:10,356 - INFO - Ingesting into ChromaDB: 2507.05400.pdf
+2025-07-13 19:29:10,356 - INFO - Processing: documents/processed/database/2507.05400_database.json
+2025-07-13 19:29:10,358 - INFO - Paper: STRATEGIC ALIGNMENT PATTERNS IN NATIONAL AI POLICIES
+2025-07-13 19:29:10,417 - INFO - Created new collection: strategic_alignment_patterns_in_national_ai_policies
+2025-07-13 19:29:11,267 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-07-13 19:29:11,979 - INFO - Added 324 chunks to collection
+2025-07-13 19:29:11,979 - INFO - Successfully ingested 2507.05400.pdf into ChromaDB
+2025-07-13 19:29:11,979 - INFO - Processing PDF: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 19:29:11,979 - INFO - HTML already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 19:29:11,980 - INFO - JSON already exists and is current: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 19:29:11,980 - INFO - PDF needs database processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 19:29:11,980 - INFO - Converting JSON to database: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 19:29:11,995 - INFO - Successfully converted NAICS_JSM_Proceedings_Submission_Aug12.pdf to database format
+2025-07-13 19:29:11,995 - INFO - PDF needs ChromaDB processing: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 19:29:11,995 - INFO - Ingesting into ChromaDB: NAICS_JSM_Proceedings_Submission_Aug12.pdf
+2025-07-13 19:29:11,995 - INFO - Processing: documents/processed/database/NAICS_JSM_Proceedings_Submission_Aug12_database.json
+2025-07-13 19:29:11,996 - INFO - Paper: Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau
+2025-07-13 19:29:12,055 - INFO - Created new collection: ensemble_retrieval_strategies_for_an_improved_naics_search_engi
+2025-07-13 19:29:12,835 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-07-13 19:29:13,418 - INFO - Added 216 chunks to collection
+2025-07-13 19:29:13,419 - INFO - Successfully ingested NAICS_JSM_Proceedings_Submission_Aug12.pdf into ChromaDB
+2025-07-13 19:29:13,419 - INFO - Processing PDF: 2507.05856.pdf
+2025-07-13 19:29:13,419 - INFO - HTML already exists and is current: 2507.05856.pdf
+2025-07-13 19:29:13,419 - INFO - JSON already exists and is current: 2507.05856.pdf
+2025-07-13 19:29:13,419 - INFO - PDF needs database processing: 2507.05856.pdf
+2025-07-13 19:29:13,419 - INFO - Converting JSON to database: 2507.05856.pdf
+2025-07-13 19:29:13,440 - INFO - Successfully converted 2507.05856.pdf to database format
+2025-07-13 19:29:13,440 - INFO - PDF needs ChromaDB processing: 2507.05856.pdf
+2025-07-13 19:29:13,440 - INFO - Ingesting into ChromaDB: 2507.05856.pdf
+2025-07-13 19:29:13,440 - INFO - Processing: documents/processed/database/2507.05856_database.json
+2025-07-13 19:29:13,441 - INFO - Paper: Cutting the Geopolitical Ties: Foreign Exchange Reserves, GDP and Military Spending
+2025-07-13 19:29:13,501 - INFO - Created new collection: cutting_the_geopolitical_ties_foreign_exchange_reserves_gdp_and
+2025-07-13 19:29:14,413 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-07-13 19:29:15,093 - INFO - Added 318 chunks to collection
+2025-07-13 19:29:15,094 - INFO - Successfully ingested 2507.05856.pdf into ChromaDB
+2025-07-13 19:29:15,094 - INFO - Processing PDF: 2507.07935.pdf
+2025-07-13 19:29:15,094 - INFO - HTML already exists and is current: 2507.07935.pdf
+2025-07-13 19:29:15,094 - INFO - JSON already exists and is current: 2507.07935.pdf
+2025-07-13 19:29:15,094 - INFO - PDF needs database processing: 2507.07935.pdf
+2025-07-13 19:29:15,094 - INFO - Converting JSON to database: 2507.07935.pdf
+2025-07-13 19:29:15,198 - INFO - Successfully converted 2507.07935.pdf to database format
+2025-07-13 19:29:15,198 - INFO - PDF needs ChromaDB processing: 2507.07935.pdf
+2025-07-13 19:29:15,198 - INFO - Ingesting into ChromaDB: 2507.07935.pdf
+2025-07-13 19:29:15,198 - INFO - Processing: documents/processed/database/2507.07935_database.json
+2025-07-13 19:29:15,200 - INFO - Paper: Working with AI: Measuring the Occupational Implications of Generative AI*
+2025-07-13 19:29:15,259 - INFO - Created new collection: working_with_ai_measuring_the_occupational_implications_of_gene
+2025-07-13 19:29:15,750 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 400 Bad Request"
+2025-07-13 19:29:15,751 - ERROR - Error processing documents/processed/database/2507.07935_database.json: Error code: 400 - {'error': {'message': "This model's maximum context length is 8192 tokens, however you requested 12319 tokens (12319 in your prompt; 0 for the completion). Please reduce your prompt; or completion length.", 'type': 'invalid_request_error', 'param': None, 'code': None}} in add.
+2025-07-13 19:29:15,751 - WARNING - Failed to ingest 2507.07935.pdf into ChromaDB
+2025-07-13 19:29:15,751 - INFO - Processing PDF: 2507.07820.pdf
+2025-07-13 19:29:15,751 - INFO - HTML already exists and is current: 2507.07820.pdf
+2025-07-13 19:29:15,751 - INFO - JSON already exists and is current: 2507.07820.pdf
+2025-07-13 19:29:15,751 - INFO - PDF needs database processing: 2507.07820.pdf
+2025-07-13 19:29:15,752 - INFO - Converting JSON to database: 2507.07820.pdf
+2025-07-13 19:29:15,772 - INFO - Successfully converted 2507.07820.pdf to database format
+2025-07-13 19:29:15,772 - INFO - PDF needs ChromaDB processing: 2507.07820.pdf
+2025-07-13 19:29:15,772 - INFO - Ingesting into ChromaDB: 2507.07820.pdf
+2025-07-13 19:29:15,772 - INFO - Processing: documents/processed/database/2507.07820_database.json
+2025-07-13 19:29:15,774 - INFO - Paper: AI Should Sense Better, Not Just Scale Bigger: Adaptive Sensing as a Paradigm Shift
+2025-07-13 19:29:15,833 - INFO - Created new collection: ai_should_sense_better_not_just_scale_bigger_adaptive_sensing_a
+2025-07-13 19:29:17,096 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-07-13 19:29:18,037 - INFO - Added 495 chunks to collection
+2025-07-13 19:29:18,038 - INFO - Successfully ingested 2507.07820.pdf into ChromaDB
+2025-07-13 19:29:18,038 - INFO - ==================================================
+2025-07-13 19:29:18,038 - INFO - PROCESSING PIPELINE SUMMARY
+2025-07-13 19:29:18,038 - INFO - ==================================================
+2025-07-13 19:29:18,038 - INFO - Total PDFs: 6
+2025-07-13 19:29:18,038 - INFO - Successfully processed: 5
+2025-07-13 19:29:18,038 - INFO - Failed: 1
+2025-07-13 19:29:18,038 - INFO - 
+Errors:
+2025-07-13 19:29:18,038 - INFO -   - 2507.07935.pdf: ['database_to_chroma']
+2025-07-13 19:29:18,039 - INFO - 
+ChromaDB Collections: 6
+2025-07-13 19:29:18,051 - INFO -   - attention_is_all_you_need: 344 documents
+2025-07-13 19:29:18,061 - INFO -   - cutting_the_geopolitical_ties_foreign_exchange_reserves_gdp_and: 318 documents
+2025-07-13 19:29:18,072 - INFO -   - ensemble_retrieval_strategies_for_an_improved_naics_search_engi: 216 documents
+2025-07-13 19:29:18,074 - INFO -   - working_with_ai_measuring_the_occupational_implications_of_gene: 0 documents
+2025-07-13 19:29:18,095 - INFO -   - ai_should_sense_better_not_just_scale_bigger_adaptive_sensing_a: 495 documents
+2025-07-13 19:29:18,111 - INFO -   - strategic_alignment_patterns_in_national_ai_policies: 324 documents
+2025-07-13 19:29:18,111 - INFO - ==================================================

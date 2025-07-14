@@ -1,0 +1,6724 @@
+[
+  {
+    "content_type": "heading",
+    "content": "Ensemble Retrieval Strategies for an Improved NAICS Search Engine in the U.S. Census Bureau",
+    "tag_name": "h1",
+    "attributes": {},
+    "level": 1,
+    "list_type": null,
+    "table_info": null,
+    "position": 0
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Cameron Milne, Yezzi Angi Lee, Taylor Wilson, Hector Ferronato Reveal Global Consulting, 8115 Maple Lawn Blvd, Fulton, MD 27509",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 1
+  },
+  {
+    "content_type": "unknown",
+    "content": "",
+    "tag_name": "br",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 2
+  },
+  {
+    "content_type": "heading",
+    "content": "Abstract",
+    "tag_name": "h2",
+    "attributes": {},
+    "level": 2,
+    "list_type": null,
+    "table_info": null,
+    "position": 3
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Large Language Models (LLMs) have achieved significant gains in performance over classical approaches in Information Retrieval (IR) systems. Semantic search, a concept involving a contextual understanding of a query, significantly outperforms its keyword predecessors in recent academic literature. This paper examines five research questions critical to an effective multi-stage retrieval pipeline: [1] how much better can dense embeddings perform over sparse embeddings? [2] what combination of context windows in an ensemble approach can maximize first-candidate generation? [3] among top performers in ensemble approaches, which approach can generate the highest accuracy scores when we increase k? [4] can a fast-reranking algorithm complement first-candidate generation to further boost accuracy? [5] can a cache of seen-before queries help boost performance where the corpus fails? This project designs a novel search engine for the North American Industry Classification System (NAICS) using semantic retrieval models and achieves an accuracy of 86.87% on synthetic data, a 45.1% improvement over a keyword search. The strategies for bootstrapping data, selecting language models, and using open-source technologies within this project can serve as reference material for future LLM applications in the U.S. Census Bureau.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 4
+  },
+  {
+    "content_type": "paragraph",
+    "content": ": Large Language Models (LLMs), Semantic Search, Information Retrieval, Natural Language Processing (NLP), Federal Statistics",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 5
+  },
+  {
+    "content_type": "unknown",
+    "content": "Keywords",
+    "tag_name": "strong",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 6
+  },
+  {
+    "content_type": "paragraph",
+    "content": "",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 7
+  },
+  {
+    "content_type": "unknown",
+    "content": "All views expressed in this paper are those of the authors and do not necessarily reflect the views or policies of the U.S. Census Bureau.",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 8
+  },
+  {
+    "content_type": "heading",
+    "content": "1. Introduction",
+    "tag_name": "h2",
+    "attributes": {},
+    "level": 2,
+    "list_type": null,
+    "table_info": null,
+    "position": 9
+  },
+  {
+    "content_type": "paragraph",
+    "content": "The North American Industry Classification System (NAICS) is a standard developed jointly by the United States, Canada, and Mexico to better categorize and analyze data around their economies (United States Census Bureau 2019). NAICS was developed by the Office of Management and Budget (OMB) in 1997 to replace the Standard Industrial Classification (SIC) system with innovative classification methodologies for the purpose of supporting interoperability of economic classification between the U.S., Canada, and Mexico. Since 1997, NAICS has evolved through five-year review cycles to 1,012 unique codes within 20 sectors that group establishments by similarity in processes used to produce goods or services. Examples range from Soybean Farming (111110) comprising establishments primarily engaged in growing or producing soybeans to Used Merchandise Retailers (459510) which includes establishments retailing used merchandise, antiques, and secondhand goods. Common definitions for industries and economic sectors such as these have helped the U.S., Canada, and Mexico to understand economic inputs and outputs, industrial performance, productivity, unit labor costs, and employment growth in North America.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 10
+  },
+  {
+    "content_type": "paragraph",
+    "content": "The U.S. Census Bureau offers a NAICS search engine on its website that employs string-matching: an information retrieval (IR) technique that identifies exact matches between a query and a corpus. This approach is supported by Bureau analysts who maintain detailed documentation of descriptions, illustrative examples, and cross-references that evolve with economic terminology. However, string-matching itself constrains user experience by failing to provide relevant documents when queries are lengthy or complex. As a result, Census classification analysts report 15-25% of their work hours are dedicated to assisting users over email and phone, impressing the need for more advanced tools to efficiently manage user queries.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 11
+  },
+  {
+    "content_type": "unknown",
+    "content": "1",
+    "tag_name": "sup",
+    "attributes": {
+      "class": [
+        "footnote"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 12
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Recent progress in instruction fine-tuned large language models (LLMs) is driving fast-paced advances in IR systems by transitioning from lexical search strategies to semantic search. Semantic search, where “semantic” meaning is given consideration through the underlying language model's self-attention mechanism, is more effective at handling ambiguity and delivering targeted results. Relatedly, the increasing availability of powerful language models on platforms like Hugging Face, inexpensive vector databases to replace NoSQL databases with faster indexing and querying, and evolving research around retrieval-augmented generation (RAG) have made development of customized search engines easier. These advancements present an opportunity for enhancing the retrieval tools available for analysts.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 13
+  },
+  {
+    "content_type": "paragraph",
+    "content": "This paper introduces a NAICS search engine built on semantic retrieval models. Our project seeks to answer a few questions related to search: [RQ1] How much better can dense embeddings perform over sparse embeddings? [RQ2] What combination of context windows in an ensemble approach can maximize first-candidate generation? [RQ3] Among top performers in ensemble approaches, which approach can generate the highest accuracy scores when we increase k? [RQ4] Can a fast-reranking algorithm complement first-candidate generation to further boost accuracy? [RQ5] Can a cache of seen-before queries boost performance where the corpus fails? By performing a series of experiments, we draw conclusions on critical elements of a multi-stage retrieval pipeline for this use-case and provide a roadmap for improvement through data augmentation.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 14
+  },
+  {
+    "content_type": "paragraph",
+    "content": "This project utilizes open-source, state-of-the-art technologies in machine learning and natural language processing, advancing the Federal government's efforts to embrace artificial intelligence (AI) initiatives while alleviating a taxing burden for human analysts in the U.S. Census Bureau. This paper aims to provide a framework for testing and deploying LLM applications for production in the Federal government.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 15
+  },
+  {
+    "content_type": "heading",
+    "content": "2. Background and Related Work",
+    "tag_name": "h2",
+    "attributes": {},
+    "level": 2,
+    "list_type": null,
+    "table_info": null,
+    "position": 16
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Retrievers and reranking are the primary objects of study for this project. Per standard parlance in IR, document generally refers to a unit of text being retrieved and can vary from a single keyword to multiple passages.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 17
+  },
+  {
+    "content_type": "heading",
+    "content": "2.1 Retrievers",
+    "tag_name": "h3",
+    "attributes": {},
+    "level": 3,
+    "list_type": null,
+    "table_info": null,
+    "position": 18
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Given a corpus C = {D , D , ..., D } containing a collection of documents and a query q, a retriever should efficiently return a list of k documents from C that are most relevant to the query q according to some metric relevant to the use-case. While researchers typically use nDCG or mean average precision to assess the performance of these systems, custom-use cases require different signals for relevance.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 19
+  },
+  {
+    "content_type": "unknown",
+    "content": "1",
+    "tag_name": "sub",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 20
+  },
+  {
+    "content_type": "unknown",
+    "content": "2",
+    "tag_name": "sub",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 21
+  },
+  {
+    "content_type": "unknown",
+    "content": "n",
+    "tag_name": "sub",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 22
+  },
+  {
+    "content_type": "paragraph",
+    "content": "\"Bag of word\" models including TF-IDF and BM25 represent the classical approaches to retrieving relevant documents and have received interest in academia (Matveeva, et al. 2006, Wang, Lin and Metzler 2011, Asadi and Lin 2013, Chen, et al. 2017, Mackenzie, et al. 2018) as well as industry. Bing's search engine (Pedersen 2010) and Alibaba's ecommerce platform (Liu, et al. 2017) reportedly used these approaches in the early 2000s. These lexical approaches can perform modestly in first-stage candidate generation and serve as strong baselines for zero-shot retrieval (Thakur, et al. 2021), but can struggle to overcome lexical gaps (Berger, et al. 2000). Specifically, they are prone to returning false positives or irrelevant results when search terms have multiple interpretations.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 23
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Semantic search updates these methods through a few key differences: using dense representations typically learned from questions and passages by an encoder-encoder framework (Karpukhin, et al. 2020) and replacing the discrete inverted index with standard approximate nearest neighbor (ANN) to rely on distances between learned embeddings (Gillick, Presta and Singh Tomar 2018). Dual-encoder neural architectures using pre-trained transformers have shown strong performance on various open-domain question answering tasks (Guo, et al. 2020, Karpukhin, et al. 2020, Liang, et al. 2020, Ma, et al. 2020) and have become a promising framework for advanced IR systems. More recently, the dense approach was extended by hybrid lexical-dense approaches aiming to combine the strengths of both approaches and overcome any weaknesses in distance-based retrieval (Luan, et al. 2021, Raffel, et al. 2020, Gao, et al. 2021).",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 24
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Relatedly, research on RAG architectures (Lewis, et al. 2020) have advanced IR research as well by exhaustively studying chunking approaches (Liu, et al. 2021, Izacard and Grave 2020, Gong, et al. 2020, Majumder, et al. 2021), lengths of context windows (Zaheer, et al. 2020, Borgeaud, et al. 2022, Izacard and Grave 2020), model selection (Kandpal, et al. 2023, Zhao, et al. 2024, Neelakantan, et al. 2022), and more. Results from these studies often depend on details specific to the use-case, necessitating a kitchen-sink strategy for experimentation in this project to understand where each of these variables should be tuned.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 25
+  },
+  {
+    "content_type": "heading",
+    "content": "2.2 Reranking",
+    "tag_name": "h3",
+    "attributes": {},
+    "level": 3,
+    "list_type": null,
+    "table_info": null,
+    "position": 26
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Reranking a collection of k documents after retrieval can often further improve the quality of documents retrieved using the same metric or an alternative (particularly useful when the first-candidate generation is through dense retrieval which automatically performs ranking). Retrievers and reranking together form multi-stage ranking pipelines for text ranking and have been studied in both IR and NLP contexts in recent years (Lin, Nogueira and Yates 2021).",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 27
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Classical approaches to reranking, including Condorcet Fuse and Reciprocal Rank Fusion (RRF), have provided effective reranking for hybrid lexical-dense retrieval systems by combining results and recomputing based on predetermined weights (Cormack, Clarke and Buttcher 2009). Yet, these methods are LLM-agnostic and require hyperparameter tuning for optimal performance—a challenge when a project lacks reliable data for development.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 28
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Contextualized Late Interaction over BERT (ColBERT) is a novel reranking strategy that computes multiple contextualized embeddings at the token level for both queries and documents and uses a maximum-similarity function for retrieval or reranking (Thakur, et al. 2021). The priority on keywords, combined with applying the attention mechanism after encoding prevents the need for storing documents in a vector space until called upon (Khattab and Zaharia 2020). ColBERT can leverage the expressiveness of a power language model while performing orders-of-magnitude faster, suggesting a powerful complementary algorithm for dense retrieval.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 29
+  },
+  {
+    "content_type": "paragraph",
+    "content": "LLMs have also been researched in the context of reranking, with RankGPT (Sun, et al. 2023), RankVicuna (Pradeep, Sharifymoghaddam and Lin, RankVicuna: Zero-Shot Listwise Document Reranking with Open-Source Large Language Models 2023), and RankZephyr (Pradeep, Sharifymoghaddam and Lin, RankZephyr: Effective and Robust Zero-Shot Listwise Reranking is a Breeze! 2023) demonstrating strong reasoning capabilities with applied prompt engineering. However, this project aims to provide a self-service platform where analysts can interact with the search engine directly, necessitating fast inference. Given these constraints, we elected to experiment without seq2seq models as rerankers.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 30
+  },
+  {
+    "content_type": "heading",
+    "content": "3. Proposed Methods",
+    "tag_name": "h2",
+    "attributes": {},
+    "level": 2,
+    "list_type": null,
+    "table_info": null,
+    "position": 31
+  },
+  {
+    "content_type": "paragraph",
+    "content": "We explore each component of a multi-stage retrieval pipeline: assembling a corpus, model selection, reranking design, and generating synthetic testing data.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 32
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Figure 1: Example document with annotations for proposed context windows",
+    "tag_name": "p",
+    "attributes": {
+      "class": [
+        "figure-caption"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 33
+  },
+  {
+    "content_type": "heading",
+    "content": "Individual Context Windows",
+    "tag_name": "h4",
+    "attributes": {},
+    "level": 4,
+    "list_type": null,
+    "table_info": null,
+    "position": 34
+  },
+  {
+    "content_type": "paragraph",
+    "content": "T = Canadian, Mexican, and United States industries are comparable.",
+    "tag_name": "p",
+    "attributes": {
+      "class": [
+        "figure-1-content"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 35
+  },
+  {
+    "content_type": "paragraph",
+    "content": "",
+    "tag_name": "p",
+    "attributes": {
+      "class": [
+        "figure-1-content"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 36
+  },
+  {
+    "content_type": "unknown",
+    "content": "624190 Other Individual and Family Services",
+    "tag_name": "strong",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 37
+  },
+  {
+    "content_type": "paragraph",
+    "content": "This industry comprises establishments primarily engaged in providing nonresidential individual and family social assistance services (except those specifically directed toward children, the elderly, or persons with intellectual and/or developmental disabilities).",
+    "tag_name": "p",
+    "attributes": {
+      "class": [
+        "figure-1-content"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 38
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Illustrative Examples:",
+    "tag_name": "p",
+    "attributes": {
+      "class": [
+        "figure-1-content"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 39
+  },
+  {
+    "content_type": "list",
+    "content": "• Community action services agencies\n• Marriage counseling services (except by offices of mental health practitioners)\n• Crisis intervention centers\n• Multi-purpose social services centers\n• Family social services agencies\n• Family welfare services\n• Self-help organizations (except for disabled persons, the elderly)\n• Suicide crisis centers\n• Hotline centers\n• Telephone counseling services",
+    "tag_name": "ul",
+    "attributes": {
+      "class": [
+        "list-indent"
+      ]
+    },
+    "level": null,
+    "list_type": "ul",
+    "table_info": null,
+    "position": 40
+  },
+  {
+    "content_type": "list",
+    "content": "Community action services agencies",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 41
+  },
+  {
+    "content_type": "list",
+    "content": "Marriage counseling services (except by offices of mental health practitioners)",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 42
+  },
+  {
+    "content_type": "list",
+    "content": "Crisis intervention centers",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 43
+  },
+  {
+    "content_type": "list",
+    "content": "Multi-purpose social services centers",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 44
+  },
+  {
+    "content_type": "list",
+    "content": "Family social services agencies",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 45
+  },
+  {
+    "content_type": "list",
+    "content": "Family welfare services",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 46
+  },
+  {
+    "content_type": "list",
+    "content": "Self-help organizations (except for disabled persons, the elderly)",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 47
+  },
+  {
+    "content_type": "list",
+    "content": "Suicide crisis centers",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 48
+  },
+  {
+    "content_type": "list",
+    "content": "Hotline centers",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 49
+  },
+  {
+    "content_type": "list",
+    "content": "Telephone counseling services",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 50
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Cross-References. Establishments primarily engaged in—",
+    "tag_name": "p",
+    "attributes": {
+      "class": [
+        "figure-1-content"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 51
+  },
+  {
+    "content_type": "list",
+    "content": "• Providing clinical psychological and psychiatric counseling services (except by offices of physicians)—are classified in Industry 621330, Offices of Mental Health Practitioners (except Physicians);\n• Providing child and youth social assistance services (except child care services)—are classified in Industry 624110, Child and Youth Services;\n• Providing child care services—are classified in Industry 624410, Child Care Services;\n• Providing social assistance services for the elderly and persons with intellectual and/or developmental disabilities—are classified in Industry 624120, Services for the Elderly and Persons with Disabilities;\n• Community action advocacy—are classified in U.S. Industry 813319, Other Social Advocacy Organizations; and\n• Providing in-home health care services—are classified in Subsector 621, Ambulatory Health Care Services.",
+    "tag_name": "ul",
+    "attributes": {
+      "class": [
+        "list-indent"
+      ]
+    },
+    "level": null,
+    "list_type": "ul",
+    "table_info": null,
+    "position": 52
+  },
+  {
+    "content_type": "list",
+    "content": "Providing clinical psychological and psychiatric counseling services (except by offices of physicians)—are classified in Industry 621330, Offices of Mental Health Practitioners (except Physicians);",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 53
+  },
+  {
+    "content_type": "list",
+    "content": "Providing child and youth social assistance services (except child care services)—are classified in Industry 624110, Child and Youth Services;",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 54
+  },
+  {
+    "content_type": "list",
+    "content": "Providing child care services—are classified in Industry 624410, Child Care Services;",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 55
+  },
+  {
+    "content_type": "list",
+    "content": "Providing social assistance services for the elderly and persons with intellectual and/or developmental disabilities—are classified in Industry 624120, Services for the Elderly and Persons with Disabilities;",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 56
+  },
+  {
+    "content_type": "list",
+    "content": "Community action advocacy—are classified in U.S. Industry 813319, Other Social Advocacy Organizations; and",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 57
+  },
+  {
+    "content_type": "list",
+    "content": "Providing in-home health care services—are classified in Subsector 621, Ambulatory Health Care Services.",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 58
+  },
+  {
+    "content_type": "table",
+    "content": "2012 NAICS | 2017 NAICS | 2022 NAICS | Corresponding Index Entries | 624190 | 624190 | 624190 | Alcoholism and drug addiction self-help organizations | 624190 | 624190 | 624190 | Alcohollism counseling (except medical treatment), nonresidential | 624190 | 624190 | 624190 | Alcoholism self-help organizations | 624190 | 624190 | 624190 | Community action service agencies",
+    "tag_name": "table",
+    "attributes": {
+      "class": [
+        "naics-code-table"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": {
+      "rows": 5,
+      "columns": 4,
+      "has_header": true
+    },
+    "position": 59
+  },
+  {
+    "content_type": "table",
+    "content": "2012 NAICS | 2017 NAICS | 2022 NAICS | Corresponding Index Entries",
+    "tag_name": "thead",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 60
+  },
+  {
+    "content_type": "table",
+    "content": "2012 NAICS | 2017 NAICS | 2022 NAICS | Corresponding Index Entries",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 61
+  },
+  {
+    "content_type": "table",
+    "content": "2012 NAICS",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 62
+  },
+  {
+    "content_type": "table",
+    "content": "2017 NAICS",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 63
+  },
+  {
+    "content_type": "table",
+    "content": "2022 NAICS",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 64
+  },
+  {
+    "content_type": "table",
+    "content": "Corresponding Index Entries",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 65
+  },
+  {
+    "content_type": "table",
+    "content": "624190 | 624190 | 624190 | Alcoholism and drug addiction self-help organizations | 624190 | 624190 | 624190 | Alcohollism counseling (except medical treatment), nonresidential | 624190 | 624190 | 624190 | Alcoholism self-help organizations | 624190 | 624190 | 624190 | Community action service agencies",
+    "tag_name": "tbody",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 66
+  },
+  {
+    "content_type": "table",
+    "content": "624190 | 624190 | 624190 | Alcoholism and drug addiction self-help organizations",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 67
+  },
+  {
+    "content_type": "table",
+    "content": "624190",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 68
+  },
+  {
+    "content_type": "table",
+    "content": "624190",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 69
+  },
+  {
+    "content_type": "table",
+    "content": "624190",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 70
+  },
+  {
+    "content_type": "table",
+    "content": "Alcoholism and drug addiction self-help organizations",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 71
+  },
+  {
+    "content_type": "table",
+    "content": "624190 | 624190 | 624190 | Alcohollism counseling (except medical treatment), nonresidential",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 72
+  },
+  {
+    "content_type": "table",
+    "content": "624190",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 73
+  },
+  {
+    "content_type": "table",
+    "content": "624190",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 74
+  },
+  {
+    "content_type": "table",
+    "content": "624190",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 75
+  },
+  {
+    "content_type": "table",
+    "content": "Alcohollism counseling (except medical treatment), nonresidential",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 76
+  },
+  {
+    "content_type": "table",
+    "content": "624190 | 624190 | 624190 | Alcoholism self-help organizations",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 77
+  },
+  {
+    "content_type": "table",
+    "content": "624190",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 78
+  },
+  {
+    "content_type": "table",
+    "content": "624190",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 79
+  },
+  {
+    "content_type": "table",
+    "content": "624190",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 80
+  },
+  {
+    "content_type": "table",
+    "content": "Alcoholism self-help organizations",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 81
+  },
+  {
+    "content_type": "table",
+    "content": "624190 | 624190 | 624190 | Community action service agencies",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 82
+  },
+  {
+    "content_type": "table",
+    "content": "624190",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 83
+  },
+  {
+    "content_type": "table",
+    "content": "624190",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 84
+  },
+  {
+    "content_type": "table",
+    "content": "624190",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 85
+  },
+  {
+    "content_type": "table",
+    "content": "Community action service agencies",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 86
+  },
+  {
+    "content_type": "heading",
+    "content": "Combined Context Windows",
+    "tag_name": "h4",
+    "attributes": {},
+    "level": 4,
+    "list_type": null,
+    "table_info": null,
+    "position": 87
+  },
+  {
+    "content_type": "heading",
+    "content": "3.1 Corpus",
+    "tag_name": "h3",
+    "attributes": {},
+    "level": 3,
+    "list_type": null,
+    "table_info": null,
+    "position": 88
+  },
+  {
+    "content_type": "paragraph",
+    "content": "All documents containing information associated with the 1,012 unique NAICS codes are publicly available on the U.S. Census Bureau's website. Files of particular interest were the 2022 NAICS Descriptions containing Codes, Titles, Descriptions, and Illustrative Examples, the 2022 NAICS Cross-References, and the 2022 NAICS Index File which contains indexed keywords. From these files, they are chunked into their context windows and stored in a vector database. Because each document was reasonably small (including combined context windows), chunking size experimentation was unnecessary.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 89
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Seven documents (i.e. context windows) are used for experimentation. Individual context windows such as Title (T), Description (D), Illustrative Examples (IE), Cross-References (CR), and Indexed Keywords (IK) when used in combination represent a complementary ensemble approach. Additional context windows are combinations of these sections: Title + Description (T-D) and Title + Description + Illustrative Examples (T-D-IE). By using these sections in addition to the individual context windows, we can examine whether overlapping information helps home in on the best answers or crowds them out. Figure 2 provides an example of an existing document as seen on the legacy NAICS search engine with annotations of each context used in the experiments.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 90
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Additionally, we hypothesize that where semantic relationships are weak between queries and existing documents, a caching mechanism where historical queries are stored can help address edge cases. The cache is a sample of 679 annotated emails representing “real” queries supplied by Census analysts. The original sample contained 1,910 emails and had been stripped of any personally identifiable information. Pruning unrelated emails (general inquiries, emails lacking business descriptions, non-English, 2017 NAICS codes, etc.) left 1,291 emails, which were then denoised with Zephyr-7b-Beta (Tunstall, et al. 2023), a seq2seq model available on Hugging Face using a prompt that extracts the sentence or two where a business description is mentioned. Removing unnecessary language was crucial for improving signal in prediction and altering queries towards those expected by a search engine. From there, we performed our own annotations and removed any descriptions that evaded previous filters for relevant queries or consisted of typos and incomplete thoughts. The resulting cache consisted of 679 unique queries representing 25.59% of all unique 2022 NAICS codes. Table 2 displays the most frequently seen NAICS codes.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 91
+  },
+  {
+    "content_type": "table",
+    "content": "Count | Code | Title | Sector | 37 | 458110 | Clothing and Clothing Accessories Retailers | Retail Trade | 32 | 459999 | All Other Miscellaneous Retailers | Retail Trade | 29 | 812990 | All Other Personal Services | Other Services (except Public Administration) | 20 | 711510 | Independent Artists, Writers, and Performers | Arts, Entertainment, and Recreation | 16 | 561720 | Janitorial Services | Administrative and Support and Waste Management and Remediation Services | 13 | 339999 | All Other Miscellaneous Manufacturing | Manufacturing | 12 | 236118 | Residential Remodelers | Construction | 11 | 541990 | All Other Professional, Scientific, and Technical Services | Professional, Scientific, and Technical Services | 9 | 445298 | All Other Specialty Food Retailers | Retail Trade | 8 | 523910 | Miscellaneous Intermediation | Finance and Insurance",
+    "tag_name": "table",
+    "attributes": {
+      "class": [
+        "small-table"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": {
+      "rows": 11,
+      "columns": 4,
+      "has_header": true
+    },
+    "position": 92
+  },
+  {
+    "content_type": "unknown",
+    "content": "Table 2: Most Frequently seen NAICS codes in Cache",
+    "tag_name": "caption",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 93
+  },
+  {
+    "content_type": "table",
+    "content": "Count | Code | Title | Sector",
+    "tag_name": "thead",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 94
+  },
+  {
+    "content_type": "table",
+    "content": "Count | Code | Title | Sector",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 95
+  },
+  {
+    "content_type": "table",
+    "content": "Count",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 96
+  },
+  {
+    "content_type": "table",
+    "content": "Code",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 97
+  },
+  {
+    "content_type": "table",
+    "content": "Title",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 98
+  },
+  {
+    "content_type": "table",
+    "content": "Sector",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 99
+  },
+  {
+    "content_type": "table",
+    "content": "37 | 458110 | Clothing and Clothing Accessories Retailers | Retail Trade | 32 | 459999 | All Other Miscellaneous Retailers | Retail Trade | 29 | 812990 | All Other Personal Services | Other Services (except Public Administration) | 20 | 711510 | Independent Artists, Writers, and Performers | Arts, Entertainment, and Recreation | 16 | 561720 | Janitorial Services | Administrative and Support and Waste Management and Remediation Services | 13 | 339999 | All Other Miscellaneous Manufacturing | Manufacturing | 12 | 236118 | Residential Remodelers | Construction | 11 | 541990 | All Other Professional, Scientific, and Technical Services | Professional, Scientific, and Technical Services | 9 | 445298 | All Other Specialty Food Retailers | Retail Trade | 8 | 523910 | Miscellaneous Intermediation | Finance and Insurance",
+    "tag_name": "tbody",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 100
+  },
+  {
+    "content_type": "table",
+    "content": "37 | 458110 | Clothing and Clothing Accessories Retailers | Retail Trade",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 101
+  },
+  {
+    "content_type": "table",
+    "content": "37",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 102
+  },
+  {
+    "content_type": "table",
+    "content": "458110",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 103
+  },
+  {
+    "content_type": "table",
+    "content": "Clothing and Clothing Accessories Retailers",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 104
+  },
+  {
+    "content_type": "table",
+    "content": "Retail Trade",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 105
+  },
+  {
+    "content_type": "table",
+    "content": "32 | 459999 | All Other Miscellaneous Retailers | Retail Trade",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 106
+  },
+  {
+    "content_type": "table",
+    "content": "32",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 107
+  },
+  {
+    "content_type": "table",
+    "content": "459999",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 108
+  },
+  {
+    "content_type": "table",
+    "content": "All Other Miscellaneous Retailers",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 109
+  },
+  {
+    "content_type": "table",
+    "content": "Retail Trade",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 110
+  },
+  {
+    "content_type": "table",
+    "content": "29 | 812990 | All Other Personal Services | Other Services (except Public Administration)",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 111
+  },
+  {
+    "content_type": "table",
+    "content": "29",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 112
+  },
+  {
+    "content_type": "table",
+    "content": "812990",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 113
+  },
+  {
+    "content_type": "table",
+    "content": "All Other Personal Services",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 114
+  },
+  {
+    "content_type": "table",
+    "content": "Other Services (except Public Administration)",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 115
+  },
+  {
+    "content_type": "table",
+    "content": "20 | 711510 | Independent Artists, Writers, and Performers | Arts, Entertainment, and Recreation",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 116
+  },
+  {
+    "content_type": "table",
+    "content": "20",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 117
+  },
+  {
+    "content_type": "table",
+    "content": "711510",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 118
+  },
+  {
+    "content_type": "table",
+    "content": "Independent Artists, Writers, and Performers",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 119
+  },
+  {
+    "content_type": "table",
+    "content": "Arts, Entertainment, and Recreation",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 120
+  },
+  {
+    "content_type": "table",
+    "content": "16 | 561720 | Janitorial Services | Administrative and Support and Waste Management and Remediation Services",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 121
+  },
+  {
+    "content_type": "table",
+    "content": "16",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 122
+  },
+  {
+    "content_type": "table",
+    "content": "561720",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 123
+  },
+  {
+    "content_type": "table",
+    "content": "Janitorial Services",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 124
+  },
+  {
+    "content_type": "table",
+    "content": "Administrative and Support and Waste Management and Remediation Services",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 125
+  },
+  {
+    "content_type": "table",
+    "content": "13 | 339999 | All Other Miscellaneous Manufacturing | Manufacturing",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 126
+  },
+  {
+    "content_type": "table",
+    "content": "13",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 127
+  },
+  {
+    "content_type": "table",
+    "content": "339999",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 128
+  },
+  {
+    "content_type": "table",
+    "content": "All Other Miscellaneous Manufacturing",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 129
+  },
+  {
+    "content_type": "table",
+    "content": "Manufacturing",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 130
+  },
+  {
+    "content_type": "table",
+    "content": "12 | 236118 | Residential Remodelers | Construction",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 131
+  },
+  {
+    "content_type": "table",
+    "content": "12",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 132
+  },
+  {
+    "content_type": "table",
+    "content": "236118",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 133
+  },
+  {
+    "content_type": "table",
+    "content": "Residential Remodelers",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 134
+  },
+  {
+    "content_type": "table",
+    "content": "Construction",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 135
+  },
+  {
+    "content_type": "table",
+    "content": "11 | 541990 | All Other Professional, Scientific, and Technical Services | Professional, Scientific, and Technical Services",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 136
+  },
+  {
+    "content_type": "table",
+    "content": "11",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 137
+  },
+  {
+    "content_type": "table",
+    "content": "541990",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 138
+  },
+  {
+    "content_type": "table",
+    "content": "All Other Professional, Scientific, and Technical Services",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 139
+  },
+  {
+    "content_type": "table",
+    "content": "Professional, Scientific, and Technical Services",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 140
+  },
+  {
+    "content_type": "table",
+    "content": "9 | 445298 | All Other Specialty Food Retailers | Retail Trade",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 141
+  },
+  {
+    "content_type": "table",
+    "content": "9",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 142
+  },
+  {
+    "content_type": "table",
+    "content": "445298",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 143
+  },
+  {
+    "content_type": "table",
+    "content": "All Other Specialty Food Retailers",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 144
+  },
+  {
+    "content_type": "table",
+    "content": "Retail Trade",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 145
+  },
+  {
+    "content_type": "table",
+    "content": "8 | 523910 | Miscellaneous Intermediation | Finance and Insurance",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 146
+  },
+  {
+    "content_type": "table",
+    "content": "8",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 147
+  },
+  {
+    "content_type": "table",
+    "content": "523910",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 148
+  },
+  {
+    "content_type": "table",
+    "content": "Miscellaneous Intermediation",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 149
+  },
+  {
+    "content_type": "table",
+    "content": "Finance and Insurance",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 150
+  },
+  {
+    "content_type": "heading",
+    "content": "3.2 Embeddings Model Selection",
+    "tag_name": "h3",
+    "attributes": {},
+    "level": 3,
+    "list_type": null,
+    "table_info": null,
+    "position": 151
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Embeddings models were sourced from Hugging Face where open-source models are made freely available. Using the MTEB English leaderboard , approximately fifteen models were selected to see which model would best approximate our corpus' vocabulary. Criteria for models were relaxed on underlying training data in effort to sample diverse vocabularies, but were constrained to English and a model size of less than 1 GB.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 152
+  },
+  {
+    "content_type": "unknown",
+    "content": "2",
+    "tag_name": "sup",
+    "attributes": {
+      "class": [
+        "footnote"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 153
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Separate vector databases were created for the corpus and each embeddings model before performing semantic search on the synthetic data—the dataset that was believed to best approximate a query seen in a search engine. The document for this stage of experimentation was T-D-IE with results recorded for accuracy at Hit@1 and Hit@5. The highest performing model, thenelper/gte-base (Li, et al. 2023) with a dimension of 768 and size of 0.22 GB at an accuracy of 83.4% at Hit@5 was selected for experimentation. The lowest performing model achieved an accuracy of 62.1% at Hit@5, illuminating the importance of selecting an appropriate embeddings model for downstream effectiveness.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 154
+  },
+  {
+    "content_type": "heading",
+    "content": "3.3 Reranking",
+    "tag_name": "h3",
+    "attributes": {},
+    "level": 3,
+    "list_type": null,
+    "table_info": null,
+    "position": 155
+  },
+  {
+    "content_type": "paragraph",
+    "content": "ColBERT is the only reranker selected for this project. Figure 2 depicts the general architecture for ColBERT where, given a query q and document d, a query encoder f encodes q into a bag of fix-sized embeddings E , while a document encoder f encodes d into another bag E . The relevance score for E and E is computed by summing the maximum similarity (MaxSim) operators.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 156
+  },
+  {
+    "content_type": "unknown",
+    "content": "Q",
+    "tag_name": "sub",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 157
+  },
+  {
+    "content_type": "unknown",
+    "content": "q",
+    "tag_name": "sub",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 158
+  },
+  {
+    "content_type": "unknown",
+    "content": "D",
+    "tag_name": "sub",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 159
+  },
+  {
+    "content_type": "unknown",
+    "content": "d",
+    "tag_name": "sub",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 160
+  },
+  {
+    "content_type": "unknown",
+    "content": "q",
+    "tag_name": "sub",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 161
+  },
+  {
+    "content_type": "unknown",
+    "content": "d",
+    "tag_name": "sub",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 162
+  },
+  {
+    "content_type": "image",
+    "content": "[Image: ColBERT Architecture Diagram] (placeholder_colbert_architecture.png)",
+    "tag_name": "img",
+    "attributes": {
+      "src": "placeholder_colbert_architecture.png",
+      "alt": "ColBERT Architecture Diagram"
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 163
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Figure 2: ColBERT architecture (Khattab and Zaharia 2020)",
+    "tag_name": "p",
+    "attributes": {
+      "class": [
+        "figure-caption"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 164
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Dense retrieval methods often perform well on academic benchmarks because they are specifically trained for these tasks. ColBERT, unlike RRF which requires weight tuning for performance, acts as an independent algorithm with an affinity for keywords that can complement first-stage candidate generation. Hardcoded thresholds based on normalized distributions of correct answers were considered for relevance scores when combining and reranking, but decided against given these values could change if the underlying embeddings model is replaced. Additionally, varying context sizes can produce unpredictable spreads in relevance values making comparison difficult.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 165
+  },
+  {
+    "content_type": "heading",
+    "content": "3.4 Testing Data",
+    "tag_name": "h3",
+    "attributes": {},
+    "level": 3,
+    "list_type": null,
+    "table_info": null,
+    "position": 166
+  },
+  {
+    "content_type": "paragraph",
+    "content": "We assess retrieval performance with a synthetic dataset generated by GPT-4 of queries resembling queries describing businesses. Queries were created by providing GPT-4 with a 2022 NAICS code and a topic from which it could generate a plausible business description through parametric memory. This was performed for a total of 2,323 unique inquiries representing 48.32% of all NAICS codes. Table 3 displays the most frequently seen codes in the synthetic dataset. During data generation, we noticed many descriptions that could also apply to other codes when described ambiguously. While our prompt remained generally relaxed to source diverse language and descriptions, it is possible some query-code pairs are less than optimal. However, this was an acceptable risk for the purposes of bootstrapping search-engine compatible data for development.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 167
+  },
+  {
+    "content_type": "table",
+    "content": "Count | Code | Title | Sector | 63 | 722511 | Full-Service Restaurants | Accommodation and Food Services | 43 | 813110 | Religious Organizations | Other Services (except Public Administration) | 42 | 541110 | Offices of Lawyers | Professional, Scientific, and Technical Services | 39 | 531210 | Offices of Real Estate Agents and Brokers | Real Estate and Rental and Leasing | 36 | 524210 | Insurance Agencies and Brokerages | Finance and Insurance | 36 | 621210 | Offices of Dentists | Health Care and Social Assistance | 33 | 236118 | Residential Remodelers | Construction | 31 | 561730 | Landscaping Services | Administrative and Support and Waste Management and Remediation Services. | 30 | 722513 | Limited-Service Restaurants | Accommodation and Food Services | 29 | 621111 | Offices of Physicians (except Mental Health Specialists) | Health Care and Social Assistance",
+    "tag_name": "table",
+    "attributes": {
+      "class": [
+        "small-table"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": {
+      "rows": 11,
+      "columns": 4,
+      "has_header": true
+    },
+    "position": 168
+  },
+  {
+    "content_type": "unknown",
+    "content": "Table 3: Most Frequently seen NAICS codes in Synthetic Dataset",
+    "tag_name": "caption",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 169
+  },
+  {
+    "content_type": "table",
+    "content": "Count | Code | Title | Sector",
+    "tag_name": "thead",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 170
+  },
+  {
+    "content_type": "table",
+    "content": "Count | Code | Title | Sector",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 171
+  },
+  {
+    "content_type": "table",
+    "content": "Count",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 172
+  },
+  {
+    "content_type": "table",
+    "content": "Code",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 173
+  },
+  {
+    "content_type": "table",
+    "content": "Title",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 174
+  },
+  {
+    "content_type": "table",
+    "content": "Sector",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 175
+  },
+  {
+    "content_type": "table",
+    "content": "63 | 722511 | Full-Service Restaurants | Accommodation and Food Services | 43 | 813110 | Religious Organizations | Other Services (except Public Administration) | 42 | 541110 | Offices of Lawyers | Professional, Scientific, and Technical Services | 39 | 531210 | Offices of Real Estate Agents and Brokers | Real Estate and Rental and Leasing | 36 | 524210 | Insurance Agencies and Brokerages | Finance and Insurance | 36 | 621210 | Offices of Dentists | Health Care and Social Assistance | 33 | 236118 | Residential Remodelers | Construction | 31 | 561730 | Landscaping Services | Administrative and Support and Waste Management and Remediation Services. | 30 | 722513 | Limited-Service Restaurants | Accommodation and Food Services | 29 | 621111 | Offices of Physicians (except Mental Health Specialists) | Health Care and Social Assistance",
+    "tag_name": "tbody",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 176
+  },
+  {
+    "content_type": "table",
+    "content": "63 | 722511 | Full-Service Restaurants | Accommodation and Food Services",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 177
+  },
+  {
+    "content_type": "table",
+    "content": "63",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 178
+  },
+  {
+    "content_type": "table",
+    "content": "722511",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 179
+  },
+  {
+    "content_type": "table",
+    "content": "Full-Service Restaurants",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 180
+  },
+  {
+    "content_type": "table",
+    "content": "Accommodation and Food Services",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 181
+  },
+  {
+    "content_type": "table",
+    "content": "43 | 813110 | Religious Organizations | Other Services (except Public Administration)",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 182
+  },
+  {
+    "content_type": "table",
+    "content": "43",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 183
+  },
+  {
+    "content_type": "table",
+    "content": "813110",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 184
+  },
+  {
+    "content_type": "table",
+    "content": "Religious Organizations",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 185
+  },
+  {
+    "content_type": "table",
+    "content": "Other Services (except Public Administration)",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 186
+  },
+  {
+    "content_type": "table",
+    "content": "42 | 541110 | Offices of Lawyers | Professional, Scientific, and Technical Services",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 187
+  },
+  {
+    "content_type": "table",
+    "content": "42",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 188
+  },
+  {
+    "content_type": "table",
+    "content": "541110",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 189
+  },
+  {
+    "content_type": "table",
+    "content": "Offices of Lawyers",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 190
+  },
+  {
+    "content_type": "table",
+    "content": "Professional, Scientific, and Technical Services",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 191
+  },
+  {
+    "content_type": "table",
+    "content": "39 | 531210 | Offices of Real Estate Agents and Brokers | Real Estate and Rental and Leasing",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 192
+  },
+  {
+    "content_type": "table",
+    "content": "39",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 193
+  },
+  {
+    "content_type": "table",
+    "content": "531210",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 194
+  },
+  {
+    "content_type": "table",
+    "content": "Offices of Real Estate Agents and Brokers",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 195
+  },
+  {
+    "content_type": "table",
+    "content": "Real Estate and Rental and Leasing",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 196
+  },
+  {
+    "content_type": "table",
+    "content": "36 | 524210 | Insurance Agencies and Brokerages | Finance and Insurance",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 197
+  },
+  {
+    "content_type": "table",
+    "content": "36",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 198
+  },
+  {
+    "content_type": "table",
+    "content": "524210",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 199
+  },
+  {
+    "content_type": "table",
+    "content": "Insurance Agencies and Brokerages",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 200
+  },
+  {
+    "content_type": "table",
+    "content": "Finance and Insurance",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 201
+  },
+  {
+    "content_type": "table",
+    "content": "36 | 621210 | Offices of Dentists | Health Care and Social Assistance",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 202
+  },
+  {
+    "content_type": "table",
+    "content": "36",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 203
+  },
+  {
+    "content_type": "table",
+    "content": "621210",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 204
+  },
+  {
+    "content_type": "table",
+    "content": "Offices of Dentists",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 205
+  },
+  {
+    "content_type": "table",
+    "content": "Health Care and Social Assistance",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 206
+  },
+  {
+    "content_type": "table",
+    "content": "33 | 236118 | Residential Remodelers | Construction",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 207
+  },
+  {
+    "content_type": "table",
+    "content": "33",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 208
+  },
+  {
+    "content_type": "table",
+    "content": "236118",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 209
+  },
+  {
+    "content_type": "table",
+    "content": "Residential Remodelers",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 210
+  },
+  {
+    "content_type": "table",
+    "content": "Construction",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 211
+  },
+  {
+    "content_type": "table",
+    "content": "31 | 561730 | Landscaping Services | Administrative and Support and Waste Management and Remediation Services.",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 212
+  },
+  {
+    "content_type": "table",
+    "content": "31",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 213
+  },
+  {
+    "content_type": "table",
+    "content": "561730",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 214
+  },
+  {
+    "content_type": "table",
+    "content": "Landscaping Services",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 215
+  },
+  {
+    "content_type": "table",
+    "content": "Administrative and Support and Waste Management and Remediation Services.",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 216
+  },
+  {
+    "content_type": "table",
+    "content": "30 | 722513 | Limited-Service Restaurants | Accommodation and Food Services",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 217
+  },
+  {
+    "content_type": "table",
+    "content": "30",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 218
+  },
+  {
+    "content_type": "table",
+    "content": "722513",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 219
+  },
+  {
+    "content_type": "table",
+    "content": "Limited-Service Restaurants",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 220
+  },
+  {
+    "content_type": "table",
+    "content": "Accommodation and Food Services",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 221
+  },
+  {
+    "content_type": "table",
+    "content": "29 | 621111 | Offices of Physicians (except Mental Health Specialists) | Health Care and Social Assistance",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 222
+  },
+  {
+    "content_type": "table",
+    "content": "29",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 223
+  },
+  {
+    "content_type": "table",
+    "content": "621111",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 224
+  },
+  {
+    "content_type": "table",
+    "content": "Offices of Physicians (except Mental Health Specialists)",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 225
+  },
+  {
+    "content_type": "table",
+    "content": "Health Care and Social Assistance",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 226
+  },
+  {
+    "content_type": "heading",
+    "content": "4. Experiments",
+    "tag_name": "h2",
+    "attributes": {},
+    "level": 2,
+    "list_type": null,
+    "table_info": null,
+    "position": 227
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Each of the five research questions are addressed in sequential order where the results of one experiment inform the next to reduce the scope of analysis and establish key mechanisms in an effective multi-stage retrieval pipeline:",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 228
+  },
+  {
+    "content_type": "list",
+    "content": "• First-Candidate Generation (Dense vs. Sparse)\n• Combinations of Context Windows in Ensemble Approaches\n• Preparing for Reranking: Identifying Improvements Beyond k=5 Documents\n• Reranking with ColBERT\n• Caching for Edge Cases",
+    "tag_name": "ol",
+    "attributes": {},
+    "level": null,
+    "list_type": "ol",
+    "table_info": null,
+    "position": 229
+  },
+  {
+    "content_type": "list",
+    "content": "First-Candidate Generation (Dense vs. Sparse)",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 230
+  },
+  {
+    "content_type": "list",
+    "content": "Combinations of Context Windows in Ensemble Approaches",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 231
+  },
+  {
+    "content_type": "list",
+    "content": "Preparing for Reranking: Identifying Improvements Beyond k=5 Documents",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 232
+  },
+  {
+    "content_type": "list",
+    "content": "Reranking with ColBERT",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 233
+  },
+  {
+    "content_type": "list",
+    "content": "Caching for Edge Cases",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 234
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Test 1 addresses RQ1 and establishes how much better dense retrieval performs over sparse on each context window. Test 2 explores RQ2 and reports accuracy at and for all combinations of context windows. From these tests, we generate hypotheses about which combinations are useful, narrowing down to two for future experiments. Test 3 supports RQ3 by analyzing which approach generates reasonable increases in accuracy when given additional k documents, providing the best field of first-generation candidates for reranking. Within this analysis we use the two ensemble approaches selected from the previous test and apply two pruning approaches: Lazy and Greedy. Lazy lets each context window in the ensemble produce the top five documents regardless of whether a previous context window also generated a document with an identical code. The final k documents are sorted by document relevance score. Greedy forces each context window to produce only unique codes, replacing documents already collected only when the relevancy score for a document is higher. Test 4 addresses RQ4 by applying ColBERT as a reranker when given initial k documents ranging from 6-10. We use three unique reranking context windows to identify the best approach. We also keep a close eye on inference speed. Test 5 answers RQ5 by taking the wrong predictions from the best performer across previous experiments and using the cache alone to predict NAICS codes.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 235
+  },
+  {
+    "content_type": "unknown",
+    "content": "Hit@1",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 236
+  },
+  {
+    "content_type": "unknown",
+    "content": "Hit@5",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 237
+  },
+  {
+    "content_type": "heading",
+    "content": "4.1 First-Candidate Generation (Dense vs. Sparse)",
+    "tag_name": "h3",
+    "attributes": {},
+    "level": 3,
+    "list_type": null,
+    "table_info": null,
+    "position": 238
+  },
+  {
+    "content_type": "table",
+    "content": "Retrieval | Context Window | Collection Size | Hit@1 | Hit@5 | Speed (ms) | Dense (Semantic) | CR | 3046 | 55.92 | 73.4 | 13.28 | D | 1609 | 45.11 | 73.01 | 12.47 | IE | 2019 | 24.84 | 35.34 | 12.51 | IK | 20373 | 55.83 | 74.6 | 16.1 | T | 1012 | 80.93 | 12.79 | T-D | 1012 | 57.12 | 83.08 | 12.56 | T-D-IE | 1012 | 57.73 | 13.04 | Sparse (BM25) | CR | 3046 | 16.75 | 30.91 | 5.05 | D | 1609 | 15.5 | 33.28 | 2.99 | IE | 2019 | 6.67 | 13.56 | 3.43 | IK | 20373 | 15.63 | 33.02 | 26.91 | T | 1012 | 0.39 | 0.99 | 2 | T-D | 1012 | 17.91 | 36.2 | 2.28 | T-D-IE | 1012 | 20.71 | 40.03 | 2.19",
+    "tag_name": "table",
+    "attributes": {
+      "class": [
+        "small-table"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": {
+      "rows": 15,
+      "columns": 6,
+      "has_header": true
+    },
+    "position": 239
+  },
+  {
+    "content_type": "unknown",
+    "content": "Table 4: Dense vs. Sparse Retrieval",
+    "tag_name": "caption",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 240
+  },
+  {
+    "content_type": "table",
+    "content": "Retrieval | Context Window | Collection Size | Hit@1 | Hit@5 | Speed (ms)",
+    "tag_name": "thead",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 241
+  },
+  {
+    "content_type": "table",
+    "content": "Retrieval | Context Window | Collection Size | Hit@1 | Hit@5 | Speed (ms)",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 242
+  },
+  {
+    "content_type": "table",
+    "content": "Retrieval",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 243
+  },
+  {
+    "content_type": "table",
+    "content": "Context Window",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 244
+  },
+  {
+    "content_type": "table",
+    "content": "Collection Size",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 245
+  },
+  {
+    "content_type": "table",
+    "content": "Hit@1",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 246
+  },
+  {
+    "content_type": "table",
+    "content": "Hit@5",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 247
+  },
+  {
+    "content_type": "table",
+    "content": "Speed (ms)",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 248
+  },
+  {
+    "content_type": "table",
+    "content": "Dense (Semantic) | CR | 3046 | 55.92 | 73.4 | 13.28 | D | 1609 | 45.11 | 73.01 | 12.47 | IE | 2019 | 24.84 | 35.34 | 12.51 | IK | 20373 | 55.83 | 74.6 | 16.1 | T | 1012 | 80.93 | 12.79 | T-D | 1012 | 57.12 | 83.08 | 12.56 | T-D-IE | 1012 | 57.73 | 13.04 | Sparse (BM25) | CR | 3046 | 16.75 | 30.91 | 5.05 | D | 1609 | 15.5 | 33.28 | 2.99 | IE | 2019 | 6.67 | 13.56 | 3.43 | IK | 20373 | 15.63 | 33.02 | 26.91 | T | 1012 | 0.39 | 0.99 | 2 | T-D | 1012 | 17.91 | 36.2 | 2.28 | T-D-IE | 1012 | 20.71 | 40.03 | 2.19",
+    "tag_name": "tbody",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 249
+  },
+  {
+    "content_type": "table",
+    "content": "Dense (Semantic) | CR | 3046 | 55.92 | 73.4 | 13.28",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 250
+  },
+  {
+    "content_type": "table",
+    "content": "Dense (Semantic)",
+    "tag_name": "td",
+    "attributes": {
+      "rowspan": "7"
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 251
+  },
+  {
+    "content_type": "table",
+    "content": "CR",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 252
+  },
+  {
+    "content_type": "table",
+    "content": "3046",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 253
+  },
+  {
+    "content_type": "table",
+    "content": "55.92",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 254
+  },
+  {
+    "content_type": "table",
+    "content": "73.4",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 255
+  },
+  {
+    "content_type": "table",
+    "content": "13.28",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 256
+  },
+  {
+    "content_type": "table",
+    "content": "D | 1609 | 45.11 | 73.01 | 12.47",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 257
+  },
+  {
+    "content_type": "table",
+    "content": "D",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 258
+  },
+  {
+    "content_type": "table",
+    "content": "1609",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 259
+  },
+  {
+    "content_type": "table",
+    "content": "45.11",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 260
+  },
+  {
+    "content_type": "table",
+    "content": "73.01",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 261
+  },
+  {
+    "content_type": "table",
+    "content": "12.47",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 262
+  },
+  {
+    "content_type": "table",
+    "content": "IE | 2019 | 24.84 | 35.34 | 12.51",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 263
+  },
+  {
+    "content_type": "table",
+    "content": "IE",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 264
+  },
+  {
+    "content_type": "table",
+    "content": "2019",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 265
+  },
+  {
+    "content_type": "table",
+    "content": "24.84",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 266
+  },
+  {
+    "content_type": "table",
+    "content": "35.34",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 267
+  },
+  {
+    "content_type": "table",
+    "content": "12.51",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 268
+  },
+  {
+    "content_type": "table",
+    "content": "IK | 20373 | 55.83 | 74.6 | 16.1",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 269
+  },
+  {
+    "content_type": "table",
+    "content": "IK",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 270
+  },
+  {
+    "content_type": "table",
+    "content": "20373",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 271
+  },
+  {
+    "content_type": "table",
+    "content": "55.83",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 272
+  },
+  {
+    "content_type": "table",
+    "content": "74.6",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 273
+  },
+  {
+    "content_type": "table",
+    "content": "16.1",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 274
+  },
+  {
+    "content_type": "table",
+    "content": "T | 1012 | 80.93 | 12.79",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 275
+  },
+  {
+    "content_type": "table",
+    "content": "T",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 276
+  },
+  {
+    "content_type": "table",
+    "content": "1012",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 277
+  },
+  {
+    "content_type": "table",
+    "content": "",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 278
+  },
+  {
+    "content_type": "unknown",
+    "content": "59.66",
+    "tag_name": "strong",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 279
+  },
+  {
+    "content_type": "table",
+    "content": "80.93",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 280
+  },
+  {
+    "content_type": "table",
+    "content": "12.79",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 281
+  },
+  {
+    "content_type": "table",
+    "content": "T-D | 1012 | 57.12 | 83.08 | 12.56",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 282
+  },
+  {
+    "content_type": "table",
+    "content": "T-D",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 283
+  },
+  {
+    "content_type": "table",
+    "content": "1012",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 284
+  },
+  {
+    "content_type": "table",
+    "content": "57.12",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 285
+  },
+  {
+    "content_type": "table",
+    "content": "83.08",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 286
+  },
+  {
+    "content_type": "table",
+    "content": "12.56",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 287
+  },
+  {
+    "content_type": "table",
+    "content": "T-D-IE | 1012 | 57.73 | 13.04",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 288
+  },
+  {
+    "content_type": "table",
+    "content": "T-D-IE",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 289
+  },
+  {
+    "content_type": "table",
+    "content": "1012",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 290
+  },
+  {
+    "content_type": "table",
+    "content": "57.73",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 291
+  },
+  {
+    "content_type": "table",
+    "content": "",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 292
+  },
+  {
+    "content_type": "unknown",
+    "content": "83.47",
+    "tag_name": "strong",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 293
+  },
+  {
+    "content_type": "table",
+    "content": "13.04",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 294
+  },
+  {
+    "content_type": "table",
+    "content": "Sparse (BM25) | CR | 3046 | 16.75 | 30.91 | 5.05",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 295
+  },
+  {
+    "content_type": "table",
+    "content": "Sparse (BM25)",
+    "tag_name": "td",
+    "attributes": {
+      "rowspan": "7"
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 296
+  },
+  {
+    "content_type": "table",
+    "content": "CR",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 297
+  },
+  {
+    "content_type": "table",
+    "content": "3046",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 298
+  },
+  {
+    "content_type": "table",
+    "content": "16.75",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 299
+  },
+  {
+    "content_type": "table",
+    "content": "30.91",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 300
+  },
+  {
+    "content_type": "table",
+    "content": "5.05",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 301
+  },
+  {
+    "content_type": "table",
+    "content": "D | 1609 | 15.5 | 33.28 | 2.99",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 302
+  },
+  {
+    "content_type": "table",
+    "content": "D",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 303
+  },
+  {
+    "content_type": "table",
+    "content": "1609",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 304
+  },
+  {
+    "content_type": "table",
+    "content": "15.5",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 305
+  },
+  {
+    "content_type": "table",
+    "content": "33.28",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 306
+  },
+  {
+    "content_type": "table",
+    "content": "2.99",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 307
+  },
+  {
+    "content_type": "table",
+    "content": "IE | 2019 | 6.67 | 13.56 | 3.43",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 308
+  },
+  {
+    "content_type": "table",
+    "content": "IE",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 309
+  },
+  {
+    "content_type": "table",
+    "content": "2019",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 310
+  },
+  {
+    "content_type": "table",
+    "content": "6.67",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 311
+  },
+  {
+    "content_type": "table",
+    "content": "13.56",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 312
+  },
+  {
+    "content_type": "table",
+    "content": "3.43",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 313
+  },
+  {
+    "content_type": "table",
+    "content": "IK | 20373 | 15.63 | 33.02 | 26.91",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 314
+  },
+  {
+    "content_type": "table",
+    "content": "IK",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 315
+  },
+  {
+    "content_type": "table",
+    "content": "20373",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 316
+  },
+  {
+    "content_type": "table",
+    "content": "15.63",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 317
+  },
+  {
+    "content_type": "table",
+    "content": "33.02",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 318
+  },
+  {
+    "content_type": "table",
+    "content": "26.91",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 319
+  },
+  {
+    "content_type": "table",
+    "content": "T | 1012 | 0.39 | 0.99 | 2",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 320
+  },
+  {
+    "content_type": "table",
+    "content": "T",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 321
+  },
+  {
+    "content_type": "table",
+    "content": "1012",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 322
+  },
+  {
+    "content_type": "table",
+    "content": "0.39",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 323
+  },
+  {
+    "content_type": "table",
+    "content": "0.99",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 324
+  },
+  {
+    "content_type": "table",
+    "content": "2",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 325
+  },
+  {
+    "content_type": "table",
+    "content": "T-D | 1012 | 17.91 | 36.2 | 2.28",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 326
+  },
+  {
+    "content_type": "table",
+    "content": "T-D",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 327
+  },
+  {
+    "content_type": "table",
+    "content": "1012",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 328
+  },
+  {
+    "content_type": "table",
+    "content": "17.91",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 329
+  },
+  {
+    "content_type": "table",
+    "content": "36.2",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 330
+  },
+  {
+    "content_type": "table",
+    "content": "2.28",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 331
+  },
+  {
+    "content_type": "table",
+    "content": "T-D-IE | 1012 | 20.71 | 40.03 | 2.19",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 332
+  },
+  {
+    "content_type": "table",
+    "content": "T-D-IE",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 333
+  },
+  {
+    "content_type": "table",
+    "content": "1012",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 334
+  },
+  {
+    "content_type": "table",
+    "content": "20.71",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 335
+  },
+  {
+    "content_type": "table",
+    "content": "40.03",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 336
+  },
+  {
+    "content_type": "table",
+    "content": "2.19",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 337
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Dense retrieval significantly outperforms sparse across every context window. The largest context window T-D-IE outperforms others at 83.47%. Both T and T-D also achieve strong results suggesting the common feature across all three—a document's title—provides dense retrievers with strong signal. Notably, this pattern does not apply to the BM25 results where T scores just 0.99%, nearly 80% lower than semantic search. Shorter documents constrain word overlap-based retrieval strategies, particularly when language is attribute-centric.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 338
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Poor performance for IE in semantic search is likely a result of the many codes without associated illustrative examples. Additionally, we note the remarkably low inference speed for each context window in dense retrieval. Even IK for which BM25 took 0.2 seconds per query was faster in dense retrieval due to pre-indexing with a vector database. This is a crucial element of semantic search with LLMs: reliable retrieval speed even as the size of a corpus scales.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 339
+  },
+  {
+    "content_type": "heading",
+    "content": "4.2 Combinations of Context Windows in Ensemble Approaches",
+    "tag_name": "h3",
+    "attributes": {},
+    "level": 3,
+    "list_type": null,
+    "table_info": null,
+    "position": 340
+  },
+  {
+    "content_type": "table",
+    "content": "Contexts | Overlapping Contexts | Complementary Contexts | Hit@1 | Hit@5 | Speed (sec) | 6 | [T, T-D, T-D-IE, IE] | [IK, CR] | 63.32 | 86.87 | 0.07 | 5 | [T, T-D-IE, IE] | [IK, CR] | 63.19 | 86.78 | 0.06 | 5 | [T, T-D, IE] | [IK, CR] | 63.07 | 86.78 | 0.06 | 4 | [T, T-D-IE, IE] | [CR] | 61.73 | 86.78 | 0.06 | 5 | [T, T-D, T-D-IE] | [IK, CR] | 63.02 | 86.74 | 0.07 | 4 | [T-D, T-D-IE] | [IK] | 62.25 | 86.74 | 0.05 | 3 | [T-D-IE] | [IK] | 61.90 | 86.74 | 0.04 | 7 | [T, T-D, T-D-IE, D, IE] | [IK, CR] | 63.02 | 86.70 | 0.09 | 6 | [T, T-D, D, IE] | [IK, CR] | 62.81 | 86.66 | 0.07 | 5 | [T-D, T-D-IE, IE] | [CR] | 61.64 | 86.66 | 0.07",
+    "tag_name": "table",
+    "attributes": {
+      "class": [
+        "small-table"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": {
+      "rows": 11,
+      "columns": 6,
+      "has_header": true
+    },
+    "position": 341
+  },
+  {
+    "content_type": "unknown",
+    "content": "Table 5: Top 10 Performers in Lazy Retrieval",
+    "tag_name": "caption",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 342
+  },
+  {
+    "content_type": "table",
+    "content": "Contexts | Overlapping Contexts | Complementary Contexts | Hit@1 | Hit@5 | Speed (sec)",
+    "tag_name": "thead",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 343
+  },
+  {
+    "content_type": "table",
+    "content": "Contexts | Overlapping Contexts | Complementary Contexts | Hit@1 | Hit@5 | Speed (sec)",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 344
+  },
+  {
+    "content_type": "table",
+    "content": "Contexts",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 345
+  },
+  {
+    "content_type": "table",
+    "content": "Overlapping Contexts",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 346
+  },
+  {
+    "content_type": "table",
+    "content": "Complementary Contexts",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 347
+  },
+  {
+    "content_type": "table",
+    "content": "Hit@1",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 348
+  },
+  {
+    "content_type": "table",
+    "content": "Hit@5",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 349
+  },
+  {
+    "content_type": "table",
+    "content": "Speed (sec)",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 350
+  },
+  {
+    "content_type": "table",
+    "content": "6 | [T, T-D, T-D-IE, IE] | [IK, CR] | 63.32 | 86.87 | 0.07 | 5 | [T, T-D-IE, IE] | [IK, CR] | 63.19 | 86.78 | 0.06 | 5 | [T, T-D, IE] | [IK, CR] | 63.07 | 86.78 | 0.06 | 4 | [T, T-D-IE, IE] | [CR] | 61.73 | 86.78 | 0.06 | 5 | [T, T-D, T-D-IE] | [IK, CR] | 63.02 | 86.74 | 0.07 | 4 | [T-D, T-D-IE] | [IK] | 62.25 | 86.74 | 0.05 | 3 | [T-D-IE] | [IK] | 61.90 | 86.74 | 0.04 | 7 | [T, T-D, T-D-IE, D, IE] | [IK, CR] | 63.02 | 86.70 | 0.09 | 6 | [T, T-D, D, IE] | [IK, CR] | 62.81 | 86.66 | 0.07 | 5 | [T-D, T-D-IE, IE] | [CR] | 61.64 | 86.66 | 0.07",
+    "tag_name": "tbody",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 351
+  },
+  {
+    "content_type": "table",
+    "content": "6 | [T, T-D, T-D-IE, IE] | [IK, CR] | 63.32 | 86.87 | 0.07",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 352
+  },
+  {
+    "content_type": "table",
+    "content": "6",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 353
+  },
+  {
+    "content_type": "table",
+    "content": "[T, T-D, T-D-IE, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 354
+  },
+  {
+    "content_type": "table",
+    "content": "[IK, CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 355
+  },
+  {
+    "content_type": "table",
+    "content": "63.32",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 356
+  },
+  {
+    "content_type": "table",
+    "content": "86.87",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 357
+  },
+  {
+    "content_type": "table",
+    "content": "0.07",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 358
+  },
+  {
+    "content_type": "table",
+    "content": "5 | [T, T-D-IE, IE] | [IK, CR] | 63.19 | 86.78 | 0.06",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 359
+  },
+  {
+    "content_type": "table",
+    "content": "5",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 360
+  },
+  {
+    "content_type": "table",
+    "content": "[T, T-D-IE, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 361
+  },
+  {
+    "content_type": "table",
+    "content": "[IK, CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 362
+  },
+  {
+    "content_type": "table",
+    "content": "63.19",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 363
+  },
+  {
+    "content_type": "table",
+    "content": "86.78",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 364
+  },
+  {
+    "content_type": "table",
+    "content": "0.06",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 365
+  },
+  {
+    "content_type": "table",
+    "content": "5 | [T, T-D, IE] | [IK, CR] | 63.07 | 86.78 | 0.06",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 366
+  },
+  {
+    "content_type": "table",
+    "content": "5",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 367
+  },
+  {
+    "content_type": "table",
+    "content": "[T, T-D, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 368
+  },
+  {
+    "content_type": "table",
+    "content": "[IK, CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 369
+  },
+  {
+    "content_type": "table",
+    "content": "63.07",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 370
+  },
+  {
+    "content_type": "table",
+    "content": "86.78",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 371
+  },
+  {
+    "content_type": "table",
+    "content": "0.06",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 372
+  },
+  {
+    "content_type": "table",
+    "content": "4 | [T, T-D-IE, IE] | [CR] | 61.73 | 86.78 | 0.06",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 373
+  },
+  {
+    "content_type": "table",
+    "content": "4",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 374
+  },
+  {
+    "content_type": "table",
+    "content": "[T, T-D-IE, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 375
+  },
+  {
+    "content_type": "table",
+    "content": "[CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 376
+  },
+  {
+    "content_type": "table",
+    "content": "61.73",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 377
+  },
+  {
+    "content_type": "table",
+    "content": "86.78",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 378
+  },
+  {
+    "content_type": "table",
+    "content": "0.06",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 379
+  },
+  {
+    "content_type": "table",
+    "content": "5 | [T, T-D, T-D-IE] | [IK, CR] | 63.02 | 86.74 | 0.07",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 380
+  },
+  {
+    "content_type": "table",
+    "content": "5",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 381
+  },
+  {
+    "content_type": "table",
+    "content": "[T, T-D, T-D-IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 382
+  },
+  {
+    "content_type": "table",
+    "content": "[IK, CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 383
+  },
+  {
+    "content_type": "table",
+    "content": "63.02",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 384
+  },
+  {
+    "content_type": "table",
+    "content": "86.74",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 385
+  },
+  {
+    "content_type": "table",
+    "content": "0.07",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 386
+  },
+  {
+    "content_type": "table",
+    "content": "4 | [T-D, T-D-IE] | [IK] | 62.25 | 86.74 | 0.05",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 387
+  },
+  {
+    "content_type": "table",
+    "content": "4",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 388
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D, T-D-IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 389
+  },
+  {
+    "content_type": "table",
+    "content": "[IK]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 390
+  },
+  {
+    "content_type": "table",
+    "content": "62.25",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 391
+  },
+  {
+    "content_type": "table",
+    "content": "86.74",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 392
+  },
+  {
+    "content_type": "table",
+    "content": "0.05",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 393
+  },
+  {
+    "content_type": "table",
+    "content": "3 | [T-D-IE] | [IK] | 61.90 | 86.74 | 0.04",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 394
+  },
+  {
+    "content_type": "table",
+    "content": "3",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 395
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D-IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 396
+  },
+  {
+    "content_type": "table",
+    "content": "[IK]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 397
+  },
+  {
+    "content_type": "table",
+    "content": "61.90",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 398
+  },
+  {
+    "content_type": "table",
+    "content": "86.74",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 399
+  },
+  {
+    "content_type": "table",
+    "content": "0.04",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 400
+  },
+  {
+    "content_type": "table",
+    "content": "7 | [T, T-D, T-D-IE, D, IE] | [IK, CR] | 63.02 | 86.70 | 0.09",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 401
+  },
+  {
+    "content_type": "table",
+    "content": "7",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 402
+  },
+  {
+    "content_type": "table",
+    "content": "[T, T-D, T-D-IE, D, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 403
+  },
+  {
+    "content_type": "table",
+    "content": "[IK, CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 404
+  },
+  {
+    "content_type": "table",
+    "content": "63.02",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 405
+  },
+  {
+    "content_type": "table",
+    "content": "86.70",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 406
+  },
+  {
+    "content_type": "table",
+    "content": "0.09",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 407
+  },
+  {
+    "content_type": "table",
+    "content": "6 | [T, T-D, D, IE] | [IK, CR] | 62.81 | 86.66 | 0.07",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 408
+  },
+  {
+    "content_type": "table",
+    "content": "6",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 409
+  },
+  {
+    "content_type": "table",
+    "content": "[T, T-D, D, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 410
+  },
+  {
+    "content_type": "table",
+    "content": "[IK, CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 411
+  },
+  {
+    "content_type": "table",
+    "content": "62.81",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 412
+  },
+  {
+    "content_type": "table",
+    "content": "86.66",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 413
+  },
+  {
+    "content_type": "table",
+    "content": "0.07",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 414
+  },
+  {
+    "content_type": "table",
+    "content": "5 | [T-D, T-D-IE, IE] | [CR] | 61.64 | 86.66 | 0.07",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 415
+  },
+  {
+    "content_type": "table",
+    "content": "5",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 416
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D, T-D-IE, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 417
+  },
+  {
+    "content_type": "table",
+    "content": "[CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 418
+  },
+  {
+    "content_type": "table",
+    "content": "61.64",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 419
+  },
+  {
+    "content_type": "table",
+    "content": "86.66",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 420
+  },
+  {
+    "content_type": "table",
+    "content": "0.07",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 421
+  },
+  {
+    "content_type": "table",
+    "content": "Contexts | Overlapping Contexts | Complementary Contexts | Hit@1 | Hit@5 | Speed (sec) | 4 | [T-D-IE, D, IE] | [CR] | 58.98 | 85.97 | 0.02 | 2 | [T-D-IE] | [CR] | 58.98 | 85.97 | 0.02 | 5 | [T-D-IE, D, IE] | [IK, CR] | 58.98 | 85.97 | 0.02 | 3 | [T-D-IE, D] | [CR] | 58.98 | 85.97 | 0.02 | 3 | [T-D-IE, IE] | [CR] | 58.98 | 85.97 | 0.02 | 3 | [T-D-IE, D, IE] | [] | 58.98 | 85.97 | 0.02 | 3 | [T-D-IE] | [IK, CR] | 58.98 | 85.97 | 0.02 | 4 | [T-D-IE, D, IE] | [IK] | 58.98 | 85.97 | 0.02 | 4 | [T-D-IE, IE] | [IK, CR] | 58.98 | 85.97 | 0.02 | 2 | [T-D-IE, IE] | [] | 58.98 | 85.97 | 0.02",
+    "tag_name": "table",
+    "attributes": {
+      "class": [
+        "small-table"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": {
+      "rows": 11,
+      "columns": 6,
+      "has_header": true
+    },
+    "position": 422
+  },
+  {
+    "content_type": "unknown",
+    "content": "Table 6: Top 10 Performers in Greedy Retrieval",
+    "tag_name": "caption",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 423
+  },
+  {
+    "content_type": "table",
+    "content": "Contexts | Overlapping Contexts | Complementary Contexts | Hit@1 | Hit@5 | Speed (sec)",
+    "tag_name": "thead",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 424
+  },
+  {
+    "content_type": "table",
+    "content": "Contexts | Overlapping Contexts | Complementary Contexts | Hit@1 | Hit@5 | Speed (sec)",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 425
+  },
+  {
+    "content_type": "table",
+    "content": "Contexts",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 426
+  },
+  {
+    "content_type": "table",
+    "content": "Overlapping Contexts",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 427
+  },
+  {
+    "content_type": "table",
+    "content": "Complementary Contexts",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 428
+  },
+  {
+    "content_type": "table",
+    "content": "Hit@1",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 429
+  },
+  {
+    "content_type": "table",
+    "content": "Hit@5",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 430
+  },
+  {
+    "content_type": "table",
+    "content": "Speed (sec)",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 431
+  },
+  {
+    "content_type": "table",
+    "content": "4 | [T-D-IE, D, IE] | [CR] | 58.98 | 85.97 | 0.02 | 2 | [T-D-IE] | [CR] | 58.98 | 85.97 | 0.02 | 5 | [T-D-IE, D, IE] | [IK, CR] | 58.98 | 85.97 | 0.02 | 3 | [T-D-IE, D] | [CR] | 58.98 | 85.97 | 0.02 | 3 | [T-D-IE, IE] | [CR] | 58.98 | 85.97 | 0.02 | 3 | [T-D-IE, D, IE] | [] | 58.98 | 85.97 | 0.02 | 3 | [T-D-IE] | [IK, CR] | 58.98 | 85.97 | 0.02 | 4 | [T-D-IE, D, IE] | [IK] | 58.98 | 85.97 | 0.02 | 4 | [T-D-IE, IE] | [IK, CR] | 58.98 | 85.97 | 0.02 | 2 | [T-D-IE, IE] | [] | 58.98 | 85.97 | 0.02",
+    "tag_name": "tbody",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 432
+  },
+  {
+    "content_type": "table",
+    "content": "4 | [T-D-IE, D, IE] | [CR] | 58.98 | 85.97 | 0.02",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 433
+  },
+  {
+    "content_type": "table",
+    "content": "4",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 434
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D-IE, D, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 435
+  },
+  {
+    "content_type": "table",
+    "content": "[CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 436
+  },
+  {
+    "content_type": "table",
+    "content": "58.98",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 437
+  },
+  {
+    "content_type": "table",
+    "content": "85.97",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 438
+  },
+  {
+    "content_type": "table",
+    "content": "0.02",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 439
+  },
+  {
+    "content_type": "table",
+    "content": "2 | [T-D-IE] | [CR] | 58.98 | 85.97 | 0.02",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 440
+  },
+  {
+    "content_type": "table",
+    "content": "2",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 441
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D-IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 442
+  },
+  {
+    "content_type": "table",
+    "content": "[CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 443
+  },
+  {
+    "content_type": "table",
+    "content": "58.98",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 444
+  },
+  {
+    "content_type": "table",
+    "content": "85.97",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 445
+  },
+  {
+    "content_type": "table",
+    "content": "0.02",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 446
+  },
+  {
+    "content_type": "table",
+    "content": "5 | [T-D-IE, D, IE] | [IK, CR] | 58.98 | 85.97 | 0.02",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 447
+  },
+  {
+    "content_type": "table",
+    "content": "5",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 448
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D-IE, D, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 449
+  },
+  {
+    "content_type": "table",
+    "content": "[IK, CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 450
+  },
+  {
+    "content_type": "table",
+    "content": "58.98",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 451
+  },
+  {
+    "content_type": "table",
+    "content": "85.97",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 452
+  },
+  {
+    "content_type": "table",
+    "content": "0.02",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 453
+  },
+  {
+    "content_type": "table",
+    "content": "3 | [T-D-IE, D] | [CR] | 58.98 | 85.97 | 0.02",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 454
+  },
+  {
+    "content_type": "table",
+    "content": "3",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 455
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D-IE, D]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 456
+  },
+  {
+    "content_type": "table",
+    "content": "[CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 457
+  },
+  {
+    "content_type": "table",
+    "content": "58.98",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 458
+  },
+  {
+    "content_type": "table",
+    "content": "85.97",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 459
+  },
+  {
+    "content_type": "table",
+    "content": "0.02",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 460
+  },
+  {
+    "content_type": "table",
+    "content": "3 | [T-D-IE, IE] | [CR] | 58.98 | 85.97 | 0.02",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 461
+  },
+  {
+    "content_type": "table",
+    "content": "3",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 462
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D-IE, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 463
+  },
+  {
+    "content_type": "table",
+    "content": "[CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 464
+  },
+  {
+    "content_type": "table",
+    "content": "58.98",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 465
+  },
+  {
+    "content_type": "table",
+    "content": "85.97",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 466
+  },
+  {
+    "content_type": "table",
+    "content": "0.02",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 467
+  },
+  {
+    "content_type": "table",
+    "content": "3 | [T-D-IE, D, IE] | [] | 58.98 | 85.97 | 0.02",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 468
+  },
+  {
+    "content_type": "table",
+    "content": "3",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 469
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D-IE, D, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 470
+  },
+  {
+    "content_type": "table",
+    "content": "[]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 471
+  },
+  {
+    "content_type": "table",
+    "content": "58.98",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 472
+  },
+  {
+    "content_type": "table",
+    "content": "85.97",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 473
+  },
+  {
+    "content_type": "table",
+    "content": "0.02",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 474
+  },
+  {
+    "content_type": "table",
+    "content": "3 | [T-D-IE] | [IK, CR] | 58.98 | 85.97 | 0.02",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 475
+  },
+  {
+    "content_type": "table",
+    "content": "3",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 476
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D-IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 477
+  },
+  {
+    "content_type": "table",
+    "content": "[IK, CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 478
+  },
+  {
+    "content_type": "table",
+    "content": "58.98",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 479
+  },
+  {
+    "content_type": "table",
+    "content": "85.97",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 480
+  },
+  {
+    "content_type": "table",
+    "content": "0.02",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 481
+  },
+  {
+    "content_type": "table",
+    "content": "4 | [T-D-IE, D, IE] | [IK] | 58.98 | 85.97 | 0.02",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 482
+  },
+  {
+    "content_type": "table",
+    "content": "4",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 483
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D-IE, D, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 484
+  },
+  {
+    "content_type": "table",
+    "content": "[IK]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 485
+  },
+  {
+    "content_type": "table",
+    "content": "58.98",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 486
+  },
+  {
+    "content_type": "table",
+    "content": "85.97",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 487
+  },
+  {
+    "content_type": "table",
+    "content": "0.02",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 488
+  },
+  {
+    "content_type": "table",
+    "content": "4 | [T-D-IE, IE] | [IK, CR] | 58.98 | 85.97 | 0.02",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 489
+  },
+  {
+    "content_type": "table",
+    "content": "4",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 490
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D-IE, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 491
+  },
+  {
+    "content_type": "table",
+    "content": "[IK, CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 492
+  },
+  {
+    "content_type": "table",
+    "content": "58.98",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 493
+  },
+  {
+    "content_type": "table",
+    "content": "85.97",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 494
+  },
+  {
+    "content_type": "table",
+    "content": "0.02",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 495
+  },
+  {
+    "content_type": "table",
+    "content": "2 | [T-D-IE, IE] | [] | 58.98 | 85.97 | 0.02",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 496
+  },
+  {
+    "content_type": "table",
+    "content": "2",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 497
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D-IE, IE]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 498
+  },
+  {
+    "content_type": "table",
+    "content": "[]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 499
+  },
+  {
+    "content_type": "table",
+    "content": "58.98",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 500
+  },
+  {
+    "content_type": "table",
+    "content": "85.97",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 501
+  },
+  {
+    "content_type": "table",
+    "content": "0.02",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 502
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Table 5 and 6 display best performing ensembles sorted by Hit@5. Lazy retrieval appears to generate higher scores than Greedy. Moreover, Greedy's top 10 performers all posted the same score, suggesting a dominant context window in T-D-IE—the only context window present in each ensemble. We observe here that by generating more diverse options in a Greedy retrieval, accuracy scores underperform.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 503
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Regarding context windows, T-D-IE is used in 8 of the Lazy ensembles and all 10 of the Greedy, making it the most frequently seen context window and the strongest predictor of performance. IK and CR are also frequently used appearing 13 times and 14 times respectively across both retrieval strategies. However, it is difficult to discern whether they are adding any value given there are two ensembles in the Greedy Retrieval approach where neither are used and yet accuracy remains the same. This contradicts what one would assume about varying context window lengths. With IK and CR consisting of a couple of tokens and at most a sentence, they would yield higher relevance scores than T-D-IE. It's possible that they produce correct predictions when used, but when absent, T-D-IE can reliably close the gap.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 504
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Lastly, inference speed remains remarkably low despite additional context windows. With every additional context window, inference appears to slow by approximately 0.01 seconds. From Test 2, we identify two ensemble approaches that encompass the best performers in Table 9. Because no single ensemble approach generates strong performances across both retrieval strategies, we select two strong performers and look for additional clues in Test 3.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 505
+  },
+  {
+    "content_type": "table",
+    "content": "Context Windows | New Name | [T, T-D, T-D-IE, IE, IK, CR] | Comprehensive Overlapping, Lazy | [T-D-IE, IK, CR] | Comprehensive Complementary, Lazy",
+    "tag_name": "table",
+    "attributes": {
+      "class": [
+        "small-table"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": {
+      "rows": 3,
+      "columns": 2,
+      "has_header": true
+    },
+    "position": 506
+  },
+  {
+    "content_type": "unknown",
+    "content": "Table 9: Ensembles Selected from Test 2 Results",
+    "tag_name": "caption",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 507
+  },
+  {
+    "content_type": "table",
+    "content": "Context Windows | New Name",
+    "tag_name": "thead",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 508
+  },
+  {
+    "content_type": "table",
+    "content": "Context Windows | New Name",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 509
+  },
+  {
+    "content_type": "table",
+    "content": "Context Windows",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 510
+  },
+  {
+    "content_type": "table",
+    "content": "New Name",
+    "tag_name": "th",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 511
+  },
+  {
+    "content_type": "table",
+    "content": "[T, T-D, T-D-IE, IE, IK, CR] | Comprehensive Overlapping, Lazy | [T-D-IE, IK, CR] | Comprehensive Complementary, Lazy",
+    "tag_name": "tbody",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 512
+  },
+  {
+    "content_type": "table",
+    "content": "[T, T-D, T-D-IE, IE, IK, CR] | Comprehensive Overlapping, Lazy",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 513
+  },
+  {
+    "content_type": "table",
+    "content": "[T, T-D, T-D-IE, IE, IK, CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 514
+  },
+  {
+    "content_type": "table",
+    "content": "Comprehensive Overlapping, Lazy",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 515
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D-IE, IK, CR] | Comprehensive Complementary, Lazy",
+    "tag_name": "tr",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 516
+  },
+  {
+    "content_type": "table",
+    "content": "[T-D-IE, IK, CR]",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 517
+  },
+  {
+    "content_type": "table",
+    "content": "Comprehensive Complementary, Lazy",
+    "tag_name": "td",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": {},
+    "position": 518
+  },
+  {
+    "content_type": "heading",
+    "content": "4.3 Preparing for Reranking: Identifying Improvements Beyond k=5 Documents",
+    "tag_name": "h3",
+    "attributes": {},
+    "level": 3,
+    "list_type": null,
+    "table_info": null,
+    "position": 519
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Comprehensive Overlapping, Lazy achieves the highest accuracy scores on the synthetic dataset at every position k from 5 to 10. The resulting average is the highest of any approach and is selected to continue for the following experiment.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 520
+  },
+  {
+    "content_type": "paragraph",
+    "content": "On Lazy vs. Greedy approaches, there are a few key takeaways. Because lazy generates many documents with the same code across context windows, we observe higher accuracy scores at smaller k positions (explaining Test 2's results), but performance plateaus at higher positions without additional unique documents. Conversely, greedy is forced to generate unique codes which provides marginal increases in performance for each additional document.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 521
+  },
+  {
+    "content_type": "image",
+    "content": "[Image: Accuracy as k increases for each retrieval strategy plot] (placeholder_accuracy_k.png)",
+    "tag_name": "img",
+    "attributes": {
+      "src": "placeholder_accuracy_k.png",
+      "alt": "Accuracy as k increases for each retrieval strategy plot"
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 522
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Figure 6: Accuracy as k Increases for Each Retrieval Strategy",
+    "tag_name": "p",
+    "attributes": {
+      "class": [
+        "figure-caption"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 523
+  },
+  {
+    "content_type": "heading",
+    "content": "4.4 Reranking",
+    "tag_name": "h3",
+    "attributes": {},
+    "level": 3,
+    "list_type": null,
+    "table_info": null,
+    "position": 524
+  },
+  {
+    "content_type": "paragraph",
+    "content": "ColBERT is largely unsuccessful in improving accuracy when given initial k documents of any number, likely generating more false positives. The one exception is using T-D-IE as a reranking context improving overall performance by just 0.13% when given k=6 initial documents, an improvement that likely does not justify the use of a reranker given a sizable increase in inference speed. The worst performer among reranking contexts is the S1 – Doc where ColBERT is comparing documents across context windows without any understanding of relevance scores, implying small context windows like IK are being compared with large ones such as T-D-IE.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 525
+  },
+  {
+    "content_type": "image",
+    "content": "[Image: Accuracy Changes after Reranking with ColBERT given initial k values plot] (placeholder_reranking_accuracy.png)",
+    "tag_name": "img",
+    "attributes": {
+      "src": "placeholder_reranking_accuracy.png",
+      "alt": "Accuracy Changes after Reranking with ColBERT given initial k values plot"
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 526
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Figure 7: Accuracy Changes after Reranking with ColBERT given initial k values on both datasets",
+    "tag_name": "p",
+    "attributes": {
+      "class": [
+        "figure-caption"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 527
+  },
+  {
+    "content_type": "heading",
+    "content": "4.5 Caching for Edge Cases",
+    "tag_name": "h3",
+    "attributes": {},
+    "level": 3,
+    "list_type": null,
+    "table_info": null,
+    "position": 528
+  },
+  {
+    "content_type": "image",
+    "content": "[Image: Correct Predictions at Hit@5 using a Cache and Count of Wrong Predictions by Sector plots] (placeholder_caching_plots.png)",
+    "tag_name": "img",
+    "attributes": {
+      "src": "placeholder_caching_plots.png",
+      "alt": "Correct Predictions at Hit@5 using a Cache and Count of Wrong Predictions by Sector plots"
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 529
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Figures 8-9: (Left) Correct Predictions at Hit@5 using a Cache on Previously Missed Predictions and (Right) Count of Correct and Wrong Predictions by Sector",
+    "tag_name": "p",
+    "attributes": {
+      "class": [
+        "figure-caption"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 530
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Figure 8 displays the proportion (and accumulative proportion) of correct predictions using the cache (N=679) on those previously missed by our best performing semantic retriever. Of the remaining 305 queries missed by semantic retrieval, the cache correctly predicts 12.46% at Hit@5, justifying the use of a cache in addressing edge cases. Figure 9 displays the sectors where caching improve performance the most with strong performances in sectors 62 (Health Care and Social Assistance) and 72 (Accommodation and Food Services).",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 531
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Providing a way of augmenting data over time will help address sectors and business classifications where the existing corpus cannot infer semantic connections. Additionally, caching provides a systematic way of identifying sectors that may warrant review for more granular subcategories as areas of the economy evolve and grow more sophisticated.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 532
+  },
+  {
+    "content_type": "heading",
+    "content": "5. Conclusion",
+    "tag_name": "h2",
+    "attributes": {},
+    "level": 2,
+    "list_type": null,
+    "table_info": null,
+    "position": 533
+  },
+  {
+    "content_type": "paragraph",
+    "content": "This paper introduces an alternative design for a NAICS search engine with semantic retrieval models achieving a final accuracy of 86.87% on synthetic test data. Our research delivers critical findings on building an effective multi-stage retrieval pipeline. Dense retrieval models provide a stronger selection of first-stage candidates over sparse retrieval models by relying on contextual similarity to overcome vocabulary mismatches. Additionally, combining multiple context windows expanded non-parametric memory with limited increases in inference speed, and multiple context windows associated with each code generated higher accuracy scores in early positions k. We observed a fast complementary reranker such as ColBERT was insufficient in boosting performance after dense retrieval, suggesting additional strategies on reranking are needed for state-of-the-art retrieval pipelines. Lastly, we proved seen-before queries can address edge cases and provide a path forward for improvement when the corpus fails. These findings offer an improved NAICS search experience and open new research directions for similar information retrieval tasks.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 534
+  },
+  {
+    "content_type": "paragraph",
+    "content": "The findings from this study should also encourage new research opportunities on the use of LLMs for other critical services across the Bureau. The phases of experimentation in building the search engine—comparing context retrieval windows independently and within ensemble approaches, exploring embeddings models and their influence on downstream performance, reranking strategies, latency limitations, using generative models to clean or alter messy data—bear relevance on other applications beyond search. Summarization, classification, named entity recognition, and translation are among the tasks involved in the building of this project and are frequently used in services across the Bureau. Moreover, deploying LLMs and updating critical government services is a key mandate within the Federal government, motivated in part by a recent Executive Order encouraging the exploration of AI technologies. By adopting new technologies such as a semantic retrieval-based NAICS search engine, the U.S. Census Bureau can continue standard of excellence and technical prowess within the Federal government.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 535
+  },
+  {
+    "content_type": "unknown",
+    "content": "3",
+    "tag_name": "sup",
+    "attributes": {
+      "class": [
+        "footnote"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 536
+  },
+  {
+    "content_type": "heading",
+    "content": "References",
+    "tag_name": "h2",
+    "attributes": {},
+    "level": 2,
+    "list_type": null,
+    "table_info": null,
+    "position": 537
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "ul",
+    "attributes": {},
+    "level": null,
+    "list_type": "ul",
+    "table_info": null,
+    "position": 538
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 539
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Asadi, Nima, and Jimmy Lin. 2013. \"Effectiveness/efficiency tradeoffs for candidate generation in multi-stage retrieval architectures.\" In 997-1000.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 540
+  },
+  {
+    "content_type": "unknown",
+    "content": "Proceedings of the 36th international ACM SIGIR conference on Research and development in information retrieval",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 541
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 542
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Berger, Adam, Rich Caruana, David Cohn, Dayne Freitag, and Vibhu Mittal. 2000. \"Bridging the Lexical Chasm: Statistical Approaches to Answer-Finding.\" In 192-199.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 543
+  },
+  {
+    "content_type": "unknown",
+    "content": "Proceedings of the 23rd annual international ACM SIGIR conference on Research and development in information retrieval",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 544
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 545
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Borgeaud, Sebastian, Arthur Mensch, Jordan Hoffman, Trevor Cai, Eliza Rutherford, Katie Millican, George van den Driessche, et al. 2022. \"Improving Language Models by Retrieving from Trillions of Tokens.\" In 2206-2240.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 546
+  },
+  {
+    "content_type": "unknown",
+    "content": "International conference on machine learning",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 547
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 548
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Chen, Ruey-Cheng, Luke Gallagher, Roi Blanco, and J. Shane Culpepper. 2017. \"Efficient cost-aware cascade ranking in multi-stage retrieval.\" In 445-454.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 549
+  },
+  {
+    "content_type": "unknown",
+    "content": "Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 550
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 551
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Cormack, G.V., C.L.A. Clarke, and Stefan Buttcher. 2009. \"Reciprocal Rank Fusion outperforms Condorcet and individual Rank Learning Methods.\" In 758-759.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 552
+  },
+  {
+    "content_type": "unknown",
+    "content": "Proceedings of the 32nd international ACM SIGIR conference on Research and development in information retrieval",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 553
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 554
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Gao, Luyu, Zhuyun Dai, Tongfei Chen, Zhen Fan, Benjamin Van Durme, and Jamie Callan. 2021. \"Complementing Lexical Retrieval with Semantic Residual Embedding.\" In 43 146-160.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 555
+  },
+  {
+    "content_type": "unknown",
+    "content": "Advances in Information Retrieval: 43rd European Conference on IR Research, ECIR 2021, Virtual Event, March 28–April 1, 2021, Proceedings, Part I",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 556
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 557
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Gillick, Daniel, Allessandro Presta, and Gaurav Singh Tomar. 2018. \"End-to-End Retrieval in Continuous Space.\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 558
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:1811.08008",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 559
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 560
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Gong, Hongyu, Yelong Shen, Dian Yu, Jianshu Chen, and Dong Yu. 2020. \"Recurrent Chunking Mechanisms for Long-Text Machine Reading Comprehension.\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 561
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:2005.08056",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 562
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 563
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Guo, Mandy, Yinfei Yang, Daniel Cer, Qinlan Shen, and Noah Constant. 2020. \"MultiReQA: A Cross-Domain Evaluation for Retrieval Question Answering Models.\" In 2021.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 564
+  },
+  {
+    "content_type": "unknown",
+    "content": "Proceedings of the Second Workshop on Domain Adaptation for NLP",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 565
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 566
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Izacard, Gautier, and Edouard Grave. 2020. \"Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering.\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 567
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:2007.01282",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 568
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 569
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Kandpal, Nikhil, Haikang Deng, Adam Roberts, Eric Wallace, and Colin Raffel. 2023. \"Large Language Models Struggle to Learn Long-Tail Knowledge.\" 15696-15707.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 570
+  },
+  {
+    "content_type": "unknown",
+    "content": "Proceedings of the 40th International Conference on Machine Learning",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 571
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 572
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Karpukhin, Vladimir, Barlas Oğuz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, and Wen-tau Yih. 2020. \"Dense Passage Retrieval for Open-Domain Question Answering.\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 573
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:2004.04906",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 574
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 575
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Khattab, Omar, and Matei Zaharia. 2020. \"ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT.\" In 39-48.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 576
+  },
+  {
+    "content_type": "unknown",
+    "content": "Proceedings of the 43rd International ACM SIGIR conference on research and development in Information Retrieval",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 577
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 578
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Lewis, Patrick, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Kuttler, et al. 2020. \"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.\" . 33: 9458-74.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 579
+  },
+  {
+    "content_type": "unknown",
+    "content": "Advances in Neural Information Processing Systems",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 580
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 581
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Li, Zehan, Xin Zhang, Yanzhao Zhang, Dingkun Long, Pengjun Xie, and Meishan Zhang. 2023. \"Towards General Text Embeddings with Multi-stage Contrastive Learning.\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 582
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:2308.03281",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 583
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 584
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Liang, Davis, Peng Xu, Siamak Shakeri, Cicero Noguiera dos Santos, Ramesh Nallapati, Zhiheng Huang, and Bing Xiang. 2020. \"Embedding-based Zero-shot Retrieval through Query Generation.\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 585
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:2009.10270",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 586
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 587
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Lin, Jimmy, Rodrigo Nogueira, and Andrew Yates. 2021. \"Pretrained Transformers for Text Ranking: BERT and Beyond.\" In 1154-1156.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 588
+  },
+  {
+    "content_type": "unknown",
+    "content": "Proceedings of the 14th ACM International Conference on web search and data mining",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 589
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 590
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Liu, Jiachang, Dinghan Shen, Yizhe Zhang, Bill Dolan, Lawrence Carin, and Weizhu Chen. 2021. \"What Makes Good In-Context Examples for GPT-3?\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 591
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:2101.06804",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 592
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 593
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Liu, Shichen, Fei Xiao, Wenwu Ou, and Luo Si. 2017. \"Cascade ranking for operational e-commerce search.\" In . 1557-1565.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 594
+  },
+  {
+    "content_type": "unknown",
+    "content": "Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. Halifax, Nova Scotia, Canada",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 595
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 596
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Luan, Yi, Jacob Eisenstein, Kristina Toutanova, and Michael Collins. 2021. \"Sparse, Dense, and Attentional Representations for Text Retrieval.\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 597
+  },
+  {
+    "content_type": "unknown",
+    "content": "Transactions of the Association for Computational Linguistics",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 598
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 599
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Ma, Ji, Ivan Korotkov, Yinfei Yang, Keith Hall, and Ryan McDonald. 2020. \"Zero-shot Neural Passage Retrieval via Domain-targeted Synthetic Question Generation.\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 600
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:2004.14503",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 601
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 602
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Mackenzie, Joel, Shane Culpepper, Roi Blanco, Matt Crane, Charles Clarke, and Jimmy Lin. 2018. \"Query driven algorithm selection in early stage retrieval.\" In 396-404.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 603
+  },
+  {
+    "content_type": "unknown",
+    "content": "Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 604
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 605
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Majumder, Goutam, Partha Pakray, Ranjita Das, and David Pinto. 2021. \"Interpretable semantic textual similarity of sentences using alignment of chunks with classification and regression.\" 51: 7322-7349.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 606
+  },
+  {
+    "content_type": "unknown",
+    "content": "Applied Intelligence",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 607
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 608
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Matveeva, Irina, Chris Burges, Timo Burkard, Andy Laucius, and Leon Wong. 2006. \"High accuracy retrieval with multiple nested ranker.\" In 437-444.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 609
+  },
+  {
+    "content_type": "unknown",
+    "content": "Proceedings of the 29th annual international ACM SIGIR conference on Research and development in information retrieval",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 610
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 611
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Neelakantan, Arvind, Tao Xu, Raul Puri, Alec Radford, Jesse Michael Han, Jerry Tworek, Qiming Yuan, et al. 2022. \"Text and Code Embeddings by Contrastive Pre-Training.\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 612
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:2201.10005",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 613
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 614
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Pedersen, Jan. 2010. \"Query understanding at Bing.\" In .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 615
+  },
+  {
+    "content_type": "unknown",
+    "content": "Industry Track Keynote at the 33rd Annual International ACM SIGIR Conference on Research and Development in Information Retrieval. Geneva, Switzerland",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 616
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 617
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Pradeep, Ronak, Sahel Sharifymoghaddam, and Jimmy Lin. 2023. \"RankVicuna: Zero-Shot Listwise Document Reranking with Open-Source Large Language Models.\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 618
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:2309.15088",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 619
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 620
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Pradeep, Ronak, Sahel Sharifymoghaddam, and Jimmy Lin. 2023. \"RankZephyr: Effective and Robust Zero-Shot Listwise Reranking is a Breeze!\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 621
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:2312.02724",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 622
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 623
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Raffel, Colin, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, and Peter Liu. 2020. \"Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer.\" 21 (1): 5485-5551.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 624
+  },
+  {
+    "content_type": "unknown",
+    "content": "The Journal of Machine Learning Research",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 625
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 626
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Sun, Weiwei, Lingyong Yan, Xinyu Ma, Shuaiqiang Wang, Pengjie Ren, Zhumin Chen, Dawei Yin, and Zhaochun Ren. 2023. \"Is ChatGPT Good at Search? Investigating Large Language Models as Re-Ranking Agents.\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 627
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:2304.09542",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 628
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 629
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Thakur, Nandan, Nils Reimers, Andreas Rücklé, Abhishek Srivastava, and Iryna Gurevych. 2021. \"BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models.\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 630
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:2104.08663",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 631
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 632
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Tunstall, Lewis, Edward Beeching, Nathan Lambert, Nazneen Rajani, Kashif Rasul, Younes Belkada, Shengyi Huang, et al. 2023. \"Zephyr: Direct Distillation of LM Alignment.\" .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 633
+  },
+  {
+    "content_type": "unknown",
+    "content": "arXiv preprint arXiv:2310.16944",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 634
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 635
+  },
+  {
+    "content_type": "paragraph",
+    "content": "United States Census Bureau. 2019. . Accessed March 2, 2024. .",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 636
+  },
+  {
+    "content_type": "unknown",
+    "content": "North American Industry Classification System",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 637
+  },
+  {
+    "content_type": "unknown",
+    "content": "https://web.archive.org/web/20190305072906/https:/www.census.gov/eos/www/naics/faqs/faqs.html",
+    "tag_name": "a",
+    "attributes": {
+      "href": "https://web.archive.org/web/20190305072906/https:/www.census.gov/eos/www/naics/faqs/faqs.html"
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 638
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 639
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Wang, Lidan, Jimmy Lin, and Donald Metzler. 2011. \"A cascade ranking model for efficient ranked retrieval.\" In 105-114.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 640
+  },
+  {
+    "content_type": "unknown",
+    "content": "Proceedings of the 34th international ACM SIGIR conference on Research and development in Information Retrieval",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 641
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 642
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Zaheer, Manzil, Guru Guruganesh, Avinava Dubey, Joshua Ainslie, Chris Alberti, Santiago Ontanon, Philip Pham, et al. 2020. \"Big Bird: Transformers for Longer Sequences.\" 33: 17283-97.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 643
+  },
+  {
+    "content_type": "unknown",
+    "content": "Advances in neural information processing systems",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 644
+  },
+  {
+    "content_type": "list",
+    "content": "",
+    "tag_name": "li",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 645
+  },
+  {
+    "content_type": "paragraph",
+    "content": "Zhao, Wayne Xin, Jing Liu, Ruiyang Ren, and Ji-Rong Wen. 2024. \"Dense Text Retrieval Based on Pretrained Language Models: A Survey.\" 42: 1-60.",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 646
+  },
+  {
+    "content_type": "unknown",
+    "content": "ACM Transactions on Information Systems",
+    "tag_name": "em",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 647
+  },
+  {
+    "content_type": "paragraph",
+    "content": "",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 648
+  },
+  {
+    "content_type": "unknown",
+    "content": "1",
+    "tag_name": "sup",
+    "attributes": {
+      "class": [
+        "footnote"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 649
+  },
+  {
+    "content_type": "unknown",
+    "content": "https://www.census.gov/naics/",
+    "tag_name": "a",
+    "attributes": {
+      "href": "https://www.census.gov/naics/"
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 650
+  },
+  {
+    "content_type": "paragraph",
+    "content": "",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 651
+  },
+  {
+    "content_type": "unknown",
+    "content": "2",
+    "tag_name": "sup",
+    "attributes": {
+      "class": [
+        "footnote"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 652
+  },
+  {
+    "content_type": "unknown",
+    "content": "https://huggingface.co/spaces/mteb/leaderboard",
+    "tag_name": "a",
+    "attributes": {
+      "href": "https://huggingface.co/spaces/mteb/leaderboard"
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 653
+  },
+  {
+    "content_type": "paragraph",
+    "content": "",
+    "tag_name": "p",
+    "attributes": {},
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 654
+  },
+  {
+    "content_type": "unknown",
+    "content": "3",
+    "tag_name": "sup",
+    "attributes": {
+      "class": [
+        "footnote"
+      ]
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 655
+  },
+  {
+    "content_type": "unknown",
+    "content": "https://www.whitehouse.gov/briefing-room/presidential-actions/2023/10/30/executive-order-on-the-safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence/",
+    "tag_name": "a",
+    "attributes": {
+      "href": "https://www.whitehouse.gov/briefing-room/presidential-actions/2023/10/30/executive-order-on-the-safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence/"
+    },
+    "level": null,
+    "list_type": null,
+    "table_info": null,
+    "position": 656
+  }
+]
